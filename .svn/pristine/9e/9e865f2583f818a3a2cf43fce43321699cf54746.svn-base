@@ -1,0 +1,2 @@
+<!--pages/muster/synergism/sysner/sysner.wxml-->
+<view class="jobs"><rich-text nodes="{{synergism}}"></rich-text></view>

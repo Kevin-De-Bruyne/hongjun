@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText":"提现记录",
+  "usingComponents": {
+  	"nav-bar": "/pages/navbar/index/index"
+  }
+}

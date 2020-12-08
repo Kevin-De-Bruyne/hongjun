@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "navigationBarTitleText": "提交订单",
+  "usingComponents": {
+  	"nav-bar": "/pages/navbar/index/index"
+  }
+}

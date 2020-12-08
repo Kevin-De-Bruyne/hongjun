@@ -1,0 +1,11 @@
+/* pages/deputy/deputy.wxss */
+.butsave{
+	margin: 20px 5%;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    background: #8bc34a;
+    color: #fff;
+    font-size: 12px;
+    border: none;
+}

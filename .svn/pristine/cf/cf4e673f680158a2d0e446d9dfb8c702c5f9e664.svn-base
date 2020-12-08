@@ -1,0 +1,103 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+
+<van-tabs active="{{ active }}" swipeable sticky animated>
+	<van-tab title="全部">
+		<view class="integral" wx:for="{{integral}}" wx:key="integral" wx-for-item="item" wx:for-index="index">
+			<van-card
+			price="{{item.shop_price}}"
+			desc="{{item.goods_remark || '无描述'}}"
+			title="{{item.goods_name}}"
+			thumb="{{ item.original_img }}"
+			custom-class="integral_shop"
+			desc-class="integral_desc"
+			thumb-link="/pages/details/details?goods_id={{item.goods_id}}"
+			centered
+			lazy-load
+			>
+			<view slot="footer">
+				<van-button size="mini" bindtap="convert" data-item="{{item}}">兑换</van-button>
+			</view>
+			</van-card>
+		</view>
+	</van-tab>
+	<van-tab title="0-100">
+		<view class="integral" wx:for="{{integral}}" wx:key="integral" wx-for-item="item" wx:for-index="index" wx:if="{{integral[index].exchange_integral>=0 && integral[index].exchange_integral<101}}">
+			<van-card
+			price="{{item.shop_price}}"
+			desc="{{item.goods_remark || '无描述'}}"
+			title="{{item.goods_name}}"
+			thumb="{{ item.original_img }}"
+			custom-class="integral_shop"
+			desc-class="integral_desc"
+			thumb-link="/pages/details/details?goods_id={{item.goods_id}}"
+			centered
+			lazy-load
+			>
+			<view slot="footer">
+				<van-button size="mini" bindtap="convert" data-item="{{item}}">兑换</van-button>
+			</view>
+			</van-card>
+		</view>
+	</van-tab>
+	<van-tab title="101-500">
+		<view class="integral" wx:for="{{integral}}" wx:key="integral" wx-for-item="item" wx:for-index="index" wx:if="{{integral[index].exchange_integral>100 && integral[index].exchange_integral<501}}">
+			<van-card
+			price="{{item.shop_price}}"
+			desc="{{item.goods_remark || '无描述'}}"
+			title="{{item.goods_name}}"
+			thumb="{{ item.original_img }}"
+			custom-class="integral_shop"
+			desc-class="integral_desc"
+			thumb-link="/pages/details/details?goods_id={{item.goods_id}}"
+			centered
+			lazy-load
+			>
+			<view slot="footer">
+				<van-button size="mini" bindtap="convert" data-item="{{item}}">兑换</van-button>
+			</view>
+			</van-card>
+		</view>
+	</van-tab>
+	<van-tab title="501-1000">
+		<view class="integral" wx:for="{{integral}}" wx:key="integral" wx-for-item="item" wx:for-index="index" wx:if="{{integral[index].exchange_integral>500 && integral[index].exchange_integral<1001}}">
+			<van-card
+			price="{{item.shop_price}}"
+			desc="{{item.goods_remark || '无描述'}}"
+			title="{{item.goods_name}}"
+			thumb="{{ item.original_img }}"
+			custom-class="integral_shop"
+			desc-class="integral_desc"
+			thumb-link="/pages/details/details?goods_id={{item.goods_id}}"
+			centered
+			lazy-load
+			>
+			<view slot="footer">
+				<van-button size="mini" bindtap="convert" data-item="{{item}}">兑换</van-button>
+			</view>
+			</van-card>
+		</view>
+	</van-tab>
+	<van-tab title="1000以上">
+		<view class="integral" wx:for="{{integral}}" wx:key="integral" wx-for-item="item" wx:for-index="index" wx:if="{{integral[index].exchange_integral>1000}}">
+			<van-card
+			price="{{item.shop_price}}"
+			desc="{{item.goods_remark || '无描述'}}"
+			title="{{item.goods_name}}"
+			thumb="{{ item.original_img }}"
+			custom-class="integral_shop"
+			desc-class="integral_desc"
+			thumb-link="/pages/details/details?goods_id={{item.goods_id}}"
+			centered
+			lazy-load
+			>
+			<view slot="footer">
+				<van-button size="mini" bindtap="convert" data-item="{{item}}">兑换</van-button>
+			</view>
+			</van-card>
+		</view>
+	</van-tab>
+</van-tabs>
+<view class="shows">---  没有更多了  ---</view>
+<van-dialog id="van-dialog" />

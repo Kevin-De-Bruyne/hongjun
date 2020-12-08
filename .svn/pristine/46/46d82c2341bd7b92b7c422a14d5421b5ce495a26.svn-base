@@ -1,0 +1,58 @@
+/* pages/payment/payment.wxss */
+.payment-money-number{
+  float:left;
+  width:100%;
+  background:#fff;
+  padding-bottom:30rpx;
+}
+.number{
+  float:left;
+  width:94%;
+  margin:0 3%;
+  margin-top:40rpx;
+  font-size:14px;
+}
+.number text{
+  float:left;
+  line-height:30rpx;
+}
+.function{
+  float:left;
+  width:94%;
+  padding:0 3%;
+  margin-top:20rpx;
+  background:#fff;
+  font-size:14px;
+}
+.fun-text{
+  float:left;
+  width:100%;
+  line-height:60rpx;
+}
+.money{
+  float:left;
+  width:100%;
+  line-height:60rpx;
+  padding:40rpx 0;
+}
+.money van-icon{
+  float:left;
+  margin-top:5rpx;
+}
+.money image{
+  float:left;
+  width:100rpx;
+  height:60rpx;
+}
+.button{
+  float:left;
+  width:100%;
+  line-height:80rpx;
+  text-align:center;
+  color:#fff;
+  background:#f44;
+  border:0;
+  border-radius:15rpx;
+  margin:50rpx 0;
+  font-size:14px;
+}

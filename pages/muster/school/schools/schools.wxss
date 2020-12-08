@@ -1,0 +1,5 @@
+/* pages/muster/school/schools/schools.wxss */
+.jobs{
+	width: 98%;
+	margin: 0 auto;
+}

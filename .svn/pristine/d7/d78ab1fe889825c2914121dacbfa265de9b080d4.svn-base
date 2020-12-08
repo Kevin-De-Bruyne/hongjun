@@ -1,0 +1,12 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+<view class='shops'>
+    <navigator class='shop-list' wx:for="{{shops}}" wx:key="index" url='../details/details?goods_id={{item.goods_id}}'>
+        <image src='{{item.original_img}}' class='list-img'></image>
+        <text class='list-title'>{{item.goods_name}}</text>
+            <view class='list-money'>
+            <text class='money-left'>￥{{item.shop_price}}</text>
+            <text class='money-right'>￥{{item.market_price}}</text>
+        </view>
+    </navigator>
+</view>

@@ -1,0 +1,2 @@
+<!--pages/muster/school/schools/schools.wxml-->
+<view class="jobs"><rich-text nodes="{{schools}}"></rich-text></view>

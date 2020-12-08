@@ -1,0 +1,18 @@
+/* pages/personal/money/money.wxss */
+.money{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content:center;
+	align-items:Center;
+	padding: 57px 0 10px 0;
+	width: 100%;
+	background: #8bc34a;
+	color: #fff;
+	font-size: 12px;
+}
+.moneya,.moneyb{
+	flex: 1;
+	text-align: center;
+}

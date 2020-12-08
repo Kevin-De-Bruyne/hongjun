@@ -1,0 +1,41 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+
+<text wx:if="{{eval == ''}}" style='float:left;width:100%;text-align:center;margin-top:49%;'>暂无评价！</text>
+<view wx:else>
+    <view class='body' wx:for="{{eval}}" wx:for-index="index" wx:key="eval" wx-for-item="item">
+        <view class='main'>
+            <view class='main-left'>
+                <image src='{{item.head_pic}}'></image>
+                <text>{{item.username}}</text>
+            </view>
+            <view class='main-right'>{{item.date}}</view>
+        </view>
+        <view class='rateimg'>
+            <van-rate readonly value="{{ item.goods_rank }}" />
+            <!-- <text class='rate-num'>{{item.goods_rank}}</text> -->
+        </view>
+        <text class='text-xq'>{{item.content}}</text>
+        <view class="opsss">
+            <view class='uploading' 
+                wx:for="{{item.img}}" 
+                wx:key="opinion" 
+                wx-for-item="item"
+                wx:for-index="index">
+                <cover-image class="opsssimg" src='{{ item }}'/>
+            </view>
+        </view>
+        <view class='like-text'>
+            <view class='like' bindtap='zan' data-index="{{index}}">
+                <van-icon name="like" color="red" />
+                <text>{{item.zan_num}}</text>
+            </view>
+            <view class='like' style='margin-left: 17px' data-index="{{index}}" bindtap='user_xq'>
+                <van-icon name="comment-o" />
+                <text>{{item.evaluate_length}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<van-toast id="van-toast" />

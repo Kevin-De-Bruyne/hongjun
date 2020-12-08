@@ -1,0 +1,112 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+
+<view class="shopscart">
+    <van-toast id="van-toast" />
+    <!--未有商品时的购物车-->
+    <view wx:if="{{list!=''}}">
+        <view class='edit'>
+        <label class='edit_btn' bindtap='btn_edit'>{{edit_name}}</label>
+        </view>
+        <view class="cart_tt">
+            <!-- 列表 -->
+            <view class="list" wx:for="{{list}}" wx:key="{{index}}" wx-for-item="item">
+                <!-- radio选择IOCN -->
+                <van-icon class='dele_edit' 
+                    name="delete" 
+                    bindtap='deletes' 
+                    style='display:{{edit_show}}' 
+                    data-index='{{index}}' 
+                    id="{{item.id}}" />
+                <image wx:if="{{item.selected}}" 
+                    data-index="{{index}}" 
+                    class="radio_chek" 
+                    id="{{item.id}}" 
+                    bindtap="selectList" 
+                    src='../../images/radio_show.png'></image>
+                <image 
+                    wx:else 
+                    src='../../images/dele.png' 
+                    id="{{item.id}}" 
+                    class="radio_chek" 
+                    data-index="{{index}}" 
+                    bindtap="selectList"></image>
+                <!-- 列表标题 -->
+                <text class="list_name">{{item.goods_name}}</text>
+                <!-- 列表商品图片 -->
+                <image class="list_img" src="{{item.original_img}}" mode="scaleToFill"></image>
+                <!-- 规格 -->
+                <text class="cart_g_name" wx:if="{{item.spec_key_name}}">规格 : {{item.spec_key_name}}</text>
+                <!-- 价格 -->
+                <text class="list_price">￥{{item.goods_price}}</text>
+                <!-- 商品数量加减-->
+                <view style='display:{{show_edit}}'>
+                    <view class="carts-num">
+                        <!--减按钮  -->
+                        <lable 
+                        class="minus" 
+                        bindtap="btn_minus" 
+                        data-obj="{{obj}}" 
+                        data-index="{{index}}" 
+                        id="{{item.id}}">-</lable>
+                        <!-- 文本框值 -->
+                        <label 
+                        class="view_text_center" 
+                        bindinput='input_num' 
+                        data-index="{{index}}">{{item.goods_num}}</label>
+                        <!-- 加按钮-->
+                        <lable class="plus" 
+                        bindtap="btn_add" 
+                        data-index="{{index}}" 
+                        id="{{item.id}}">+</lable>
+                    </view>
+                </view>
+            <!-- 删除 -->
+            </view>
+        </view>
+        <!-- 固定底部 -->
+        <view class="cont_bot">
+            <!-- 全选ICON -->
+            <view class="all">
+                <image wx:if="{{selectAllStatus}}" 
+                    class="total-select" 
+                    bindtap="selectAll" 
+                    src='../../images/radio_show.png'></image>
+                <!-- else -->
+                <image  wx:else 
+                    class="total-select" 
+                    bindtap="selectAll" 
+                    src='../../images/dele.png'></image>
+                <!-- 全选标题 -->
+                <text class='sel_count_name'>全选</text>
+            </view>
+            <!-- 合计金额 -->
+            <label class='submit' bindtap='btn_submit_order'>去结算</label>
+            <view class="count_price">
+                <text style="font-size:13px;color:#000;">合计：</text>
+                <text style="color: #E05828;font-weight:bold;">￥{{totalPrices}}</text>
+            </view>
+        </view>  
+    </view>
+
+    <view wx:if="{{list==''}}">
+        <view class="">
+            <image src="./images/5cad7ab689e8b.png" class="shopscart_img"></image>
+            <button bindtap="bindViewTap" class="shopscart_btn">去购物</button>
+        </view>
+    </view>
+    <text style='float:left;width:100%;line-height:30px;font-size:14px;text-align:center;'>— 热卖商品 —</text>
+    <view class='shops'>
+        <navigator class='shop-list' wx:for="{{shops}}" wx:key="index" url='../details/details?goods_id={{item.goods_id}}'>
+            <image src='{{item.original_img}}' class='list-img'></image>
+            <text class='list-title'>{{item.goods_name}}</text>
+                <view class='list-money'>
+                <text class='money-left'>￥{{item.shop_price}}</text>
+                <text class='money-right'>￥{{item.market_price}}</text>
+            </view>
+        </navigator>
+    </view>
+    <view style="float: left;width: 100%;height: 100px;"></view>
+</view>
+<van-dialog id="van-dialog" />

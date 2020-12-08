@@ -1,0 +1,8 @@
+{
+  "components":true,
+  "navigationStyle":"custom",
+  "usingComponents": {},
+  "usingComponents": {
+  	"nav-bar": "/pages/navbar/index/index"
+  }
+}

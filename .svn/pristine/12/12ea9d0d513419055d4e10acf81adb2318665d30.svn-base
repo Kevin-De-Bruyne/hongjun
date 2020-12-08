@@ -1,0 +1,35 @@
+/* pages/withdraw/withdraw.wxss */
+.withdraw_top{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	align-items:Center;
+	justify-content:center;
+	background: #fff;
+	font-size: 12px;
+}
+.fixedx{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+.ftg{
+	height: 31px;
+	width: 100%;
+}
+.withdraw_top>view{
+	flex: 1;
+	text-align: center;
+	overflow: hidden;
+	height: 30px;
+	line-height: 30px;
+	border-bottom: #eee solid 1px;
+}
+.withdraw_dit{
+	color: #666;
+}
+.status{
+	color: #e01222;
+}

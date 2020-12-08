@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText":"订单评价",
+  "usingComponents": {
+  	"nav-bar": "/pages/navbar/index/index"
+  }
+}

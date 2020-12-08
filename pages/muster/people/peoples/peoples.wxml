@@ -1,0 +1,2 @@
+<!--pages/muster/people/peoples/peoples.wxml-->
+<view class="jobs"><rich-text nodes="{{peoples}}"></rich-text></view>

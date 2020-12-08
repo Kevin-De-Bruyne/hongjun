@@ -1,0 +1,17 @@
+/* pages/order/recall/recall.wxss */
+.refer{
+	width: 90%;
+	margin: 50px 5% 10px 5%;
+	background: #761cf1;
+	color: #fff;
+	border-radius:0;
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+	border-radius: 5px;
+}
+.message{
+	padding: 27px 5%;
+	font-size: 12px;
+	color: #555;
+}

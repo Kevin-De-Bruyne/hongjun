@@ -1,0 +1,11 @@
+/* pages/bank/add_bank/add_bank.wxss */
+.add_bank{
+	width: 90%;
+	margin: 50px 5%;
+	background: #8bc34a;
+	color: #fff;
+	border-radius:0;
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+}

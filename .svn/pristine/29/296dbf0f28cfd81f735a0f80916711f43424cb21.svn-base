@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "平台用户服务协议",
+  "usingComponents": {
+  	"nav-bar": "/pages/navbar/index/index"
+  }
+}

@@ -1,0 +1,97 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<view>
+  <view class='main'>
+    <input placeholder='请输入关键词进行搜索' type='text' value="{{conters}}" bindinput="bindKeyInput" confirm-type="search" />
+    <van-icon name='search' size='45rpx' bindtap='search' />
+  </view>
+  <view class='title'>
+    <view class='{{num==1?"active":""}}' data-num='1' catchtap='changeOil'>
+      <text>{{title}}</text>
+      <van-icon size="15px" name="arrow-down" wx:if="{{arrow}}" />
+      <van-icon size="15px" name="arrow-up" wx:else />
+    </view>
+    <view class='{{num==2?"active":""}}' data-num='2' catchtap='changeOil'>
+      <text>销量</text>
+      <van-icon size="15px" name="ascending" />
+    </view>
+    <view class='{{num==3?"active":""}}' data-num='3' catchtap='changeOil'>
+      <text>价格</text>
+      <van-icon size="15px" name="descending" wx:if="{{topmoney}}" />
+      <van-icon size="15px" name="ascending" wx:else />
+    </view>
+    <view class='{{num==4?"active":""}}' data-num='4' catchtap='changeOil'>
+      <text>筛选</text>
+      <van-icon size="15px" name="filter-o" />
+    </view>
+    <view bindtap='clicktab'>
+      <van-icon style='left:45%' size="20px" name="bars" />
+    </view>
+  </view>
+  <view wx:if="{{shops == null}}" style='width:100%;text-align:center;padding-top:60%;'>抱歉，没有找到相关的宝贝！</view>
+  <view wx:else>
+    <view class='shops' wx:if="{{taber}}">
+      <navigator class='shop-list' wx:for="{{shops}}" wx:key="index" url='../details/details?goods_id={{item.goods_id}}'>
+        <image src='{{item.original_img}}' class='list-img'></image>
+        <text class='list-title'>{{item.goods_name}}</text>
+        <view class='list-money'>
+          <text class='money-left'>PP:￥{{item.discount_price}}</text>
+          <text class='money-right'>RP:￥{{item.shop_price}}</text>
+        </view>
+      </navigator>
+    </view>
+    <view class='wshops' wx:else>
+      <navigator class='wshop-list' wx:for="{{shops}}" wx:key="index" url='../details/details?goods_id={{item.goods_id}}'>
+        <image src='{{item.original_img}}' class='wlist-img'></image>
+        <view class='wlist'>
+          <text class='wlist-title'>{{item.goods_name}}</text>
+          <text class='wlist-money'>优惠顾客价：￥{{item.discount_price}}元</text>
+          <text class='wlist-money-two'>零售价：￥{{item.shop_price}}元</text>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
+<view class='title-down' wx:if="{{down}}">
+  <view wx:for="{{items}}" wx:key="item" wx:for-index="index" data-index='{{index}}' bindtap="{{indOf != index ? 'change':''}}" class='{{indOf == index?"active":""}}'>
+    <text>{{item}}</text>
+    <van-icon size="15px" name="success" color="red" wx:if="{{indOf == index?true:false}}" />
+  </view>
+</view>
+<van-popup
+  show="{{show}}"
+  position="top"
+  bind:close="onClose"
+>
+  <view class='pop-top'>
+   <van-icon size="20px" name="arrow-left" bindtap='onClose' />
+   <text>筛选</text>
+  </view>
+  <!-- <view class='pop-center'>
+    <text wx:for="{{sai}}" wx:key="sai" wx:for-index="index" data-index="{{index}}" bindtap="{{number != index ? 'sai':''}}" class='{{number == index?"active":""}}'>{{item}}</text>
+  </view> -->
+  <view class='xiaup'>
+    <view class='xiaup-title' bindtap='fenlei'>
+      <text>全部分类</text>
+      <van-icon size="16px" name="arrow-down" wx:if="{{arrow}}" />
+      <van-icon size="16px" name="arrow-up" wx:else />
+    </view>
+    <view class='xiala' wx:if="{{xiaup}}">
+      <view wx:for="{{arr}}" wx:for-item="item" wx:key="arr" bindtap='fenleishop' wx:for-index="index" data-index="{{index}}">
+        <view class='xiala-one'>{{item.name}}</view>
+        <view class='xiala-two' wx:for="{{item.sub_menu}}" wx:key="sub" wx:for-index="index" data-index="{{index}}">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='xiaup'>
+    <view class='xiaup-title' bindtap='moneyclass'>
+      <text>价格</text>
+      <van-icon size="16px" name="arrow-down" wx:if="{{moneydown}}" />
+      <van-icon size="16px" name="arrow-up" wx:else />
+    </view>
+    <view class='xiala' wx:if="{{moneyup}}">
+      <view class='xiala-one' wx:for="{{money}}" wx:for-item="item" wx:key="money" wx:for-index="index" data-index="{{index}}" bindtap='thismoney'>{{item}}</view>
+    </view>
+  </view>
+</van-popup>

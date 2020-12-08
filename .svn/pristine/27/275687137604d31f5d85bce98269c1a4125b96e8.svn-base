@@ -1,0 +1,5 @@
+.isprotocol{
+	padding: 7px;
+	overflow: hidden;
+	font-size: 12px;
+}

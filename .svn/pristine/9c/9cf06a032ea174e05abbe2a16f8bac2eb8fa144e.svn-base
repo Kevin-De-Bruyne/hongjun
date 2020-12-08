@@ -1,0 +1,167 @@
+/* pages/UserEvaluation_xq/UserEvaluation_xq.wxss */
+.body{
+  float:left;
+  width:94%;
+  padding:0 3%;
+  background:#fff;
+  font-size:12px;
+}
+.main{
+  float:left;
+  width:100%;
+  padding:15rpx 0;
+  border-bottom:1rpx solid #ccc;
+}
+.main-left{
+  float:left;
+  width:50%;
+}
+.main-left image{
+  float:left;
+  width:80rpx;
+  height:80rpx;
+}
+.main-left text{
+  float:left;
+  line-height:80rpx;
+  margin-left:10rpx;
+}
+.main-right{
+  float:right;
+  width:50%;
+  line-height:80rpx;
+  text-align:right;
+}
+.rateimg{
+  float:left;
+  width:100%;
+  padding:20rpx 0;
+}
+.rateimg van-rate{
+  float:left;
+  width:36%;
+}
+.rateimg-img{
+  float:left;
+  width:100%;
+}
+.rateimg-img image{
+  float:left;
+  width:100px;
+  height:130px;
+}
+.rate-num{
+  float:left;
+  margin:5rpx 20rpx;
+  color:lightsalmon;
+}
+.text-xq{
+  float:left;
+  width:100%;
+  line-height:24px;
+  margin-top:-10rpx;
+}
+.like-text{
+  float:left;
+  width:100%;
+  margin-top:20px;
+}
+.like{
+  width:60px;
+  margin:20px auto;
+  height:60px;
+  border:1rpx solid #ccc;
+  border-radius:50%;
+}
+.like van-icon{
+  float:left;
+  width:20px;
+  height:20px;
+  margin:13px 0 0 20px;
+}
+.like text{
+  float:left;
+  width:100%;
+  text-align:center;
+}
+.hui-left{
+  float:left;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#000;
+  margin-right:12px;
+}
+.hui-top{
+  float:left;
+  width:85%;
+  line-height:20px;
+  font-size:14px;
+}
+.hui-top text{
+  float:left;
+  width:50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; 
+}
+.hui-bottom{
+  float:left;
+  width:100%;
+  line-height:16px;
+  margin-top:10px;
+}
+.xq_bottom{
+  float:left;
+  width:94%;
+  background:#eee;
+  position:fixed;
+  left: 0;
+  bottom: 0;
+  padding:5px 3%;
+}
+.xq_bottom input{
+  float:left;
+  width:75%;
+  height:30px;
+  border-radius:15px;
+  background:#fff;
+  padding-left:20px;
+  font-size: 14px;
+}
+.xq_bottom button{
+  float:right;
+  width:16%;
+  line-height:30px;
+  color:#fff;
+  text-align:center;
+  font-size:12px;
+}
+.opsss{
+  margin-top: 3px;
+  float: left;
+  width: 100%;
+}
+.uploading{
+  background: #fff;
+  float: left;
+  width: 30%;
+  height: 100px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content:center;
+  align-items:Center;
+  border: #eee solid 1px;
+  margin: 3px 0 3px 2%;
+}
+.opsssimg{
+  height: unset;
+  width: 90%;
+  max-height: 90px;
+}

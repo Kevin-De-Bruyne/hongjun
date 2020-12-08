@@ -1,0 +1,96 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<view class="detime" wx:if="{{ status == '待付款'}}">
+	<view class="time" style="margin-bottom: 5px;">{{new_date}}</view>
+	<view>超时订单将会自动取消</view>
+</view>
+<view class='order_nav' wx:for="{{detail.goods}}" wx:key="goods" wx-for-item="item" wx:for-index="index"  >
+	<image class='orderurl'  mode="cover" src='{{item.goods_thum_images}}'></image>
+	<view class='order_cnt'>
+		<view class='cca'>{{item.goods_name}}</view>
+		<view class='ccb'>￥ {{item.member_goods_price}}</view>
+		<view class='ccc'>数量 {{item.goods_num}}</view>
+		<view class='ccc'>规格 {{item.key_name}}</view>
+	</view>
+</view>
+<view class="basic">
+	<view style="color: #333;padding: 7px 0;border-bottom: #eee solid 1px;">基本信息</view>
+	<view class="information">
+		<view>订单编号</view>
+		<view style="text-align: right;">{{detail.order_sn||''}}</view>
+	</view>
+	<view class="information">
+		<view>订单状态</view>
+		<view style="text-align: right;">{{detail.msg||''}}</view>
+	</view>
+	<view class="information">
+		<view>下单时间</view>
+		<view style="text-align: right;">{{detail.add_time||''}}</view>
+	</view>
+	<view class="information">
+		<view>收货地址</view>
+		<view style="text-align: right;flex: 4;">{{detail.address||''}}</view>
+	</view>
+	<view class="information">
+		<view>收货人</view>
+		<view style="text-align: right;">{{detail.consignee||''}}</view>
+	</view>
+	<view class="information">
+		<view>联系方式</view>
+		<view style="text-align: right;">{{detail.mobile||''}}</view>
+	</view>
+	<view class="information">
+		<view>支付方式</view>
+		<view style="text-align: right;" wx:if="{{!detail.pay_name}}">在线支付</view>
+		<view style="text-align: right;" wx:if="{{detail.pay_name}}">{{detail.pay_name||''}}</view>
+	</view>
+	<view class="information">
+		<view>配送方式</view>
+		<view style="text-align: right;">快递配送</view>
+	</view>
+	<view class="information" wx:if="{{detail.shipping_name}}">
+		<view>物流公司</view>
+		<view style="text-align: right;">{{detail.shipping_name||''}}</view>
+	</view>
+	<view class="information" wx:if="{{detail.invoice_no}}">
+		<view>快递单号</view>
+		<view style="text-align: right;">{{detail.invoice_no||''}}</view>
+		<image style="width: 20px;height: 20px;position: relative;" bindtap="copyText" src="image/copys.png" ></image>
+	</view>
+	<view class="information">
+		<view>买家留言</view>
+		<view style="text-align: right;">{{detail.user_note||''}}</view>
+	</view>
+	<view class="information">
+		<view>卖家备注</view>
+		<view style="text-align: right;">{{detail.note||''}}</view>
+	</view>
+</view>
+<view class="basic">
+	<view style="color: #333;padding: 7px 0;border-bottom: #eee solid 1px;">价格信息</view>
+	<view class="information">
+		<view>应付金额</view>
+		<view style="text-align: right;">￥{{detail.order_amount||''}}元</view>
+	</view>
+	<view class="information">
+		<view>使用积分</view>
+		<view style="text-align: right;">{{detail.integral||''}}</view>
+	</view>
+	<view class="information">
+		<view>运费</view>
+		<view style="text-align: right;">￥{{detail.shipping_price||''}}元</view>
+	</view>
+	<view class="information">
+		<view>优惠券</view>
+		<view style="text-align: right;">-￥{{detail.coupon_price||''}}元</view>
+	</view>
+	<view class="information">
+		<view>余额</view>
+		<view style="text-align: right;">-￥{{detail.user_money||''}}元</view>
+	</view>
+	<view class="information">
+		<view>订单总额</view>
+		<view style="text-align: right;">￥{{detail.total_amount||''}}元</view>
+	</view>
+</view>

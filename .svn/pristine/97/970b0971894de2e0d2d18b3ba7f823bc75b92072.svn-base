@@ -1,0 +1,42 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<van-tabs active="{{ active }}" swipeable sticky animated >
+	<van-tab title="全部">
+		<view class='withdraw_top' wx:for="{{overage}}" wx:key="{{overage}}" wx-for-item="item" wx:for-index="index">
+			<view class="desc">
+				<view style="flex: 1;">订单:{{item.order_sn||'----'}}</view>
+				<view style="text-align: right;">{{item.change_data}}</view>
+			</view>
+			<view class="desc">
+				<view style="flex: 4;">描述:{{item.desc}}</view>
+				<view style="color: #e01222;text-align: right;">{{item.user_money}}</view>
+			</view>
+		</view>
+	</van-tab>
+	<van-tab title="赚取">
+		<view class='withdraw_top' wx:for="{{overage}}" wx:key="{{overage}}" wx-for-item="item" wx:for-index="index" wx:if="{{overage[index].user_money>0}}">
+			<view class="desc">
+				<view style="flex: 1;">订单:{{item.order_sn||'----'}}</view>
+				<view style="text-align: right;">{{item.change_data}}</view>
+			</view>
+			<view class="desc">
+				<view style="flex: 4;">描述:{{item.desc}}</view>
+				<view style="color: #e01222;text-align: right;">{{item.user_money}}</view>
+			</view>
+		</view>
+	</van-tab>
+	<van-tab title="消费">
+		<view class='withdraw_top' wx:for="{{overage}}" wx:key="{{overage}}" wx-for-item="item" wx:for-index="index" wx:if="{{overage[index].user_money<0}}">
+			<view class="desc">
+				<view style="flex: 1;">订单:{{item.order_sn||'----'}}</view>
+				<view style="text-align: right;">{{item.change_data}}</view>
+			</view>
+			<view class="desc">
+				<view style="flex: 4;">描述:{{item.desc}}</view>
+				<view style="color: #e01222;text-align: right;">{{item.user_money}}</view>
+			</view>
+		</view>
+	</van-tab>
+</van-tabs>
+<view class="shows">---  没有更多了  ---</view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText":"添加银行卡",
+  "usingComponents": {
+  	"nav-bar": "/pages/navbar/index/index"
+  }
+}

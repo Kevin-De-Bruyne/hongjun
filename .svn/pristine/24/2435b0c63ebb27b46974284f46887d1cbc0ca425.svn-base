@@ -1,0 +1,15 @@
+
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<view class='bank_list'  wx:for="{{bank_list}}" wx:key="bank_list" wx-for-item="item" wx:for-index="index" >
+	<view class='del' bindtap="del_bank" data-index="{{index}}" >x</view>
+	<view class='user'>{{item.bank_name}}</view>
+	<view style="font-size: 20rpx;">{{item.bank_class}}</view>
+	<view style="margin-top: 5px;">{{item.bank_username}}</view>
+	<view style="margin-top: 5px;">{{item.bank_phone}}</view>
+	<view style="margin-top: 5px;">{{item.bank_num}}</view>
+</view>
+<view class='sbhr'></view>
+<van-dialog id="van-dialog" />
+<button class='add_bank' bindtap="add_bank" >添加银行卡</button>

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "navigationBarTitleText": "用户评价",
+  "usingComponents": {
+  	"nav-bar": "/pages/navbar/index/index"
+  }
+}

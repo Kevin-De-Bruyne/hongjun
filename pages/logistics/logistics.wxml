@@ -1,0 +1,9 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+<van-steps
+wx:if="{{steps.length != 0}}"
+steps="{{ steps }}"
+active="{{ active }}"
+direction="vertical"
+/>
+<view wx:else style="height: 500rpx;width: 100%;line-height: 500rpx;text-align: center;font-size: 15px;">暂无物流信息</view>

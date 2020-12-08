@@ -1,0 +1,48 @@
+/* pages/address/direct/direct.wxss */
+.default{
+	background: #fff;
+	height: 44px;
+	padding: 0 14px;
+	line-height: 44px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	align-items:Center;
+	font-size: 13px;
+}
+.arrears{
+	flex: 1;
+}
+.defarr{
+	flex: 4;
+	text-align: right;
+}
+.chedef{
+	margin-top: 17px;
+}
+.butsave{
+	flex: 1;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    background: #f23030;
+    color: #fff;
+    margin: 30px 0;
+    font-size: 12px;
+    border: none;
+}
+.leftbut{
+	background: #ff9800;
+}
+.rigtbut{
+	margin-left: 17px;
+}
+.buton{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	align-items:Center;
+	padding: 0 17px;
+}

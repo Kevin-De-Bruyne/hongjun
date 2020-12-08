@@ -1,0 +1,277 @@
+/* pages/details/details.wxss */
+@import"../../wxParse/wxParse.wxss";
+.containeshar {
+	width: 100%;
+	height:100%;
+	padding:0;
+}
+
+/* banner区域 */
+.details_swiper{
+	width: 100%;
+	height: 375px;
+}
+.details_swiper_img{
+	width:100%;
+	height:100%;
+}
+
+/* 价格区域 */
+.price {
+	width: 92%;
+	padding:0 4%;
+	padding-bottom: 10rpx;
+	background:#fff;
+}
+.price_title_collection {
+	padding: 20rpx 0 20rpx 0;
+	display: flex;
+	align-items: center;
+}
+.price_title_left {
+	width: 85%;
+	line-height: 60rpx;
+	font-size:30rpx;
+	overflow: hidden;
+}
+.price_collection_right {
+	width:15%;
+	height: 60rpx;
+	text-align: center;
+}
+.price_collection_right text {
+	margin-top: -10rpx;
+	font-size: 24rpx;
+	display: block;
+}
+
+/**/
+.price_money{
+	width:100%;
+	height:60rpx;
+	line-height:60rpx;
+	display: flex;
+	align-items: center;
+}
+.price_p {
+  flex:1;
+	font-size: 30rpx;
+	color: #f44;
+	margin-right: 15px;
+}
+.price_s {
+	flex: 1;
+	/* text-decoration: line-through; */
+	font-size: 30rpx;
+	color: #999;
+}
+.shops_box_stock{
+	font-size:28rpx;
+}
+/**/
+
+.freightrs{
+	display: flex;
+	align-items: center;
+	margin-top: 10rpx;
+	color: #999;
+	font-size: 20rpx;
+}
+.price_volume_v {
+	flex: 1;
+	text-align: left;
+}
+.price_volume_freight {
+	flex: 1;
+	text-align: right;
+}
+/**/
+
+
+.price_volume_address, .price_collection_right {
+	font-size: 30rpx;
+}
+.red{
+	color: red;
+}
+
+/* 规格 */
+.address {
+	width:100%;
+	border-top: 16rpx solid #f8f8f8;
+	background:#fff;
+}
+.coupon_box {
+	width: 92%;
+	line-height: 70rpx;
+	height: 70rpx;
+	color: #777;
+	margin: 0 4%;
+	font-size: 14rpx;
+}
+.coupon_box_c {
+	font-size:26rpx;
+}
+.address_box_text {
+	margin-left: 15rpx;
+	color: #000;
+	font-size:26rpx;
+}
+.coupon_boxs{
+	width: 92%;
+	line-height: 70rpx;
+	height: 70rpx;
+	color: #777;
+	margin: 0 4%;
+	font-size: 14rpx;
+	display: flex;
+	align-items: center;
+}
+.coupon_boxs van-icon {
+	font-size: 20px;
+}
+.coupon_boxscp{
+	font-size:26rpx;
+	flex: 1;
+}
+
+/* 详情 */
+.bottom{
+	width: 100%;
+}
+.dateils_title {
+	width: 100%;
+	height: 40px;
+	font-size: 16px;
+	text-align: center;
+	line-height: 40px;
+	background: #fff;
+	margin: 1px 0;
+}
+#detailsImg{
+	width: 98%;
+	padding: 5px 1% 50px 1%;
+}
+#detailsImg>rich-text{
+	font-size: 14px;
+}
+#detailsImg>image{
+	width:100%;
+}
+
+/* */
+.bottom_button{
+	width:100%;
+	background:#fff;
+}
+/**/
+
+.popup_shop {
+	width:94%;
+	margin:0 auto;
+}
+.shop_xx{
+	width:100%;
+	padding:25rpx 0;
+	border-bottom: 1rpx solid #f1f1f1;
+}
+.shop_xx_left{
+	display: flex;
+}
+.shop_xx_left image{
+	width: 120rpx;
+	height: 120rpx;
+	padding-right: 20rpx;
+}
+.shop_xx_left_right{
+	flex: 1;
+}
+.shop_xx_left_right view{
+	font-size: 26rpx;
+	margin-bottom: 10rpx;
+}
+.shop_xx_left_close{
+	height: 100%;
+}
+.shop_xx_right{
+	width:40rpx;
+	height:40rpx;
+}
+
+
+.shop_num{
+	width:100%;
+	padding-bottom:15rpx;
+}
+.shop_num_text{
+	width:100%;
+	line-height:60rpx;
+	font-size:28rpx;
+}
+.shop_num text{
+	margin-left:20rpx;
+	border: 1rpx solid #ddd;
+	border-radius:14rpx;
+	font-size:26rpx;
+	padding:8rpx 18rpx;
+}
+.popup_button{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: red;
+	color: #fff;
+	font-size: 30rpx;
+	margin-top: 50rpx;
+	height: 50px;
+}
+.popupo_bottom_button{
+	width:100%;
+	line-height:50px;
+	color:#fff;
+	text-align:center;
+	margin-top:50rpx;
+}
+.popupo_bottom_button_one{
+	width:50%;
+	background:#ff976a;
+}
+.popupo_bottom_button_two{
+	width:50%;
+	background:#f44;
+}
+.actives{
+	background:#ff6161;
+	color:#fff;
+}
+
+/**/
+.posin{
+	position: fixed;
+	bottom: 60px;
+	right: 7px;
+	width: 33px;
+	height: 100px;
+	overflow: hidden;
+}
+.service{
+	background-color: #ededed;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 12px auto;
+}
+.handle{
+	line-height: unset;
+}
+button::after{
+	border: none;
+}
+
+.bottom_11 van-icon{
+	font-size: 20px;
+}

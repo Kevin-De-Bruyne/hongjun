@@ -1,0 +1,84 @@
+/* pages/team/team.wxss */
+.shows{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content:center;
+	align-items:Center;
+	height: 44px;
+	width: 100%;
+	font-size: 13px;
+	color: #555;
+}
+.team_top{
+	background: #fff;
+	padding: 5px 10px;
+	font-size: 12px;
+}
+.num{
+	color: #f23030;
+}
+
+.order_top{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	align-items:Center;
+	background: #fff;
+	height: 33px;
+	font-size: 12px;
+	padding: 0 10px;
+}
+.number{
+	flex: 4;
+}
+.status{
+	flex: 1;
+	text-align: right;
+	color: #f23030;
+}
+.order_nav{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	align-items: center;
+	background: #fff;
+	font-size: 12px;
+	padding: 0 10px;
+	margin: 5px 0;
+}
+.orderurl{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+.order_cnt{
+	flex: 4;
+	padding-left: 17px;
+}
+.order_cnt1{
+	margin-top: 7px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	align-items: center;
+}
+.ccc{
+	flex: 1;
+}
+
+/**/
+.order_down_arr{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 7px 0;
+}
+.order_down_arr view{
+	font-size: 12px;
+	padding-right: 17px;
+}

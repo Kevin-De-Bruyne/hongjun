@@ -1,0 +1,37 @@
+<!--pages/address/address.wxml-->
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+<!-- <van-swipe-cell left-width="{{ 1 }}" right-width="{{ 65 }}" wx:for="{{address_list}}" wx:key="address_list" wx-for-item="item" wx:for-index="index" bind:close="onClose" >
+	<van-cell-group>
+		<view class='address'>
+			<view class='user'>
+				<view class='consignee'>{{item.consignee}}</view>
+				<view class='default distance' wx:if="{{address_list[index].is_default==1}}">默认</view>
+			</view>
+			<view class='address_list'>
+				<view>电话：{{item.mobile}}</view>
+				<view class='distance addressc'>{{item.province_name}}{{item.city_name}}{{item.district_name}}{{item.address}}</view>
+			</view>
+			<view class='iocn' bindtap="editaddres" data-index="{{index}}">
+				<van-icon name="edit" />
+			</view>
+		</view>
+	</van-cell-group>
+	<view slot="right" bindtap="deladdres" >删除</view>
+</van-swipe-cell>
+ -->
+<view class='address' wx:for="{{address_list}}" wx:key="address_list" wx-for-item="item" wx:for-index="index">
+	<view class='user'>
+		<view class='consignee' style="font-size: 15px;">{{item.consignee}}</view>
+		<view class='default distance' wx:if="{{address_list[index].is_default==1}}">默认</view>
+	</view>
+	<view class='address_list' bindtap='filladd' data-item="{{item}}">
+		<view style="font-size: 15px;">电话：{{item.mobile}}</view>
+		<view class='distance addressc' style="font-size: 15px;">{{item.province_name}}{{item.city_name}}{{item.district_name}}{{item.address}}</view>
+	</view>
+	<view class='iocn' bindtap="editaddres" data-item="{{item}}">
+		<van-icon name="edit" />
+	</view>
+</view>
+<view class="take"></view>
+<button bindtap="add_res" class='add_res' >新增地址</button>

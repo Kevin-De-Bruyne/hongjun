@@ -1,0 +1,2 @@
+<!--pages/muster/news/newsr/newsr.wxml-->
+<view class="jobs"><rich-text nodes="{{newsr}}"></rich-text></view>

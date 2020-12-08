@@ -1,0 +1,24 @@
+/* pages/integral/integral.wxss */
+.shows{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content:center;
+	align-items:Center;
+	height: 44px;
+	width: 100%;
+	font-size: 13px;
+	color: #555;
+}
+.integral{
+	background: #fff;
+	padding: 7px 0;
+	margin-bottom: 5px; 
+}
+.integral_shop{
+	background-color: #fff!important;
+}
+.integral_desc{
+	font-size: 17rpx!important;
+}

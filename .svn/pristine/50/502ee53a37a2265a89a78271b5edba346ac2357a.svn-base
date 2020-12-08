@@ -1,0 +1,41 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<van-cell-group>
+	<van-field
+		value="{{ users }}"
+		label="联系人"
+		placeholder="请输入联系人"
+		required
+		clearable
+		bind:change="usering"
+	/>
+	<van-field
+		type="number"
+		value="{{ phone }}"
+		label="手机号"
+		placeholder="请输入手机号"
+		required
+		clearable
+		border="{{ false }}"
+		bind:change="iphone"
+	/>
+	<van-field
+		type="textarea"
+		value="{{ reason }}"
+		required
+		clearable
+		autosize
+		label="退款原因"
+		placeholder="请输入退款原因"
+		bind:change="reason"
+	/>
+</van-cell-group>
+<button class='refer' bindtap="refer" >提交申请</button>
+<view class="message">
+	<view>温馨提示：</view>
+	<view>1.限时特价、预约资格等购买优惠可能一并取消</view>
+	<view>2.如遇订单拆分、使用优惠券无法返还</view>
+	<view>3.支付金额，抵扣余额积分都按原路退款</view>
+	<view>4.订单一旦取消，无法恢复</view>
+</view>

@@ -1,0 +1,13 @@
+<view class="getuser" wx:if="{{getUsersData.value == '1'}}">
+	<view class="list1">
+		<view class="list2">提示</view>
+		<view class="list3">您暂未授权，是否授权？</view>
+		<view class="list4">
+			<button class="list41" bindtap="cancel">取消</button>
+			<button
+				class="list42"
+				open-type="getUserInfo" 
+				bindgetuserinfo="getUserInfo">授权</button>
+		</view>
+	</view>
+</view>

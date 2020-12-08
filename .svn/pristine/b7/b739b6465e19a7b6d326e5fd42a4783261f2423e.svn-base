@@ -1,0 +1,169 @@
+<scroll-view scroll-y="true" scroll-with-animation scroll-top='{{topNum}}' style="height: 100%;" bindscrolltoupper="upper" bindscroll="scroll">
+    <nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+    <view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+    <!--详情页-->
+    <view class="containeshar">
+        <!-- banner -->
+        <swiper indicator-dots="true" indicator-color="#999" indicator-active-color="#fff" interval="3000" circular="true" autoplay='true' class="details_swiper">
+            <swiper-item class="details_swiper_item" wx:for="{{imgUrls}}" wx:key="index">
+                <image src="{{item.image_url}}" class="details_swiper_img"></image>
+            </swiper-item>
+        </swiper>
+        <!--价格等区域-->
+        <view class="price">
+            <!--标题 + 收藏-->
+            <view class="price_title_collection">
+                <!--标题-->
+                <view class="price_title_left">
+                    <view>{{cate.goods_name}}</view>
+                </view>
+                <!--收藏-->
+                <view class="price_collection_right" bindtap="addCollection">
+                    <van-icon name="like-o" size="40rpx" wx:if="{{is_collect == 0}}" />
+                    <van-icon name="like" size="40rpx" color="red" wx:else />
+                    <text class="{{is_collect?'red':''}}">{{is_collect?'已收藏':'收藏'}}</text>
+                </view>
+                <van-toast id="van-toast" />
+            </view>
+            <!--价格 + 虚拟价格-->
+            <view class="price_money">
+                <!--价格-->
+                <view class="price_p">优惠顾客价：￥{{cate.discount_price}}</view>
+                
+                <!--库存-->
+                <view class="shops_box_stock">库存：{{cate.store_count}}</view>
+            </view>
+            <view class="price_money">
+                <!--虚拟价格-->
+                <view class="price_s">零售价：￥{{cate.shop_price}}</view>
+            </view>
+            
+            <!-- <view class="freightrs">赠送积分：{{cate.give_integral}}积分</view> -->
+
+            <!--销量-->
+            <view class="freightrs">
+                <view class="price_volume_v">运费：{{cate.postage}}</view>
+                <view class="price_volume_freight">{{cate.is_free_shipping === 1?'包邮':'不包邮' }}</view>
+            </view>
+            
+
+        </view>
+
+        <view class="address">
+            <!--规格-->
+            <!-- <view class="coupon_box" bindtap="guige">
+            <text class="coupon_box_c">规格</text>
+            <van-icon name="arrow" size="40rpx" />
+            </view> -->
+            <!--服务-->
+            <view class="coupon_box">
+                <text class="coupon_box_c">服务</text>
+                <text class="address_box_text">由商城提供</text>
+            </view>
+            <!--评价-->
+            <view class="coupon_boxs" bindtap="click">
+                <view class="coupon_boxscp">用户评价</view>
+                <van-icon name="arrow" size="40rpx" />
+            </view>
+        </view>
+
+        <!--详情-->
+        <view class='bottom' wx:if="{{ cate.goods_content == '' }}" style="padding: 39px 0;"></view>
+        <view class='bottom' wx:else>
+            <view class="dateils_title">商品详情</view>
+            <view id="detailsImg">
+                <import src="../../wxParse/wxParse.wxml" />
+                <!-- <rich-text nodes="{{goods_content}}"></rich-text> -->
+                <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<view class="posin" wx:if="{{showicon}}">
+    <view class="service" bindtap='goTop'><van-icon name="arrow-up" /></view>
+</view>
+
+
+<van-goods-action class="bottom_11">
+    <van-goods-action-icon icon="wap-home-o" text="首页" url="/pages/index/index" link-type="switchTab"/>
+    <van-goods-action-icon icon="chat-o" text="客服" open-type="contact" bindcontact="handleContact" />
+    <van-goods-action-icon icon="cart-o" text="购物车" url="/pages/shops/shops" link-type="switchTab"/>
+    <van-goods-action-button color="#be99ff" size="" text="加入购物车" bind:click="cart" type="warning" />
+    <van-goods-action-button color="#7232dd" text="立即购买" bind:click="shops" />
+</van-goods-action>
+
+<!--底部按钮 wx:if="{{cate.exchange_integral == 0}}"-->
+<!-- <van-goods-action  class="bottom_button">
+    <van-goods-action-button
+    text="加入购物车"
+    type="warning"
+    bind:click="cart"/>
+    <van-goods-action-button
+    text="立即购买"
+    bind:click="shops"/>
+</van-goods-action> -->
+
+<!--    <van-goods-action  class="bottom_button" wx:else>
+    <van-goods-action-button
+    text="立即兑换"
+    bind:click="jifen"/>
+</van-goods-action> -->
+
+
+<van-popup show="{{ show }}" position="bottom" >
+    <view class="popup_shop">
+
+        <view class="shop_xx">
+            <view class='shop_xx_left'>
+                <image wx:if="{{ shopImg.original_img }}" src="{{ shopImg.original_img }}"></image>
+
+                <view class='shop_xx_left_right'>
+                    <view>{{cate.goods_name}}</view>
+                    <view style="font-size: 20rpx;">
+                        零售价：<text style="color: #673ab7;">￥{{shopImg.shop_price}}</text>
+                    </view>
+                    <view style="font-size: 20rpx;">
+                        优惠顾客价：<text style="color: #ff5722;">￥{{shopImg.discount_price}}</text>
+                    </view>
+                    <!-- <view style="font-size: 20rpx;">积分价格：{{shopImg.score}}积分</view>
+                    <view style="font-size: 20rpx;">赠送积分：{{shopImg.give_integral}}积分</view> -->
+                    <view style="font-size: 20rpx;">库存：{{shopImg.store_count}}</view>
+                </view>
+
+                <view class="shop_xx_left_close">
+                    <van-icon name='close' size='40rpx' class='shop_xx_right'  bindtap="onClickButton"/>
+                </view>
+            </view>
+        </view>
+
+        <view class='shop_num'>
+            <view class='shop_num_text'>数量</view>
+            <van-stepper value="{{ value }}" integer min="1" step="1" input-width="80px" bind:change="onChange"/>
+        </view>
+
+        <view class='shop_num' wx:for="{{top}}" wx:for-index="vo" wx:key="top">
+            <view class='shop_num_text'>{{item.name}}</view>
+            <text wx:for="{{item.spec_item}}"
+                wx:key="spec_item"
+                wx:for-item="items"
+                wx:for-index="io"
+                class="{{ items.checked == 'actives' ? 'actives' : '' }}"
+                bindtap="laTap"
+                data-io="{{io}}"
+                data-vo="{{vo}}"
+                data-items="{{items}}" >{{items.item}}</text>
+        </view>
+
+    </view>
+
+    <view class='popup_button' bindtap='cartButton' wx:if="{{upbutton}}">确  认</view>
+    <view class='popup_button' bindtap='shopsButton' wx:else>确  认</view>
+
+    <view class="popupo_bottom_button" wx:if="{{upaction}}">
+        <text class='popupo_bottom_button_one'>加入购物车</text>
+        <text class='popupo_bottom_button_two'>立即购买</text>
+    </view>
+
+</van-popup>
+

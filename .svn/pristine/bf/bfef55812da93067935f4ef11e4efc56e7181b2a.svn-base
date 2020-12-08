@@ -1,0 +1,14 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<view class='col_shop'>
+	<view class='collects' wx:for="{{collect}}" wx:key="{{collect}}" wx-for-item="item" wx:for-index="index" >
+		<image class='col_image' mode="cover" src='{{item.goods_thum_images}}' bindtap="collectsp" data-item="{{item}}" ></image>
+		<view class='col_text'>{{item.goods_name}}</view>
+		<view class='col_but'>
+			<text class='price'>￥{{item.shop_price}}</text>
+			<van-button size="small" bindtap="delects" data-index="{{index}}" >删除</van-button>
+		</view>
+	</view>
+</view>
+<van-toast id="van-toast" />

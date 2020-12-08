@@ -1,0 +1,29 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+
+<view
+wx:for="{{footnote}}"
+wx:key="{{footnote}}"
+wx-for-item="item"
+class="footnote"
+wx:for-index="index">
+	<view class="date">{{item.date}}</view>
+	<van-card
+	centered
+	lazy-load
+	custom-class="custom"
+	title-class="title"
+	price="{{ item.shop_price }}"
+	title="{{ item.goods_name }}"
+	thumb-link="/pages/details/details?goods_id={{item.goods_id}}"
+	thumb="{{ item.goods_thum_images }}">
+		<view slot="footer">
+			<van-button size="mini" bindtap="delnote" style="margin-right: 15px;" data-index="{{index}}" >删除</van-button>
+			<van-button size="mini" bindtap="similar" data-item="{{item}}" >看相似</van-button>
+		</view>
+	</van-card>
+</view>
+<van-dialog id="van-dialog" />
+<view style="height: 50px;"></view>
+<button class="butdel" bindtap="butdel">清空足迹</button>

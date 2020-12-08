@@ -1,0 +1,261 @@
+/* pages/classification/classification.wxss */
+.main{
+  float:left;
+  width:94%;
+  padding:12px 3%;
+  background:#fff;
+}
+.main input{
+  float:left;
+  width:88%;
+  height:30px;
+  line-height:30px;
+  border-radius:15px;
+  background:#eee;
+  padding-left:12px;
+  font-size:12px;
+}
+.main van-icon{
+  float:right;
+  margin:4px 0 0 0;
+}
+.title{
+  float:left;
+  width:100%;
+  background:#fff;
+  padding-bottom:12px;
+}
+.title view{
+  float:left;
+  width:20%;
+  font-size:12px;
+  text-align:center;
+}
+.title text{
+  line-height:16px;
+}
+.title van-icon{
+  float:left;
+  position:relative;
+  left:80%;
+}
+.shops{
+  float:left;
+  width:97%;
+  margin-top:10px;
+  background:#f9f9f9;
+  font-size:12px;
+  padding:0 1.5%;
+}
+.shop-list{
+  float:left;
+  width:46.5%;
+  margin:0 1.75%;
+  background:#fff;
+  margin-bottom:8px;
+}
+.list-img{
+  float:left;
+  width:100%;
+  min-height:120px;
+  max-height:160px;
+  padding:12px 0;
+}
+.list-title{
+  float:left;
+  width:100%;
+  height:32px;
+  text-indent:10px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+.list-money{
+  float:left;
+  width:100%;
+  margin-bottom:18px;
+}
+.money-left{
+  float:left;
+  width:100%;
+  color:#f44;
+  text-indent:6px;
+  line-height:14px;
+  margin-top:6px;
+}
+.money-right{
+  float:left;
+  width:100%;
+  color:#999;
+  text-indent:6px;
+  line-height:14px;
+}
+.wshops{
+  float:left;
+  width:100%;
+  margin-top:10px;
+  background:#fbfbfb;
+  font-size:14px;
+}
+.wshop-list{
+  float:left;
+  width:96%;
+  margin-left:2%;
+  background:#fff;
+  margin-bottom:10px;
+}
+.wlist-img{
+  float:left;
+  width:32%;
+  height:125px;
+  padding:12px 0;
+}
+.wlist{
+  float:left;
+  width:68%;
+  margin-bottom:18px;
+}
+.wlist-title{
+  float:left;
+  width:100%;
+  min-height:36px;
+  line-height:18px;
+  text-indent:10px;
+  margin-top:30px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+.wlist-money{
+  float:left;
+  width:100%;
+  color:#f44;
+  line-height:22px;
+  text-indent:10px;
+  margin-top:26px;
+}
+.wlist-money-two{
+  float:left;
+  width:100%;
+  color:#999;
+  line-height:22px;
+  text-indent:10px;
+}
+.title-down{
+  float:left;
+  width:100%;
+  height:100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  left:0;
+  top:0;
+  z-index:999;
+}
+.title-down-top{
+  float:left;
+  width:100%;
+  height:88px;
+  background:#fff;
+}
+.title-down view{
+  float:left;
+  width:94%;
+  line-height:30px;
+  font-size:12px;
+  padding:0 3%;
+  background:#fff;
+}
+.title-down text{
+  float:left;
+  width:90%;
+}
+.title-down van-icon{
+  float:left;
+  width:10%;
+  text-align:right;
+}
+.pop{
+  float:right;
+  width:85%;
+  height:100%;
+}
+.pop-top{
+  float:left;
+  width:94%;
+  padding:12px 3%;
+  font-size:14px;
+  background:#efefef;
+}
+.pop-top van-icon{
+  float:left;
+  width:10%;
+}
+.pop-top text{
+  float:left;
+  width:80%;
+  text-align:center;
+  line-height:20px;
+}
+.pop-center{
+  float:left;
+  width:96%;
+  padding:0 2%;
+  background:#fff;
+}
+.pop-center text{
+  float:left;
+  width:30%;
+  line-height:30px;
+  text-align:center;
+  font-size:12px;
+  border:1px solid #eee;
+  border-radius:15px;
+  margin:12px 1.02%;
+}
+.xiaup{
+  float:left;
+  width:94%;
+  padding:0 3%;
+}
+.xiaupup{
+  float:left;
+  margin-top:36px;
+}
+.xiaup-title{
+  float:left;
+  width:100%;
+  border-bottom:1px solid #eee;
+  padding:8px 0;
+}
+.xiaup-title text{
+  float:left;
+  width:80%;
+  line-height:16px;
+  font-size:12px;
+}
+.xiaup-title van-icon{
+  float:left;
+  width:20%;
+  text-align:right;
+}
+.xiala{
+  float:left;
+  width:100%;
+  line-height:30px;
+  font-size:12px;
+}
+.xiala-one{
+  float:left;
+  width:100%;
+  text-indent:12px;
+}
+.xiala-two{
+  float:left;
+  width:100%;
+  text-indent:24px;
+}
+.active{
+  color:#f44
+}

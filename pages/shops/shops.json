@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "购物车",
+  "component": true,
+  "usingComponents": {},
+  "usingComponents": {
+  	"nav-bar": "/pages/navbar/index/index"
+  }
+}

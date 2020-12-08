@@ -1,0 +1,48 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+<van-tabs active="{{ active }}" swipeable sticky animated >
+  <van-tab title="全部评价">
+	<view class='all' wx:for="{{assess}}" wx:key="assess" wx-for-item="item" wx:for-index="index" >
+		<view class='order_nav'>
+			<image class='orderurl'  mode="cover" src='{{item.goods_thum_images}}'></image>
+			<view class='order_cnt'>
+				<view class='cca'>{{item.goods_name}}</view>
+				<view class='ccb'>购买时间： {{item.add_time}}</view>
+			</view>
+		</view>
+		<view class='order_btn'>
+			<van-button plain hairline type="primary" size="small" wx:if="{{assess[index].is_comment=='0'}}" bindtap="appraise" data-item="{{item}}" >评价订单</van-button>
+			<van-button plain hairline type="info" size="small" wx:if="{{assess[index].is_comment=='1'}}" bindtap="opinion" data-item="{{item}}" >查看评价</van-button>
+		</view>
+	</view>
+  </van-tab>
+  <van-tab title="待评价">
+	<view class='all' wx:for="{{assess}}" wx:key="assess" wx-for-item="item" wx:for-index="index" wx:if="{{assess[index].is_comment=='0'}}" >
+		<view class='order_nav'>
+			<image class='orderurl'  mode="cover" src='{{item.goods_thum_images}}'></image>
+			<view class='order_cnt'>
+				<view class='cca'>{{item.goods_name}}</view>
+				<view class='ccb'>购买时间： {{item.add_time}}</view>
+			</view>
+		</view>
+		<view class='order_btn'>
+			<van-button plain hairline type="primary" size="small" wx:if="{{assess[index].is_comment=='0'}}" bindtap="appraise" data-item="{{item}}" >评价订单</van-button>
+		</view>
+	</view>
+  </van-tab>
+  <van-tab title="已评价">
+  	<view class='all' wx:for="{{assess}}" wx:key="assess" wx-for-item="item" wx:for-index="index" wx:if="{{assess[index].is_comment=='1'}}" >
+		<view class='order_nav'>
+			<image class='orderurl'  mode="cover" src='{{item.goods_thum_images}}'></image>
+			<view class='order_cnt'>
+				<view class='cca'>{{item.goods_name}}</view>
+				<view class='ccb'>购买时间： {{item.add_time}}</view>
+			</view>
+		</view>
+		<view class='order_btn'>
+			<van-button plain hairline type="info" size="small" wx:if="{{assess[index].is_comment=='1'}}" bindtap="opinion" data-item="{{item}}" >查看评价</van-button>
+		</view>
+	</view>
+  </van-tab>
+</van-tabs>
+<view class="shows">---  没有更多了  ---</view>

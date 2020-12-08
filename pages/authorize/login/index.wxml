@@ -1,0 +1,25 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<van-cell-group>
+
+    <van-field
+    value="{{phone}}"
+    type="number"
+    label="手机"
+    bind:change="phonebt"
+    placeholder="请输入手机号码"
+    required/>
+
+    <van-field
+    value="{{password}}"
+    type="password"
+    label="密码"
+    bind:change="passwordbt"
+    placeholder="请输入密码"
+    required/>
+
+</van-cell-group>
+<view class="success1">
+    <button class="define" bindtap="senduser">确认</button>
+</view>

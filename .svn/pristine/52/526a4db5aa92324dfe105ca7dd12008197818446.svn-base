@@ -1,0 +1,33 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<view class='money' style='padding-top: 39px;'>
+	<view class='moneya'>
+		<view>{{usermoney}}</view>
+		<view>余额</view>
+	</view>
+	<view class='moneyb'>
+		<view>{{pay_points}}</view>
+		<view>积分</view>
+	</view>
+</view>
+<van-cell
+is-link
+title="余额明细"
+link-type="navigateTo"
+url="/pages/personal/overage/overage"/>
+<van-cell
+is-link
+title="积分明细"
+link-type="navigateTo"
+url="/pages/personal/integral/integral"/>
+<van-cell
+is-link
+title="提现明细"
+link-type="navigateTo"
+url="/pages/withdraw/withdraw"/>
+<van-cell
+is-link
+title="申请提现"
+link-type="navigateTo"
+url="/pages/personal/withdraw/withdraw"/>

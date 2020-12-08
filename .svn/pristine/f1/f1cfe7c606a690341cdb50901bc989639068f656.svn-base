@@ -1,0 +1,18 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<view class='withdraw_top fixedx' style="top: {{height}}px;">
+	<view>申请日期</view>
+	<view>金额</view>
+	<view>手续费</view>
+	<view>状态</view>
+</view>
+<view class='ftg'></view>
+<view class='withdraw_top withdraw_dit' wx:for="{{withdraw}}" wx:key="{{withdraw}}" wx-for-item="item" wx:for-index="index">
+	<view>{{item.time}}</view>
+	<view>{{item.money}}</view>
+	<view>{{item.taxfee}}</view>
+	<view class='status' wx:if="{{item.status==0}}">申请中</view>
+	<view class='status' wx:if="{{item.status==1}}">审核通过</view>
+	<view class='status' wx:if="{{item.status==2}}">审核拒绝</view>
+</view>

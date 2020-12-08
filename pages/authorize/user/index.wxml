@@ -1,0 +1,4 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<view class="isprotocol"><rich-text nodes="{{isprotocol}}"></rich-text></view>

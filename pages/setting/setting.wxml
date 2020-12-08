@@ -1,0 +1,35 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<van-cell-group>
+    <van-field
+    wx:if="{{show}}"
+    value="{{password1}}"
+    type="number"
+    label="原密码"
+    bind:change="password"
+    data-index="0"
+    placeholder="请输入原密码"
+    required/>
+
+    <van-field
+    value="{{password2}}"
+    type="number"
+    label="新密码"
+    bind:change="password"
+    data-index="1"
+    placeholder="请输入新密码"
+    required/>
+
+    <van-field
+    value="{{password3}}"
+    type="number"
+    label="确认密码"
+    bind:change="password"
+    data-index="2"
+    placeholder="请输入确认密码"
+    required/>
+
+</van-cell-group>
+
+<view class="success1" bindtap="saveseed">确认</view>

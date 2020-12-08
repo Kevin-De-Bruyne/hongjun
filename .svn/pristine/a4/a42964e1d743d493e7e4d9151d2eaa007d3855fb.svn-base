@@ -1,0 +1,187 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<van-tabs active="{{ active }}" bind:change="onChange" swipeable sticky animated >
+  <van-tab title="全部订单">
+	<view class='all' wx:for="{{shop}}" wx:key="shop" wx:for-index="vo" >
+		<view class='order_top'>
+			<text class='number'>订单编号:{{item.order_sn}}</text>
+			<text class='status'>{{item.msg}}</text>
+		</view>
+
+		<view class="detail" bindtap="detail" data-index="{{vo}}">
+			<view class='order_nav' wx:for="{{item.goods}}" wx:key="good" wx:for-item="items" wx:for-index="index"  >
+				<image class='orderurl'  mode="cover" src='{{items.goods_thum_images}}'></image>
+				<view class='order_cnt'>
+					<view class='cca'>{{items.goods_name}}</view>
+					<view class='ccb'>￥ {{items.member_goods_price}}</view>
+					<view class='ccc'>数量 {{items.goods_num}}</view>
+				</view>
+			</view>
+		</view>
+
+		<view 
+			class="order_nav" 
+			wx:if="{{item.all_status == 9 || item.all_status == 7 || item.all_status == 8}}" 
+			style="align-items: center;justify-content: flex-end;padding: 10px;">
+			{{item.shipping_name || ''}} 物流编号 ：{{item.invoice_no || '未填写'}}
+			<image 
+				style="width: 20px;height: 20px;position: relative;margin-left: 10px;" 
+				bindtap="copyText" 
+				data-invoice_no="{{item.invoice_no}}"
+				src="image/copys.png" ></image>
+		</view>
+
+		<view class='order_btn'>
+			<text class='number'>共{{item.goods.length}}件 <text class='ccb'>￥ {{item.total_amount}}</text></text>
+
+			<van-button plain hairline size="small" type="primary" wx:if="{{item.all_status==1}}" bind:click="onpay" data-item="{{item}}" style="margin: 0 5px;">立即付款</van-button>
+
+			<van-button plain hairline size="small" type="danger" wx:if="{{item.all_status==1}}" bind:click="onrecall" data-item="{{item}}" style="margin: 0 5px;">取消订单</van-button>
+
+			<van-button plain hairline size="small" type="danger" wx:if="{{item.is_distribut == 0 && (item.all_status== 2 || item.all_status== 7 || item.all_status== 8 || item.all_status== 9)}}" bind:click="reimburse" data-item="{{item}}" style="margin: 0 5px;">申请退款</van-button>
+
+			<van-button plain hairline size="small" type="primary" wx:if="{{item.all_status == 9 || item.all_status == 7 || item.all_status == 8}}" bind:click="logistics" data-item="{{item}}" style="margin: 0 5px;">查看物流</van-button>
+
+			<van-button plain hairline size="small" type="primary" wx:if="{{item.all_status==7}}" bind:click="receipt" data-item="{{item}}" style="margin: 0 5px;">确认收货</van-button>
+
+			<van-button plain hairline size="small" type="primary" wx:if="{{item.all_status==8}}" bind:click="onappraise" data-item="{{item}}" style="margin: 0 5px;">评价订单</van-button>
+
+			<van-button plain hairline size="small" type="warning" wx:if="{{item.all_status==4 || item.all_status==5 || item.all_status==6}}" bind:click="schedule" data-item="{{item}}" style="margin: 0 5px;">查看进度</van-button>
+
+		</view>
+
+	</view>
+  </van-tab>
+  <van-tab title="待付款">
+	<view class='all' wx:for="{{shop}}" wx:key="shop" wx:for-index="vo" wx:if="{{item.all_status==1}}">
+		<view class='order_top'>
+			<text class='number'>订单编号:{{item.order_sn}}</text>
+			<text class='status'>{{item.msg}}</text>
+		</view>
+
+		<view class="detail" bindtap="detail" data-index="{{vo}}">
+			<view class='order_nav' wx:for="{{item.goods}}" wx:key="good" wx:for-item="items" wx:for-index="index"  >
+				<image class='orderurl'  mode="cover" src='{{items.goods_thum_images}}'></image>
+				<view class='order_cnt'>
+					<view class='cca'>{{items.goods_name}}</view>
+					<view class='ccb'>￥ {{items.member_goods_price}}</view>
+					<view class='ccc'>数量 {{items.goods_num}}</view>
+				</view>
+			</view>
+		</view>
+
+		
+
+		<view class='order_btn'>
+			<text class='number'>共{{item.goods.length}}件 <text class='ccb'>￥ {{item.total_amount}}</text></text>
+
+			<van-button plain hairline size="small" type="primary" bind:click="onpay" data-item="{{item}}" style="margin: 0 5px;">立即付款</van-button>
+
+			<van-button plain hairline size="small" type="danger" bind:click="onrecall" data-item="{{item}}" style="margin: 0 5px;">取消订单</van-button>
+
+
+		</view>
+
+		
+
+	</view>
+  </van-tab>
+  <van-tab title="待收货">
+  	<view class='all' wx:for="{{shop}}" wx:key="shop" wx:for-index="vo" wx:if="{{item.all_status==7}}">
+
+		<view class='order_top'>
+			<text class='number'>订单编号:{{item.order_sn}}</text>
+			<text class='status'>{{item.msg}}</text>
+		</view>
+
+		<view class="detail" bindtap="detail" data-index="{{vo}}">
+			<view class='order_nav' wx:for="{{item.goods}}" wx:key="good" wx:for-item="items" wx:for-index="index"  >
+				<image class='orderurl'  mode="cover" src='{{items.goods_thum_images}}'></image>
+				<view class='order_cnt'>
+					<view class='cca'>{{items.goods_name}}</view>
+					<view class='ccb'>￥ {{items.member_goods_price}}</view>
+					<view class='ccc'>数量 {{items.goods_num}}</view>
+				</view>
+			</view>
+		</view>
+
+		<view 
+			class="order_nav" 
+			wx:if="{{item.all_status == 9 || item.all_status == 7 || item.all_status == 8}}" 
+			style="align-items: center;justify-content: flex-end;padding: 10px;">
+			{{item.shipping_name || ''}} 物流编号 ：{{item.invoice_no || '未填写'}}
+			<image 
+				style="width: 20px;height: 20px;position: relative;margin-left: 10px;" 
+				bindtap="copyText" 
+				data-invoice_no="{{item.invoice_no}}"
+				src="image/copys.png" ></image>
+		</view>
+
+		<view class='order_btn'>
+			<text class='number'>共{{item.goods.length}}件 <text class='ccb'>￥ {{item.total_amount}}</text></text>
+
+			<van-button plain hairline size="small" type="danger" wx:if="{{item.is_distribut == 0 && (item.all_status== 2 || item.all_status== 7 || item.all_status== 8 || item.all_status== 9)}}" bind:click="reimburse" data-item="{{item}}" style="margin: 0 5px;">申请退款</van-button>
+
+			<van-button plain hairline size="small" type="primary" wx:if="{{item.all_status == 9 || item.all_status == 7 || item.all_status == 8}}" bind:click="logistics" data-item="{{item}}" style="margin: 0 5px;">查看物流</van-button>
+
+			<van-button plain hairline size="small" type="primary" bind:click="receipt" data-item="{{item}}" style="margin: 0 5px;">确认收货</van-button>
+
+			<van-button plain hairline size="small" type="warning" wx:if="{{item.all_status==4 || item.all_status==5 || item.all_status==6}}" bind:click="schedule" data-item="{{item}}" style="margin: 0 5px;">查看进度</van-button>
+
+
+		</view>
+
+
+		
+
+	</view>
+  </van-tab>
+  <van-tab title="已完成">
+
+  	<view class='all' wx:for="{{shop}}" wx:key="shop" wx:for-index="vo"  wx:if="{{item.all_status==9 || item.all_status==8 }}" >
+		<view class='order_top'>
+			<text class='number'>订单编号:{{item.order_sn}}</text>
+			<text class='status'>{{item.msg}}</text>
+		</view>
+
+		<view class="detail" bindtap="detail" data-index="{{vo}}">
+			<view class='order_nav' wx:for="{{item.goods}}" wx:key="good" wx:for-item="items" wx:for-index="index"  >
+				<image class='orderurl'  mode="cover" src='{{items.goods_thum_images}}'></image>
+				<view class='order_cnt'>
+					<view class='cca'>{{items.goods_name}}</view>
+					<view class='ccb'>￥ {{items.member_goods_price}}</view>
+					<view class='ccc'>数量 {{items.goods_num}}</view>
+				</view>
+			</view>
+		</view>
+
+		<view 
+			class="order_nav" 
+			wx:if="{{item.all_status == 9 || item.all_status == 7 || item.all_status == 8}}" 
+			style="align-items: center;justify-content: flex-end;padding: 10px;">
+			{{item.shipping_name || ''}} 物流编号 ：{{item.invoice_no || '未填写'}}
+			<image 
+				style="width: 20px;height: 20px;position: relative;margin-left: 10px;" 
+				bindtap="copyText" 
+				data-invoice_no="{{item.invoice_no}}"
+				src="image/copys.png" ></image>
+		</view>
+
+		<view class='order_btn'>
+			<text class='number'>共{{shop[index].goods.length}}件 <text class='ccb'>￥ {{item.total_amount}}</text></text>
+
+			<van-button plain hairline size="small" type="danger" wx:if="{{item.is_distribut == 0 && (item.all_status== 2 || item.all_status== 7 || item.all_status== 8 || item.all_status== 9)}}" bind:click="reimburse" data-item="{{item}}" style="margin: 0 5px;">申请退款</van-button>
+			
+			<van-button plain hairline size="small" type="primary" wx:if="{{item.all_status == 9 || item.all_status == 7 || item.all_status == 8}}" bind:click="logistics" data-item="{{item}}" style="margin: 0 5px;">查看物流</van-button>
+
+			<van-button plain hairline size="small" type="warning" wx:if="{{item.all_status==4 || item.all_status==5 || item.all_status==6}}" bind:click="schedule" data-item="{{item}}" style="margin: 0 5px;">查看进度</van-button>
+			
+			<van-button plain hairline size="small" type="primary" wx:if="{{item.all_status==8}}" bind:click="onappraise" data-item="{{item}}" style="margin: 0 5px;">评价订单</van-button>
+
+		</view>
+	</view>
+  </van-tab>
+</van-tabs>
+<view class="shows">---  没有更多了  ---</view>
+<van-dialog id="van-dialog" />

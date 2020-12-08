@@ -1,0 +1,64 @@
+.navwrap {
+    position: fixed;
+    width: 100%;
+    top:0;
+    background: #fff;
+    color: #000;
+    z-index: 9999999;
+    border-bottom: #f1f1f1 solid 1px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: flex-end;
+}
+.navtitle {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 17px;
+}
+.navcapsule {
+    width: 44px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mback{
+    height: 100%;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mbacks{
+    position: relative;
+    height: 27px;
+    width: 27px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: #eee solid 1px;
+    border-radius: 50%;
+}
+.back{
+    font-size: 20px;
+    font-weight: bold;
+}
+.backs{
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 3px;
+}

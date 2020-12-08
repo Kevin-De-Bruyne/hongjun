@@ -1,0 +1,3 @@
+<!--pages/muster/job/jobs/jobs.wxml-->
+<view class="jobs"><rich-text nodes="{{jobs}}"></rich-text></view>
+

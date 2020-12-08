@@ -1,0 +1,70 @@
+.cont {  
+    position: relative;  
+    width: 100%;  
+    height: 89%;  
+    background-color: #fff;
+    color: #939393; 
+    top:0;
+    left:0;
+    display: flex;
+}
+.nav_left{  
+    width: 25%;  
+    height:100%;
+    background: #f5f5f5;
+    text-align: center;
+    overflow-y: scroll; 
+}  
+.nav_left view{ 
+    height: 40px;  
+    line-height: 40px;   
+    font-size: 14px; 
+    overflow: hidden;
+}  
+.active{  
+    background: #fff;  
+    color: #E05828; 
+    border-left: 2px solid #E05828;
+    font-weight: bold;
+}  
+.nav_right{  
+    width: 75%;
+    height: 99%;   
+    background:#fff;
+    overflow-y: scroll;
+    float: right;
+    padding-left: 1%;
+}
+ 
+.nav_right_items{
+    float: left;
+    width: 33%;  
+    overflow: hidden;
+    text-align: center;
+    height: 120px;
+}  
+.nav_right_items image{  
+    width: 60px;  
+    height: 60px;  
+    margin-top: 15px;  
+}  
+.nav_right_items view{  
+    margin-top: 10px;  
+    font-size: 12px;  
+    color: #777;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;  
+    white-space: nowrap;  
+    text-overflow: ellipsis;  
+} 
+.nodata_text{
+    color: black;
+    font-size: 14px;  
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: 700rpx;
+    width: 100%;
+} 

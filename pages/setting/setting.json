@@ -1,0 +1,6 @@
+{
+	"navigationBarTitleText": "密码设置",
+	"usingComponents": {
+	  	"nav-bar": "/pages/navbar/index/index"
+	  }
+}

@@ -1,0 +1,63 @@
+<!--pages/deputy/deputy.wxml-->
+<van-cell-group>
+	<van-field
+	value="{{ username }}"
+	required
+	clearable
+	label="姓名"
+	placeholder="请输入姓名"
+	bind:change="userpeople"
+	/>
+	<van-field
+	value="{{ phone }}"
+	type="number"
+	label="手机"
+	placeholder="请输入手机"
+	required
+	clearable
+	bind:change="userphone"
+	/>
+	<van-field
+	value="{{ address }}"
+	required
+	clearable
+	label="项目"
+	placeholder="请输入所报项目"
+	bind:change="useraddress"
+	/>
+	<van-field
+	value="{{ wx }}"
+	required
+	clearable
+	label="微信"
+	placeholder="请输入微信号"
+	bind:change="userwx"
+	/>
+	<van-field
+	value="{{ is }}"
+	required
+	clearable
+	label="缴费"
+	placeholder="请输入是否缴费"
+	bindtap="useris"
+	/>
+	<van-field
+	value="{{ iphone }}"
+	type="number"
+	required
+	clearable
+	label="咨询电话"
+	placeholder="在线咨询电话"
+	disabled
+	/>
+</van-cell-group>
+<button class="butsave" bindtap="saveres">提交</button>
+<van-popup show="{{ deputy }}" bind:close="cityClose" position="bottom" >
+	<van-picker
+		show-toolbar
+		title="省份列表"
+		columns="{{ province }}"
+		bind:cancel="proCancel"
+		bind:confirm="proConfirm"
+	/>
+</van-popup>

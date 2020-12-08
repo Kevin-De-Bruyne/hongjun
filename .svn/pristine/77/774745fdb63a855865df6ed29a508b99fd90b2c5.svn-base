@@ -1,0 +1,115 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<van-tabs active="{{ active }}" bind:change="onChange" swipeable sticky animated >
+	<van-tab title="一级团队">
+		<view class='team_top'>团队总业绩：{{team.all_total_money}}</view>
+		<view class='team_top'>
+			<text class='number'>当前团队总人数：</text>
+			<text class='num'>{{team.one_num||0}}人</text>
+			<text class='number' style="margin-left: 17rpx;">会员：</text>
+			<text class='num'>{{team.one_num_arr.member_number||0}}人</text>
+			<text class='number' style="margin-left: 17rpx;">顾问：</text>
+			<text class='num'>{{team.one_num_arr.adviser_number||0}}人</text>
+			<text class='number' style="margin-left: 17rpx;">经理：</text>
+			<text class='num'>{{team.one_num_arr.manager_number||0}}人</text>
+		</view>
+		<view wx:for="{{team.one}}" wx:key="good" style="background-color: #fff;padding: 7px 0;margin-top: 7px;">
+			<view class='order_nav'>
+				<image class='orderurl'  mode="cover" src='{{item.head_pic}}'></image>
+				<view class='order_cnt'>
+					<view>{{item.nickname}}</view>
+					<view class="order_cnt1">
+						<view class='ccc'>管理等级：{{item.level_name}}</view>
+						<view class='ccc'>总消费：{{item.sum_money}}</view>
+					</view>
+					<view class="order_cnt1">
+						<view class='ccc'>总业绩：{{item.total_amount}}</view>
+					</view>
+					<view class="order_down_arr">
+						<view wx:for="{{item.manager_down_arr}}" wx:key="down_arr" wx:for-item="items">
+							{{items.level_name}}{{items.num}}人
+						</view>
+					</view>
+
+				</view>
+			</view>
+		</view>
+	</van-tab>
+	<van-tab title="二级团队">
+		<view class='team_top'>团队总业绩：{{team.all_total_money}}</view>
+		<view class='team_top'>
+			<text class='number'>当前团队总人数：</text>
+			<text class='num'>{{team.two_num||0}}</text>
+			<text class='number' style="margin-left: 17rpx;">会员：</text>
+			<text class='num'>{{team.two_num_arr.member_number||0}}人</text>
+			<text class='number' style="margin-left: 17rpx;">顾问：</text>
+			<text class='num'>{{team.two_num_arr.adviser_number||0}}人</text>
+			<text class='number' style="margin-left: 17rpx;">经理：</text>
+			<text class='num'>{{team.two_num_arr.manager_number||0}}人</text>
+		</view>
+
+		<view wx:for="{{team.two}}" wx:key="good" style="background-color: #fff;padding: 7px 0;margin-top: 7px;">
+			<view class='order_nav'>
+				<image class='orderurl'  mode="cover" src='{{item.head_pic}}'></image>
+				<view class='order_cnt'>
+					<view>{{item.nickname}}</view>
+					<view class="order_cnt1">
+						<view class='ccc'>管理等级：{{item.level_name}}</view>
+						<view class='ccc'>总消费：{{item.sum_money}}</view>
+					</view>
+					<view class="order_cnt1">
+						<view class='ccc'>总业绩：{{item.total_amount}}</view>
+					</view>
+
+					<view class="order_down_arr">
+						<view wx:for="{{item.manager_down_arr}}" wx:key="down_arr" wx:for-item="items">
+							{{items.level_name}}{{items.num}}人
+						</view>
+					</view>
+
+				</view>
+			</view>
+				
+					
+		</view>
+	</van-tab>
+	<van-tab title="三级团队">
+		<view class='team_top'>团队总业绩：{{team.all_total_money}}</view>
+		<view class='team_top'>
+			<text class='number'>当前团队总人数：</text>
+			<text class='num'>{{team.three_num||0}}</text>
+			<text class='number' style="margin-left: 17rpx;">会员：</text>
+			<text class='num'>{{team.three_num_arr.member_number||0}}人</text>
+			<text class='number' style="margin-left: 17rpx;">顾问：</text>
+			<text class='num'>{{team.three_num_arr.adviser_number||0}}人</text>
+			<text class='number' style="margin-left: 17rpx;">经理：</text>
+			<text class='num'>{{team.three_num_arr.manager_number||0}}人</text>
+		</view>
+
+		<view wx:for="{{team.three}}" wx:key="good" style="background-color: #fff;padding: 7px 0;margin-top: 7px;">
+			<view class='order_nav'>
+				<image class='orderurl'  mode="cover" src='{{item.head_pic}}'></image>
+				<view class='order_cnt'>
+					<view>{{item.nickname}}</view>
+					<view class="order_cnt1">
+						<view class='ccc'>管理等级：{{item.level_name}}</view>
+						<view class='ccc'>总消费：{{item.sum_money}}</view>
+					</view>
+					<view class="order_cnt1">
+						<view class='ccc'>总业绩：{{item.total_amount}}</view>
+					</view>
+
+					<view class="order_down_arr">
+						<view wx:for="{{item.manager_down_arr}}" wx:key="down_arr" wx:for-item="items">
+							{{items.level_name}}{{items.num}}人
+						</view>
+					</view>
+
+				</view>
+			</view>
+		</view>
+
+	</van-tab>
+</van-tabs>
+<view class="shows">---  没有更多了  ---</view>

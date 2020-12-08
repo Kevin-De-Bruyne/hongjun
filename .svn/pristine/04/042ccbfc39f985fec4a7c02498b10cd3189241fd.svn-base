@@ -1,0 +1,61 @@
+.success1{
+    margin-top: 7px;
+    padding-top: 39px;
+}
+.protocol{
+    display: flex;
+    align-items: center;
+    height: 44px;
+    padding: 0 7px;
+}
+.isprotocol{
+    height: 20px;
+    width: 20px;
+    border: #e1e1e1 solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+}
+.protocolme{
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 7px;
+}
+.protocoluser{
+    font-size: 12px;
+    font-weight: 500;
+    color: #8bc34a;
+}
+.define{
+    width: 90%;
+    margin: 17px auto;
+    background: #07c160;
+    color: #fff;
+    height: 40px;
+    line-height: 38px;
+    text-align: center;
+    font-size: 16px;
+    padding: 0;
+    box-sizing: unset;
+}
+.note{
+    font-size: 13px;
+    color: #777;
+    width: 90%;
+    margin: 17px auto;
+}
+.codes{
+    height: 30px;
+    min-width: 60px;
+    padding: 0 8px;
+    font-size: 12px;
+    line-height: 28px;
+    color: #fff;
+    background-color: #07c160;
+    border: 1px solid #07c160;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+}

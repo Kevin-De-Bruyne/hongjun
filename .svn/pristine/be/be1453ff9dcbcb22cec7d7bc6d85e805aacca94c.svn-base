@@ -1,0 +1,9 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<view class='poste_box'>
+	<image src='{{list.qrcode}}' class="codeurl" />
+</view>
+<view class="save">
+	<view bindtap="save" class="saves">保存</view>
+</view>

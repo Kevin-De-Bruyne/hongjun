@@ -1,0 +1,70 @@
+/* pages/address/address.wxss */
+.address{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	/* justify-content:center; */
+	align-items:Center;
+	background: #fff;
+	margin-bottom: 1px;
+	padding: 5px 10px;
+	font-size: 12px;
+}
+.user,{
+	width: 50px;
+	overflow: hidden;
+}
+.iocn{
+	width: 20px;
+	font-size: 17px;
+}
+.address_list{
+	flex: 3;
+}
+.consignee{
+	overflow: hidden;
+	white-space:nowrap;
+	-webkit-text-overflow:ellipsis;
+	-moz-text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;
+	-ms-text-overflow:ellipsis;
+	text-overflow:ellipsis;
+	width: 50px;
+}
+.default{
+	background: red;
+	color: #fff;
+	text-align: center;
+	width: 38px;
+	height: 20px;
+	line-height: 20px;
+}
+.distance{
+	margin-top: 7px;
+}
+/* .addressc{
+	overflow: hidden;
+	white-space:nowrap;
+	-webkit-text-overflow:ellipsis;
+	-moz-text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;
+	-ms-text-overflow:ellipsis;
+	text-overflow:ellipsis;
+	width: 100%;
+} */
+.add_res{
+	background: #ff9800;
+	color: #fff;
+	position: fixed;
+	bottom:0;
+	border-radius:0;
+	height: 40px;
+	line-height: 40px;
+	width: 100%;
+	font-size: 12px;
+}
+.take{
+	width: 100%;
+	height: 60px;
+}

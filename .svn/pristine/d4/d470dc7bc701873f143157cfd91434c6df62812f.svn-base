@@ -1,0 +1,19 @@
+/* pages/order/schedule/schedule.wxss */
+.schedule{
+	background: #fff;
+	padding: 7px 10px;
+	margin-bottom: 7px;
+	font-size: 12px;
+}
+.schedules{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	/*justify-content:center;*/
+	align-items:Center;
+	border: 1px solid #ddd;
+	padding: 0 10px;
+	height: 40px;
+	line-height: 40px;
+}

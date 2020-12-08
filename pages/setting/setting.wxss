@@ -1,0 +1,13 @@
+.success1{
+    height: 40px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 39px auto;
+    background: #8bc34a;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 3px;
+}

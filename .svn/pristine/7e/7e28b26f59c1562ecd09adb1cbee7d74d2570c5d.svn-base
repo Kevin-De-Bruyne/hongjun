@@ -1,0 +1,204 @@
+/* pages/fillOrder/fillOrder.wxss */
+.body{
+    width:100%;
+}
+/**/
+.backg{
+    width: 88%;
+    margin: 25rpx 3%;
+    padding: 20rpx 3%;
+    background: #fff;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+.main-center{
+    flex: 1;
+    margin: 0 7px;
+    font-size: 15px;
+}
+.main-center view{
+    width: 100%;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+/**/
+.backg1{
+    width: 88%;
+    margin: 25rpx 3%;
+    padding: 20rpx 3%;
+    background: #fff;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    line-height: 23px;
+}
+.shop-left{
+    width: 120rpx;
+    height: 120rpx;
+}
+.shop-center{
+    flex: 1;
+    margin: 0 7px;
+}
+.shop_centerr{
+    color: red;
+    flex: 1;
+}
+.shop_centers{
+    display: flex;
+    align-items: center;
+    color:#bbb;
+}
+.shop_centers1{
+    flex: 1;
+}
+.shop_centers1{
+    padding: 0 7px;
+}
+/**/
+.song{
+    width: 88%;
+    margin: 25rpx 3%;
+    font-size: 15px;
+}
+/**/
+.backg2{
+    width: 88%;
+    margin: 25rpx 3%;
+    padding: 20rpx 3%;
+    background: #fff;
+    font-size: 12px;
+}
+.peisong-top{
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+.peisong-top view{
+    flex: 1;
+}
+.peisong-top van-icon{
+    margin-left: 7px;
+}
+.peisong-bottom{
+    line-height:60rpx;
+    padding-bottom:30rpx;
+    color:#ccc;
+}
+.money-top{
+    display: flex;
+    align-items: center;
+    line-height:60rpx;
+    margin-top:10rpx;
+}
+.money-top text{
+    flex: 1;
+}
+.money-top van-switch{
+    margin-left: 7px;
+    margin-top:10rpx;
+}
+.money-bottom{
+    display: flex;
+    align-items: center;
+    line-height:60rpx;
+    color:#ccc;
+}
+.password{
+    border:1rpx solid #ccc;
+    border-radius:5rpx;
+    margin-top:10rpx;
+}
+/**/
+.backg3{
+    width: 88%;
+    margin: 25rpx 3%;
+    padding: 20rpx 3%;
+    background: #fff;
+    font-size: 12px;
+}
+.remksr{
+    height: 30px;
+    line-height: 30px;
+}
+.beizhu-text{
+    margin-top:10rpx;
+    border:1rpx solid #ccc;
+    border-radius:6rpx;
+}
+/**/
+.backg4{
+    width: 88%;
+    margin: 25rpx 3% 120rpx 3%;
+    padding: 20rpx 3%;
+    background: #fff;
+    font-size: 12px;
+}
+.youhui-top{
+    height:60rpx;
+    display: flex;
+    align-items: center;
+}
+.youhui-top1{
+    flex: 1;
+    margin-right: 7px;
+}
+.youhui-top2{
+    color: red;
+}
+/**/
+.tijiao{
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: #fff;
+    font-size: 14px;
+    border-top: #f1f1f1 solid 1px;
+}
+.tijiao1{
+    flex: 1;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 7px;
+}
+.tijiao11{
+    color: red;
+    padding: 0 7px;
+    width: 80px;
+}
+
+.tijiao2{
+    height: 44px;
+    line-height: 44px;
+    background: red;
+    color: #fff;
+    width: 80px;
+    text-align: center;
+}
+
+
+/**/
+.popupset{
+    width: 90%;
+    margin: 0 auto;
+    height: 70px;
+    background: #f1f1f1;
+    border-radius: 7px;
+    padding: 7px;
+}
+.message{
+    font-size: 12px;
+    height: 100%;
+    color: #555;
+    width: 100%;
+    position: unset;
+}

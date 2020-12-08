@@ -1,0 +1,54 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+
+<van-toast id="van-toast" />
+<view class="appraise">
+	<image class='avatarUrl' src='{{appraise.goods_thum_images}}'  mode="cover"></image>
+	<view style="margin-top: 7px;">{{ appraise.goods_name }}</view>
+</view>
+<view class="messagesp">
+	<textarea 
+	placeholder="写下购买体会和使用感受来帮助其他小伙伴~" 
+	maxlength="200" 
+	value="{{message}}" 
+	bindblur="messages" 
+	class="message"></textarea>
+</view>
+<view class="messageimg">
+	<cover-image 
+	class='uploading' 
+	wx:for="{{uploadings}}" 
+	wx:key="uploadings" 
+	wx-for-item="item" 
+	wx:for-index="index"
+	src='{{ item }}' 
+	wx:if="{{uploadimgs}}"/>
+	<view class="file" bindtap="upload">
+		<van-icon name="upgrade" />
+	</view>
+</view>
+<view class="messagetx">
+	<text>评分</text>
+	<text style="text-align: right;">满意请给5分哦</text>
+</view>
+<view class="messagetxs">
+	<view style="flex: 1;">商品符合度</view>
+	<view style="flex: 2;text-align: right;">
+		<van-rate value="{{ value }}" bind:change="onChange" />
+	</view>
+</view>
+<view class="messagetxs">
+	<view style="flex: 1;">店家服务态度</view>
+	<view style="flex: 2;text-align: right;">
+		<van-rate value="{{ value1 }}" bind:change="inChange" />
+	</view>
+</view>
+<view class="messagetxs">
+	<view style="flex: 1;">物流发货速度</view>
+	<view style="flex: 2;text-align: right;">
+		<van-rate value="{{ value2 }}" bind:change="ouChange" />
+	</view>
+</view>
+
+<button class="butsave" bindtap="saveres">提交</button>

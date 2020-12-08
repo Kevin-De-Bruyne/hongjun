@@ -1,0 +1,53 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+
+<view class='body'>
+    <view class='main'>
+        <view class='main-left'>
+            <image src='{{eval.head_pic}}'></image>
+            <text>{{eval.username}}</text>
+        </view>
+        <view class='main-right'>{{eval.date}}</view>
+    </view>
+    <view class='rateimg'>
+        <van-rate readonly value="{{ eval.goods_rank }}" />
+        <!-- <text class='rate-num'>{{eval.goods_rank}}</text> -->
+    </view>
+    <text class='text-xq'>{{eval.content}}</text>
+    <view class="opsss">
+        <view class='uploading' 
+            wx:for="{{eval.img}}" 
+            wx:key="opinion" 
+            wx-for-item="item"
+            wx:for-index="index">
+            <cover-image class="opsssimg" src='{{ item }}'/>
+        </view>
+    </view>
+    <view class='like-text'>
+        <view class='like' bindtap='zan'>
+            <van-icon name="like" color="red" size="40rpx" />
+            <text>{{eval.zan_num}}</text>
+        </view>
+    </view>
+</view>
+<view class='body' style='margin-top:12px;'>
+    <text class='main'>回复（{{sql.length}}）</text>
+    <view class='main' wx:for="{{sql}}" wx:key="index">
+        <image class='hui-left' src='../../images/personal.png' wx:if="{{item.user_img == null}}"></image>
+        <image class='hui-left' src='{{item.user_img}}' wx:else></image>
+        <view class='hui-top'>
+            <text>{{item.user_name}} 回复：{{item.to_name}}</text>
+            <text style='text-align:right;color:#ccc;'>{{item.date}}</text>
+            <view class='hui-bottom'>{{item.content}}</view>
+        </view>
+    </view>
+</view>
+<view style="height: 40px;float: left;width: 100%;"></view>
+<van-toast id="van-toast" />
+<view class='xq_bottom'>
+    <view class="section">
+        <input type='text' confirm-type='send' bindinput="bindKeyInput" value="{{inputValue}}" />
+    </view>
+    <button bindtap='clickButton' type='warn'>发送</button>
+</view>

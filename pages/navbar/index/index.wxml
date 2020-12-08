@@ -1,0 +1,23 @@
+<view class="navwrap" style="height: {{height*2}}px;">
+    <view class="navcapsule" style="height: {{height}}px;" wx:if="{{navbarData.showCapsule==1}}">
+        <view bindtap="_navback" wx:if="{{!share && navbarData.showlist!=3 && navbarData.showlist!=2 && navbarData.showlist!=1}}" class="mback">
+            <van-icon name="arrow-left" class="back" mode="aspectFill" />
+        </view>
+        <view bindtap="_backhome" class="mback" wx:elif="{{navbarData.showlist==1}}">
+            <view><van-icon name="arrow-left" class="back" mode="aspectFill"/></view>
+        </view>
+        <view bindtap="_backmine" class="mback" wx:elif="{{navbarData.showlist==2}}">
+            <view><van-icon name="arrow-left" class="back" mode="aspectFill"/></view>
+        </view>
+        <view bindtap="_backhome" class="mbacks" wx:elif="{{navbarData.showlist==3}}">
+            <view><van-icon name="wap-home-o" class="backs" mode="aspectFill"/></view>
+        </view>
+        <view bindtap="_backhome" class="mbacks" wx:else>
+            <view><van-icon name="wap-home-o" class="backs" mode="aspectFill"/></view>
+        </view>
+        
+    </view>
+    <view style="width: 22px;height: {{height}}px;" wx:else></view>
+    <view class="navtitle" style="height: {{height+5}}px;">{{navbarData.title}}</view>
+</view>
+

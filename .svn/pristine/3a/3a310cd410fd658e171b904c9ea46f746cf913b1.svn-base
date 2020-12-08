@@ -1,0 +1,49 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+
+<view class="withdraw">
+	<view>可提现总金额：</view>
+	<view style="text-align: right;">当日额度：{{withdraw.config.total_money}}</view>
+</view>
+<view class="withdraws">￥{{withdraw.money}}</view>
+<view class="withdraws1">冻结金额：￥{{withdraw.frozen_money}}</view>
+<view class="withdrawper">
+	<view>提现金额</view>
+	<view class="van-hairline--bottom bot">
+		<text style="font-weight: bold;margin-right: 7px;">￥</text>
+		<input type="number" class="inmoney" value="{{money}}" bindinput="inmoney" ></input>
+	</view>
+	<van-cell-group>
+		<van-field
+			placeholder="请选择银行"
+			label="银行"
+			value="{{ bank_select }}"
+			disabled
+			clearable
+			required
+			bindtap="banklist"
+		/>
+	</van-cell-group>
+</view>
+<van-popup show="{{ show }}" bind:close="onClose" position="bottom" >
+	<van-picker
+		show-toolbar
+		title="银行列表"
+		columns="{{ bank_list }}"
+		bind:cancel="onCancel"
+		bind:confirm="onConfirm"
+	/>
+</van-popup>
+<van-dialog id="van-dialog" />
+<button class="butsave" bindtap="saveres">提现</button>
+
+<view class="witnav">
+	<view>温馨提示：</view>
+	<view>1.提现金额须大于 {{withdraw.config.min}} 元，小于{{withdraw.config.max}} 元</view>
+	<view>2.提现收取{{withdraw.config.fee}}%的手续费</view>
+	<view>3.手续费在到账金额中扣除</view>
+	<view>4.提现审核一般3 - 5个工作日到账</view>
+	<view>5.单日可提现次数{{withdraw.config.total_num}}</view>
+</view>
+

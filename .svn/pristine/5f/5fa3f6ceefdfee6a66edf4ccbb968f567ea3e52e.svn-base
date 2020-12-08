@@ -1,0 +1,76 @@
+.shops{
+	display: flex;
+	flex-wrap: wrap;
+	width:100%;
+	background:#fbfbfb;
+	font-size:12px;
+}
+.shop_lists{
+	flex: 1;
+	background: #fff;
+	margin-left: 6px;
+	margin-bottom: 10px;
+}
+.list_imgs{
+	width: 100%;
+	height: 100px;
+}
+.list_titles{
+	padding: 0 3px;
+	text-overflow: -o-ellipsis-lastline;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+	-webkit-box-orient: vertical;
+	height: 32px;
+}
+.list_moneys{
+	width: 100%;
+	margin-bottom: 18px;
+	display: flex;
+	align-items: center;
+	color: #f44;
+}
+
+
+.shop-list{
+	width:47%;
+	margin-left:2%;
+	background:#fff;
+	margin-bottom:10px;
+}
+.list-img{
+
+	width:100%;
+	height:175px;
+	padding:12px 0;
+}
+.list-title{
+	width:100%;
+	text-indent: 10px;
+}
+.list-money{
+	width:100%;
+	margin-bottom:18px;
+}
+.money-left{
+	width:50%;
+	color:#f44;
+}
+.money-right{
+	width:50%;
+	color:#aaa;
+	text-decoration:line-through;
+	font-size:12px;
+}
+.bottom-text{
+	width:100%;
+	margin-top:12px;
+	background:#fff;
+}
+.bottom-text text{
+	width:100%;
+	text-align:center;
+}

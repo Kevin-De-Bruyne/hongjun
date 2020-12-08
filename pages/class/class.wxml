@@ -1,0 +1,16 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<view class="cont">
+    <view class="nav_left">
+        <view wx:for="{{cateItems}}" wx:key="item" wx:for-index="index" data-index="{{index}}" bindtap="{{curIndex != index ? 'switchRightTab':''}}" class="{{curIndex == index ? 'active' : ''}}" id="{{index}}">{{item.name}}</view>
+    </view>
+    <view class="nav_right">
+        <view wx:for="{{cateItems2}}" class="nav_right_items" wx:key="index" wx:for-index="index" bindtap="de" data-item="{{item}}">
+            <image src="{{item.original_img}}"></image>
+            <view>{{item.goods_name}}</view>
+        </view>
+        <view class="nodata_text" wx:if="{{cateItems2.length == 0}}">暂无数据</view>
+    </view>
+</view>
+<view></view>

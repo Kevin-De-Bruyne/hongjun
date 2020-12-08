@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText":"我的足迹",
+  "usingComponents": {
+  	"nav-bar": "/pages/navbar/index/index"
+  }
+}

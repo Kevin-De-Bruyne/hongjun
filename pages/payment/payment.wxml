@@ -1,0 +1,23 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+
+<view class='payment-money-number'>
+  <view class='number'>
+    <text>支付单号</text>
+    <text style='float:right;color:red;'>{{order_sn}}</text>
+  </view>
+  <view class='number'>
+    <text>订单金额</text>
+    <text style='float:right;color:red;'>{{order_amount}}元</text>
+  </view>
+</view>
+<view class='function'>
+  <text class='fun-text'>支付方式</text>
+  <view class='money'>
+    <van-icon name="checked" size="40rpx" color="red" />
+    <image src='../../images/wx.png'></image>
+    <text>微信支付</text>
+  </view>
+  <button class='button' bindtap='payment'>立即支付</button>
+</view>

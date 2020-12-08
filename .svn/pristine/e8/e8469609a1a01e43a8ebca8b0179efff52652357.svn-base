@@ -1,0 +1,33 @@
+/* pages/personal/integral/integral.wxss */
+.shows{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content:center;
+	align-items:Center;
+	height: 44px;
+	width: 100%;
+	font-size: 13px;
+	color: #555;
+}
+.withdraw_top{
+	background: #fff;
+	font-size: 12px;
+	margin-bottom: 1px;
+	padding: 10px 7px;
+	color: #555;
+}
+.desc{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	/*align-items:Center;*/
+	justify-content:center;
+	margin-bottom: 7px;
+}
+.desc>view{
+	flex: 1;
+	overflow: hidden;
+}

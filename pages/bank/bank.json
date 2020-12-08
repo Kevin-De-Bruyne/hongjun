@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText":"银行列表",
+  "usingComponents": {
+  	"nav-bar": "/pages/navbar/index/index"
+  }
+}

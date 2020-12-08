@@ -1,0 +1,5 @@
+<!--pages/muster/synergism/synergism.wxml-->
+<view wx:for="{{synergism}}" wx:key="synergism" wx-for-item="item" wx:for-index="index" bindtap="navst" data-item="{{item}}" class="job">
+	<cover-image class='jobimg' src='{{ item.img }}'/>
+	<view class="jobs">{{item.title}}</view>
+</view>

@@ -1,0 +1,316 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<cover-view class="descsgo" style="top: {{height}}px;" wx:if="{{status == 2}}">拒绝原因：<cover-view class="descsgos">{{desc}}</cover-view></cover-view>
+<view style="height: 70px;" wx:if="{{status == 2}}"></view>
+<van-toast id="van-toast" />
+<van-cell-group>
+	<van-field
+	value="{{ name }}"
+	required
+	clearable
+	label="姓名"
+	placeholder="请输入姓名"
+	data-type="1"
+	bind:change="nations"/>
+	<van-field
+	value="{{ sex }}"
+	required
+	clearable
+	label="性别"
+	placeholder="请输入性别"
+	data-type="13"
+	bind:change="nations"/>
+	<van-field
+	value="{{ birthday }}"
+	required
+	clearable
+	label="出生日期"
+	placeholder="请输入出生日期"
+	data-type="14"
+	bind:change="nations"/>
+
+	<!-- <van-field
+	placeholder="请选择性别"
+	label="性别"
+	value="{{ sex }}"
+	readonly
+	clearable
+	required
+	bindtap="getsex"
+	/> -->
+
+	<!-- <van-field
+	placeholder="请选择出生日期"
+	label="出生日期"
+	value="{{ birthday }}"
+	readonly
+	clearable
+	required
+	bindtap="bornrs"
+	/> -->
+
+
+	<van-field
+	value="{{ nation }}"
+	label="民族"
+	placeholder="请输入民族"
+	clearable
+	bind:change="nations"
+	data-type="2"
+	/>
+
+	<van-field
+	value="{{ school }}"
+	clearable
+	label="毕业院校"
+	placeholder="请输入毕业院校"
+	bind:change="nations"
+	data-type="3"
+	/>
+
+	<van-field
+	value="{{ education }}"
+	clearable
+	label="学历"
+	placeholder="请输入当前学历"
+	bind:change="nations"
+	data-type="4"
+	/>
+	<!-- 2 -->
+
+	<van-field
+	value="{{ company }}"
+	required
+	clearable
+	wx:if="{{type == 2}}"
+	label="公司名称"
+	placeholder="请输入公司名称"
+	data-type="101"
+	bind:change="nations"/>
+
+	<van-field
+	value="{{ companyer }}"
+	wx:if="{{type == 2}}"
+	required
+	clearable
+	label="法定代表人"
+	placeholder="请输入法定代表人"
+	data-type="102"
+	bind:change="nations"/>
+
+	<van-field
+	value="{{ address }}"
+	wx:if="{{type == 2}}"
+	required
+	clearable
+	label="注册地址"
+	placeholder="请输入注册地址"
+	data-type="103"
+	bind:change="nations"/>
+
+	<van-field
+	value="{{ phone }}"
+	wx:if="{{type == 2}}"
+	required
+	clearable
+	label="联系电话"
+	placeholder="请输入联系电话"
+	data-type="104"
+	bind:change="nations"/>
+
+
+	<!-- 2 -->
+</van-cell-group>
+
+
+
+<!-- 2 -->
+<view class="uploadID" wx:if="{{type == 2}}">芳疗行业资源</view>
+<view class="messagesp" wx:if="{{type == 2}}">
+	<textarea 
+	placeholder="简要说明本人芳疗从业经历或行业资源，认真填写有助于后续评级~" 
+	maxlength="200" 
+	value="{{ work_desc }}" 
+	bindblur="nations"
+	data-type="105"
+	class="message"></textarea>
+</view>
+<view class="uploadID" wx:if="{{type == 2}}">公司简介</view>
+<view class="messagesp" wx:if="{{type == 2}}">
+	<textarea 
+	placeholder="简要说明本机构主要业务，在芳疗领域的资源等，认真填写有助于后续评级~" 
+	maxlength="200" 
+	value="{{ company_desc }}" 
+	bindblur="nations"
+	data-type="106"
+	class="message"></textarea>
+</view>
+
+<view class="uploadID" wx:if="{{type == 2}}"><text style="color: red;">*</text>上传营业照片扫描件</view>
+<view class="uploadID1" wx:if="{{type == 2}}">
+	<view class="uploadID2" style="height: 200px;" bindtap="upload" data-type="200">
+		<view wx:if="{{ company_img == ''}}">上传营业照片扫描件</view>
+		<image wx:else mode='widthFix' src="{{ company_img }}" class="slide_image" />
+	</view>
+</view>
+<view class="uploadID" wx:if="{{type == 2}}">上传相关资质扫描件（选传，上传有助于后续评级）</view>
+<view class="uploadID1" wx:if="{{type == 2}}">
+	<view class="uploadID2" style="height: 200px;" bindtap="upload" data-type="201">
+		<view wx:if="{{other_companyimg == ''}}">上传相关资质扫描件</view>
+		<image wx:else mode='widthFix' src="{{ other_companyimg }}" class="slide_image" />
+	</view>
+</view>
+
+<!-- 2 -->
+
+
+
+
+<view class="uploadID" wx:if="{{type == 1}}">芳疗学习经历</view>
+<view class="messagesp" wx:if="{{type == 1}}">
+	<textarea 
+	placeholder="简要说明本人芳疗学习经历，认真填写有助于后续评级~" 
+	maxlength="200" 
+	value="{{ study_desc }}" 
+	bindblur="nations"
+	data-type="5"
+	class="message"></textarea>
+</view>
+
+
+<view class="uploadID" wx:if="{{type == 1}}">上传学习证明材料（选传，上传有助于后续评级）</view>
+<view class="uploadID1" wx:if="{{type == 1}}">
+	<view class="uploadID2" style="height: 100px;width: 100px" bindtap="upload" data-type="202">
+		<view wx:if="{{study_img == ''}}">学习证明材料</view>
+		<image wx:else mode='widthFix' src="{{ study_img }}" class="slide_image" />
+	</view>
+</view>
+
+
+<view class="uploadID" wx:if="{{type == 1}}">芳疗从业经历</view>
+<view class="messagesp" wx:if="{{type == 1}}">
+	<textarea 
+	placeholder="简要说明本人芳疗从业经历，认真填写有助于后续评级~" 
+	maxlength="200" 
+	value="{{ work_desc }}" 
+	bindblur="nations"
+	data-type="6"
+	class="message"></textarea>
+</view>
+
+
+
+
+<view class="uploadID"><text style="color: red;">*</text>上传身份证</view>
+<view class="uploadID1">
+	<view class="uploadID2" bindtap="upload" data-type="203">
+		<view wx:if="{{idcard_img1 == ''}}">请上传身份证正面</view>
+		<image wx:else mode='widthFix' src="{{ idcard_img1 }}" class="slide_image" />
+	</view>
+	<view class="uploadID2" style="margin-left: 7px;" bindtap="upload" data-type="204">
+		<view wx:if="{{idcard_img2 == ''}}">请上传身份证反面</view>
+		<image wx:else mode='widthFix' src="{{ idcard_img2 }}" class="slide_image" />
+	</view>
+</view>
+
+<view class="uploadID">上传毕业证（选传，上传有助于后续评级）</view>
+<view class="uploadID1">
+	<view class="uploadID2" style="height: 200px;" bindtap="upload" data-type="205">
+		<view wx:if="{{school_img == ''}}">请上传毕业证正面</view>
+		<image wx:else mode='widthFix' src="{{ school_img }}" class="slide_image" />
+	</view>
+</view>
+
+<view class="uploadID">账号信息必填其一</view>
+<van-collapse value="{{ activeName }}" bind:change="onChange" accordion>
+	<van-collapse-item title="支付宝" name="1">
+		<van-field
+		value="{{ alipay_account }}"
+		required
+		clearable
+		label="支付宝"
+		placeholder="请输入支付宝账号"
+		data-type="7"
+		bind:change="nations"/>
+		<van-field
+		value="{{ alipay_name }}"
+		required
+		clearable
+		label="姓名"
+		placeholder="请输入姓名"
+		data-type="12"
+		bind:change="nations"/>
+	</van-collapse-item>
+	<van-collapse-item title="银行卡" name="2">
+		<van-field
+		value="{{ bankcard_name }}"
+		required
+		clearable
+		label="银行卡持有人"
+		placeholder="请输入银行卡持有人"
+		data-type="11"
+		bind:change="nations"/>
+		<van-field
+		value="{{ bank }}"
+		required
+		clearable
+		label="账户名称"
+		placeholder="请输入账户名称"
+		data-type="8"
+		bind:change="nations"/>
+		<van-field
+		value="{{ bankname }}"
+		required
+		clearable
+		label="开户行名称"
+		placeholder="请输入开户行名称"
+		data-type="9"
+		bind:change="nations"/>
+		<van-field
+		value="{{ bankcard }}"
+		required
+		clearable
+		label="银行账号"
+		placeholder="请输入银行账号"
+		data-type="10"
+		bind:change="nations"/>
+	</van-collapse-item>
+</van-collapse>
+
+<view class="protocol">
+        <view class="isprotocol"><van-icon name="success" size="17px" color="#07c160"/></view>
+        <view class="protocolme">我已阅读并同意<text class="protocoluser" bindtap="isprotocol">《{{protocol}}》</text></view>
+    </view>
+
+<button class="butsave" bindtap="saveres">提交申请</button>
+
+
+<van-popup show="{{ show }}" bind:close="getsex" position="bottom" >
+	<van-picker
+		show-toolbar
+		title="请选择性别"
+		columns="{{ province }}"
+		bind:cancel="getsex"
+		bind:confirm="proConfirm"
+	/>
+</van-popup>
+
+
+<van-popup show="{{ showa }}" bind:close="bornrs" position="bottom" >
+	<van-datetime-picker
+	type="date"
+	title="请选择出生日期"
+	value="{{ currentDate }}"
+	bind:input="onInput"
+	bind:cancel="bornrs"
+	bind:confirm="proConfirm1"
+	min-date="{{ minDate }}"
+	formatter="{{ formatter }}"
+	/>
+</van-popup>
+
+<!-- <cover-view wx:if="{{status == 0}}" class="typestatus" style="top: {{height}}px;">
+    已提交，等待审核！
+</cover-view> -->
+<van-dialog id="van-dialog" />

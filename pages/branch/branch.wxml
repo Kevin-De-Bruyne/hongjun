@@ -1,0 +1,89 @@
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+
+<van-cell-group>
+	<van-field
+	value="{{ username }}"
+	required
+	clearable
+	label="姓名"
+	placeholder="请输入姓名"
+	bind:change="userpeople"
+	/>
+
+	<van-field
+	value="{{ phone }}"
+	type="number"
+	label="手机"
+	placeholder="请输入手机"
+	required
+	clearable
+	bind:change="userphone"
+	/>
+	<van-field
+	value="{{ address }}"
+	type="email"
+	required
+	clearable
+	label="邮箱"
+	placeholder="请输入邮箱"
+	bind:change="useraddress"
+	/>
+	<van-field
+	placeholder="请选择省份"
+	label="省份"
+	value="{{ provincer }}"
+	disabled
+	clearable
+	required
+	bindtap="provinces"
+	/>
+	<van-field
+	placeholder="请选择城市"
+	label="城市"
+	value="{{ citys }}"
+	disabled
+	clearable
+	required
+	bindtap="cityvinces"
+	/>
+	<van-field
+	placeholder="请选择区域"
+	label="区域"
+	value="{{ districts }}"
+	disabled
+	clearable
+	required
+	bindtap="disvinces"
+	/>
+</van-cell-group>
+
+<van-popup show="{{ show }}" bind:close="proClose" position="bottom" >
+	<van-picker
+		show-toolbar
+		title="省份列表"
+		columns="{{ province }}"
+		bind:cancel="proCancel"
+		bind:confirm="proConfirm"
+	/>
+</van-popup>
+<van-popup show="{{ cityshow }}" bind:close="cityClose" position="bottom" >
+	<van-picker
+		show-toolbar
+		title="城市列表"
+		columns="{{ city }}"
+		bind:cancel="cityCancel"
+		bind:confirm="cityConfirm"
+	/>
+</van-popup>
+<van-popup show="{{ disshow }}" bind:close="disClose" position="bottom" >
+	<van-picker
+		show-toolbar
+		title="区域列表"
+		columns="{{ district }}"
+		bind:cancel="disCancel"
+		bind:confirm="disConfirm"
+	/>
+</van-popup>
+
+<button class="butsave" bindtap="saveres">提交申请</button>
