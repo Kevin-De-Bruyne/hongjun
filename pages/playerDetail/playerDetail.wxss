@@ -1,0 +1,238 @@
+/* pages/playerDetail/playerDetail.wxss */
+.detail{
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  /* height: 100%; */
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom,black, rgb(115,41,40));
+}
+.player{
+  padding: 0 10% 130rpx 10%;
+}
+.info{
+  margin-top: 200rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.info_icon{
+  width: 275rpx;
+  height: 275rpx;
+  border-radius: 15rpx;
+  /* background-color:red; */
+}
+.info_icon image{
+  width: 100%;
+  height: 100%;
+  border-radius: 15rpx;
+}
+.info_name{
+  margin-top: 20rpx;
+  font-size: 35rpx;
+  font-weight: bold;
+  color: white;
+}
+.toupiao_total{
+  margin-top: 50rpx;
+  width: 100%;
+  height:90rpx;
+  border: 1px solid rgba(237,235,208,0.6);
+  /* border-top-style: none; */
+  position: relative;
+}
+.toupiao_whole{
+  background-color:rgb(49,17,17);
+  width: 100%;
+  height: 90rpx;
+}
+.total_lan{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: absolute;
+  top: -20rpx;
+}
+.total_lan_list1{
+  /* margin-left: 10rpx; */
+  width: 25%;
+  text-align: center;
+  padding-left: 10rpx;
+  /* padding-right: 10rpx; */
+  color: white;
+  border-right:none;
+  font-size: 26rpx;
+  background-color:rgb(49,17,17);
+ 
+}
+.total_lan_list{
+  width: 25%;
+  /* margin-left: 10rpx; */
+  text-align: center;
+  color: white;
+  border-right: 1px solid rgba(237,235,208,0.6);
+  font-size: 26rpx;
+  background-color:rgb(49,17,17);
+}
+.total_num{
+  width: 100%;
+display: flex;
+justify-content: space-around;
+/* margin-top: 40rpx; */
+position: absolute;
+bottom: 20rpx;
+}
+.total_num_list{
+  /* width: 25%; */
+  text-align: center;
+  color: rgba(237,235,208,0.6);
+  font-size: 22rpx;
+}
+.playerPic{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+}
+.picList{
+  width: 50%;
+  height: 260rpx;
+  /* object-fit: cover; */
+}
+.picList image{
+  width: 100%;
+  height: 100%;
+}
+.introduce{
+  width: 100%;
+  height: 220rpx;
+  margin-top: 20rpx;
+  border-radius: 15rpx;
+  border: 1px solid rgba(237,235,208,0.6);
+  display: flex;
+  /* line-height: 220rpx; */
+  padding-top: 15rpx;
+  padding-left: 15rpx;
+  justify-content: flex-start;
+  color: rgba(255,255,255,0.8);
+  font-size: 28rpx;
+}
+.bottom{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+}
+.bottomList{
+  width: 100%;
+  height: 70rpx;
+  background-color: rgb(255,252,199);
+  text-align: center;
+  margin-top: 40rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  border-radius: 30rpx;
+  font-weight: bold;
+}
+.tips{
+  width: 100%;
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: center;
+  font-size: 28rpx;
+  color: rgb(255,252,199);
+}
+.pop_whole{
+  width: 100%;
+  flex-direction:column;
+  display: flex;
+  /* position: absolute; */
+}
+.paybtn{
+  padding: 60rpx 15% 0 15%;
+  /* margin-top: 60rpx; */
+}
+.btn{
+  width: 100%;
+  background-color:rgb(255,252,199);
+  height: 70rpx;
+  color: black;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  border-radius: 30rpx;
+  line-height: 100rpx;
+  text-align: center;
+  line-height: 70rpx;
+
+}
+.van-icon van-icon van-icon-cross van-icon-cross{
+  /* position: absolute; */
+  top: 40rpx;
+  right: 40rpx;
+}
+.van-icon{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  
+}
+.popup{
+  float:left;
+  width:100%;
+  height:100vh;
+  position:fixed;
+  left:0;
+  top:0;
+  z-index:999;
+  display: flex;
+     justify-content: center; /* 相对父元素水平居中 */
+  background:rgba(0,0,0,0.8);
+ }
+ .popup-icon{
+  float:left;
+  width:100%;
+  height:4vh;
+  margin-top: 220rpx;
+  /* line-height:4vh;
+  text-align:right;
+  padding:0 12px 0 0;
+  position:absolute;
+  top:40vh;
+  left:80vh; */
+  /* z-index: 1000; */
+  position: relative;
+ }
+ .popup image{
+  width:100%;
+  min-height:50vh;
+  margin-top:4vh;
+  position: absolute;
+  top: 20vh;
+ }
+ .popup-msg{
+  float:left;
+  width:100%;
+  padding:12px 0 0 12px;
+  text-align:center;
+  color:#fff;
+  position:absolute;
+  left:0;
+  bottom: 170rpx;
+ }
+ .pop_ic{
+   position: absolute;
+   right: 10rpx;
+   /* width: 80rpx;
+   height: 80rpx; */
+ }
+.vant-icon-index--van-icon.van-icon-close{
+  font-size: 60rpx;
+}
+.presentWhole{
+  
+}

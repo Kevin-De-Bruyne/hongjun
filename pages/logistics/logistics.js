@@ -30,7 +30,7 @@ onLoad: function (options) {
     }
 },
 getdata(){
-    url._post('api/user/delivery_detail',{
+    url._posts('api/user/delivery_detail',{
         token: app.globalData.token ? app.globalData.token : token,
         order_id: this.data.order_id
     }).then(res => {

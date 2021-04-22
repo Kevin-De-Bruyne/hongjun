@@ -22,7 +22,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		url._post('api/user/visit_log', {
+		url._posts('api/user/visit_log', {
 			token: app.globalData.token ? app.globalData.token : token,
 		}).then(res => {
 			if(res.data){
@@ -42,7 +42,7 @@ Page({
 	},
 	delnote(e){
 		var index=e.currentTarget.dataset['index'];
-		url._post('api/user/del_visit_log', {
+		url._posts('api/user/del_visit_log', {
 			token: app.globalData.token ? app.globalData.token : token,
 			visit_ids: this.data.footnote[index].visit_id
 		}).then(res => {
@@ -65,7 +65,7 @@ Page({
 			message: '是否确定清空所有足迹',
 		})
 		.then(() => {
-			url._post('api/user/clear_visit_log', {
+			url._posts('api/user/clear_visit_log', {
 				token: app.globalData.token ? app.globalData.token : token,
 			}).then(res => {
 				if (res.status == 200) {

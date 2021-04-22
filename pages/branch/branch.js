@@ -37,7 +37,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-	    url._post('api/user/get_province', {
+	    url._posts('api/user/get_province', {
 			token: app.globalData.token ? app.globalData.token : token
 		}).then(res => {
 			for (var i in res.province){
@@ -57,7 +57,7 @@ Page({
 	},
 	proConfirm(event) {
 		this.setData({ show: false, provincer: event.detail.value.name, citys:null,districts:null,place1:event.detail.value.id,place2:null,place3:null});
-		url._post('api/user/get_city', {
+		url._posts('api/user/get_city', {
 			province_id: event.detail.value.id
 		}).then(res => {
 			for (var i in res.city) {
@@ -84,7 +84,7 @@ Page({
 	},
 	cityConfirm(event) {
 		this.setData({ cityshow: false, citys: event.detail.value.name, districts:null,place2:event.detail.value.id,place3:null });
-		url._post('api/user/get_district', {
+		url._posts('api/user/get_district', {
 			city_id: event.detail.value.id
 		}).then(res => {
 			for (var i in res.district) {
@@ -139,7 +139,7 @@ Page({
 		if (!this.data.place1) { wx.showToast({ title: "省份为选择", icon: 'none' }); return false; }
 		if (!this.data.place2) { wx.showToast({ title: "城市为选择", icon: 'none' }); return false; }
 		if (!this.data.place3) { wx.showToast({ title: "区域为选择", icon: 'none' }); return false; }
-		url._post('api/user/admissions_branch', {
+		url._posts('api/user/admissions_branch', {
 			token: app.globalData.token ? app.globalData.token : token,
 			username: this.data.username,
 			phone: this.data.phone,

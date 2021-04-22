@@ -1,0 +1,17 @@
+<!--pages/playerDetail/playerDetail.wxml-->
+<view class="detail">
+  <nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+ <view class="player">
+  
+  <view class="info">
+    <view class="info_icon">
+      <image src="{{player.head_pic}}"></image>
+    </view>
+    <view class="info_name">{{player.nickname}}</view>
+    <view class="icon"><text class="iconfont icon-Success-Small"></text></view>
+    <view class="success">投 票 成 功</view>
+    <view class="again" bindtap="again">再支持TA一下</view>
+  </view>
+ </view>
+ <tabbar tabbar="{{tabBars}}"></tabbar>
+</view>

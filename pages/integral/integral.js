@@ -21,7 +21,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		url._post('api/index/integral_goods',{
+		url._posts('api/index/integral_goods',{
 	        token: app.globalData.token ? app.globalData.token : token,
 	    }).then(res => {
 	        this.setData({integral: res.goods})

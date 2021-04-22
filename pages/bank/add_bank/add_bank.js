@@ -76,7 +76,7 @@ Page({
 		if (!this.data.banknumber) { wx.showToast({ title:"银行卡号为空", icon: 'none'}); return false; }
 		if (!this.data.users) { wx.showToast({ title: "持卡人为空", icon: 'none' }); return false; }
 		if (!this.data.phone) { wx.showToast({ title: "手机号码为空", icon: 'none' }); return false; }
-		url._post('api/user/addbank', {
+		url._posts('api/user/addbank', {
 			token: app.globalData.token ? app.globalData.token : token,
 			bank_name: this.data.bankname,
 			bank_num: this.data.banknumber,

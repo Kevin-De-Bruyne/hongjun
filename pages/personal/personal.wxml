@@ -1,7 +1,7 @@
 <nav-bar navbar-data="{{nvabarData}}"></nav-bar>
 <view style="height: {{height}}px;width: 100%;position: relative;"></view>
 
-<view style="background: url({{users.background}});background-size: 100% 100%;background-repeat: no-repeat;">
+<view style="background: url({{users.background}});background-size: 100% 100%;background-repeat: no-repeat;" wx:if="{{isShouquan!=1}}">
 	<!-- <view style="height: {{heights*2}}px;"></view> -->
 	<view class="avatar">
 		<image class="avatarUrl" src="{{users.head_pic}}"  mode="cover"></image>
@@ -11,17 +11,31 @@
 			<view>推荐 ： {{users.parent || '平台'}}</view>
 			<view style="display: flex;align-items: center;">
 				<text decode="{{true}}">I&nbsp;&nbsp;&nbsp;D&nbsp;：&nbsp;{{ users.id_number}}</text>
-				<image class="copy" src="../../images/copy.png" mode="widthFix" bindtap="copyText"></image>
+				<image class="copy" src="../../images/copy.png"  bindtap="copyText"></image>
 				<!-- <text bindtap="copyText" class="copys">复制</text> -->
 			</view>
-			<view>技术等级： {{users.teacher_level}}</view>
-			<view>管理等级： {{users.manager_level}}</view>
+			<!-- <view>技术等级： {{users.teacher_level}}</view>
+			<view>管理等级： {{users.manager_level}}</view> -->
 		</view>
 		<!-- <van-icon name="setting-o" class='setting' bindtap='setting' /> -->
 	</view>
 </view>
-	
-<view class="money">
+<!-- 假如用户没有授权 -->
+<view wx:else>
+	<!-- <view style="height: {{heights*2}}px;"></view> -->
+	<view class="avatar">
+		<image class="avatarUrl"  src="../../images/shouquan.png" mode="cover"></image>
+		<view class="avatar_btn">
+			<button  wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile">点击登录</button>
+		</view>
+		<!-- <van-icon name="setting-o" class='setting' bindtap='setting' /> -->
+		<!-- <view class="xieyi">
+				<checkbox></checkbox>
+				<view class="xieyi_text">《用户协议》</view>
+			</view> -->
+	</view>
+</view>
+<view class="money" wx:if="{{isShouquan!=1}}">
 	<view class="moneya"  bindtap="usermoney">
 		<view>{{users.user_money}}</view>
 		<view>余额</view>
@@ -30,19 +44,19 @@
 		<view>{{users.frozen_money}}</view>
 		<view>收入</view>
 	</view>
-	<view class="moneyb"  bindtap="usermoney">
+	<!-- <view class="moneyb"  bindtap="usermoney">
 		<view>{{users.pay_points}}</view>
 		<view>积分</view>
-	</view>
+	</view> -->
 </view>
-<!-- <view class="navctu">
+<view class="navctu">
   	<view class="navctn" wx:for="{{navs}}" wx:key="navs" wx-for-item="item" wx:for-index="index" bindtap="navst" data-item="{{item}}">
   		<view>
   			<image class='navUrl' src='{{item.icon}}' mode="widthFix"></image>
 			<view style="margin-top: 5px;">{{item.menu_name}}</view>
   		</view>
   	</view>
-</view> -->
+</view>
 <!-- <view class="navlist2">
 	<view class="navlist21">推荐申请</view>
 	<view class="navlist22">
@@ -63,7 +77,7 @@
 	</view>
 </view> -->
 
-<!-- <view class="navlist2">
+<view class="navlist2" wx:if="{{isShouquan!=1}}">
 	<view class="navlist21mo" bindtap="navst" data-item="0">
 		<view class="navlist21mo1">我的订单</view>
 		<view class="navlist21mo2"><view>全部订单</view><van-icon name="arrow" /></view>
@@ -84,9 +98,32 @@
 	  		</view>
 		</view>
 	</view>
-</view> -->
+</view>
+<!-- 用户没有授权 -->
+<view class="navlist2" wx:else>
+	<view class="navlist21mo" bindtap="navst" data-item="0">
+		<view class="navlist21mo1">我的订单</view>
+		<view class="navlist21mo2"><view>全部订单</view><van-icon name="arrow" /></view>
+	</view>
+	<view class="navlist22" style="justify-content: center;">
+		<view 
+			wx:for="{{icon}}"
+			wx:key="navs2"
+			wx-for-item="item"
+			wx:for-index="index"
+			bindtap="navst"
+			style="width: 160rpx;height: 160rpx;margin-top: 27px;"
+			data-item="{{item}}"
+			class="navlist221">
+			<view>
+	  			<image class="navlist222" src="{{item.icon}}" mode="widthFix"></image>
+				<view style="margin-top: 20rpx;">{{item.menu_name}}</view>
+	  		</view>
+		</view>
+	</view>
+</view>
 
-<!-- <view class="navlist2">
+<view class="navlist2" wx:if="{{isShouquan!=1}}">
 	<view class="navlist21">我的服务</view>
 	<view class="navlist22">
 		<view 
@@ -98,7 +135,7 @@
 			data-item="{{item}}"
 			style="margin-top: 27px;"
 			class="navlist221">
-			<view wx:if="{{item.menu_url != '111'}}">
+			<view wx:if="{{item.menu_url != '111'}}" bindtap="navGo">
 	  			<image class="navlist222" src="{{item.icon}}" mode="widthFix"></image>
 				<view style="margin-top: 12px;">{{item.menu_name}}</view>
 	  		</view>
@@ -112,71 +149,13 @@
 			</button>
 		</view>
 	</view>
-</view> -->
+</view>
 
 
 
-<!-- <view style="height: 44px;background: #8bc34a;width: 80%;margin: 44px 10% 0 10%;line-height: 44px;color: #fff;font-size: 14px;text-align: center;float: left;border-radius: 3px;" bindtap="outto">退出</view>
-
+<!-- <view style="height: 44px;background: #8bc34a;width: 80%;margin: 44px 10% 0 10%;line-height: 44px;color: #fff;font-size: 14px;text-align: center;float: left;border-radius: 3px;" bindtap="outto">退出</view> -->
 <view style="height: 40px;float: left;width: 100%;"></view>
 <view style='font-size: 27rpx;text-align: center;color: #dedede;'>版本号1.0.1033</view>
 
-<van-dialog id="van-dialog" /> -->
-<view class="mine_list">
-     <ul>
-       <li>
-				 <view class="mine_list_left">
-					<image src="../../images/LXKF1.png" alt=""/>
-				 </view>
-         <p class="shimin"><text>收货地址</text></p>
-       </li>
-       <li>
-				 <view class="mine_list_left">
-					<image src="../../images/SHDZ1.png" alt=""/>
-				 </view>
-         <p class="shimin"><text>收货地址</text></p>
-       </li>
-       <li>
-				 <view class="mine_list_left">
-					<image src="../../images/WDJF1.png" alt=""/>
-				 </view>
-         <p class="shimin"><text>收货地址</text></p>
-       </li>
-			 <li>
-				 <view class="mine_list_left">
-					<image src="../../images/WDPL1.png" alt=""/>
-				 </view>
-         <p class="shimin"><text>收货地址</text></p>
-       </li>
-       <li>
-				 <view class="mine_list_left">
-					<image src="../../images/WDSC1.png" alt=""/>
-				 </view>
-         <p class="shimin"><text>收货地址</text></p>
-       </li>
-			 <li>
-				 <view class="mine_list_left">
-					<image src="../../images/WDTD1.png" alt=""/>
-				 </view>
-         <p class="shimin"><text>收货地址</text></p>
-       </li>
-			 <li>
-				 <view class="mine_list_left">
-					<image src="../../images/WDTG1.png" alt=""/>
-				 </view>
-         <p class="shimin"><text>收货地址</text></p>
-       </li>
-       <li>
-				 <view class="mine_list_left">
-					<image src="../../images/YJFK1.png" alt=""/>
-				 </view>
-         <p class="shimin"><text>收货地址</text></p>
-       </li>
-       <li>
-				 <view class="mine_list_left">
-					<image src="../../images/ZFMM1.png" alt=""/>
-				 </view>
-         <p class="shimin"><text>收货地址</text></p>
-       </li>
-     </ul>
-	 </view>
+<van-dialog id="van-dialog" />
+<tabbars tabbar="{{tabBar}}" active="{{active}}"></tabbars>

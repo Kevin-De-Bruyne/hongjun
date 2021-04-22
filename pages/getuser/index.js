@@ -25,7 +25,7 @@ Component({
         getUserInfo(res){
             if(res.detail.errMsg == "getUserInfo:ok"){
                 app.globalData.userInfo = res.detail.userInfo;
-                url._post('api/login/wx_user',{
+                url._posts('api/login/wx_user',{
                     token: app.globalData.token ? app.globalData.token : token,
                     userInfo: JSON.stringify(res.detail.userInfo)
                 }).then(res => {

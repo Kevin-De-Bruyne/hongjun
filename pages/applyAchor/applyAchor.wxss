@@ -1,0 +1,242 @@
+/* pages/applyAchor/applyAchor.wxss */
+.success1{
+  margin-top: 7px;
+  padding-top: 39px;
+}
+.protocol{
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 7px;
+}
+.whole{
+  padding-top: 65px;
+}
+image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.isprotocol{
+  height: 20px;
+  width: 20px;
+  border: #e1e1e1 solid 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+.protocolme{
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: 7px;
+}
+.protocoluser{
+  font-size: 12px;
+  font-weight: 500;
+  color: #8bc34a;
+}
+.define{
+  width: 80%;
+  margin: 17px auto;
+  background: rgb(103,102,238);
+  color: #fff;
+  height: 40px;
+  line-height: 38px;
+  text-align: center;
+  font-size: 16px;
+  padding: 0;
+  box-sizing: unset;
+  border-radius: 32rpx;
+}
+.note{
+  font-size: 13px;
+  color: #777;
+  width: 90%;
+  margin: 17px auto;
+}
+.codes{
+  height: 30px;
+  min-width: 60px;
+  padding: 0 8px;
+  font-size: 12px;
+  line-height: 28px;
+  color: #fff;
+  background-color: #07c160;
+  border: 1px solid #07c160;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+.share{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.shareImg{
+  background-color: #fff;
+  position: absolute;
+  left: 200rpx ;
+  height: 70rpx;
+  width: 70rpx;
+  border: 1px solid rgb(237,237,237);
+}
+.shareImgs{
+  background-color: #fff;
+  position: absolute;
+  left: 200rpx ;
+  height: 200rpx;
+  width: 200rpx;
+  border: 1px solid rgb(237,237,237);
+}
+.shareImg image{
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+.shareImgs image{
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+van-field{
+  width: 100%;
+  float: left;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.block {
+  width: 120px;
+  height: 120px;
+  background-color: #fff;
+}
+.selectwhole{
+  padding:40rpx 30rpx ;
+}
+.selectList{
+  width: 100%;
+  height: 80rpx;
+  /* background-color: red; */
+  border-bottom: 1px solid rgb(153,158,179);
+  display: flex;
+  align-items: center;
+
+}
+.listIcon{
+  float: left;
+  margin-left: 30rpx;
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 10rpx;
+  background-color: #8bc34a;
+}
+.listIcon image{
+  width: 100%;
+  height: 100%;
+}
+.listName{
+  margin-left: 25rpx;
+  font-size: 24rpx;
+}
+.selectTop{
+  margin-top: 60rpx;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+}
+.input{
+  width: 100%;
+  background-color: #fff;
+  padding-left: 30rpx;
+}
+.inputs{
+  width: 100%;
+  background-color: #fff;
+  padding-left: 30rpx;
+}
+.vant-cell-index--van-cell__title{
+  font-size: 26rpx;
+}
+.inputwhole{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  justify-content:flex-start;
+  border-bottom: 1px solid rgb(237,237,237);
+}
+.inputwholes{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 200rpx;
+  justify-content:flex-start;
+  border-bottom: 1px solid rgb(237,237,237);
+}
+.input input{
+  font-size: 26rpx;
+  margin-left: 30rpx;
+  width: 80%;
+} 
+.inputs input{
+  font-size: 26rpx;
+  margin-left: 30rpx;
+  width: 80%;
+} 
+.inputLeft{
+  float: left;
+  width: 170rpx;
+  font-size: 26rpx;
+}
+.inputLefts{
+  float: left;
+  width: 170rpx;
+  font-size: 26rpx;
+}
+/* .van-dialog__header{
+  height: 300px;
+} */
+/* .dialog{
+  height: 55%;
+} */
+.dialog-index--van-dialog{
+  height: 52%;
+  width: 85%;
+  overflow: hidden;
+  font: 32rpx;
+  border-radius: 8rpx;
+}
+.dialog-index--van-dialog__footer{
+  position:fixed;
+  bottom: 6rpx;
+}
+.qrcode{
+  width: 400rpx;
+  height: 400rpx;
+  /* margin-top: 80rpx;
+  margin-left: 15%; */
+}
+.startTime{
+  width:100%;
+  height:80rpx;
+  margin-left: 50rpx;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+.shimin{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.shiminwhole{
+  width: 100%;
+  height: 75%;
+  display: flex;
+justify-content: center;
+align-items: center;
+}

@@ -24,7 +24,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		url._post('api/user/refund_order',{
+		url._posts('api/user/refund_order',{
 			token: app.globalData.token ? app.globalData.token : token,
 			order_id: options.order_id
 		}).then(res => {
@@ -50,7 +50,7 @@ Page({
 		if (!this.data.reason) { wx.showToast({ title: "请输入退款原因", icon: 'none'}); return false;}
 		if (!this.data.users) { wx.showToast({ title: "请输入联系人", icon: 'none' }); return false; }
 		if (!this.data.phone) { wx.showToast({ title: "请输入手机号", icon: 'none' }); return false; }
-		url._post('api/user/record_refund_order', {
+		url._posts('api/user/record_refund_order', {
 			token: app.globalData.token ? app.globalData.token : token,
 			order_id: this.data.recall.order_id,
 			consignee: this.data.users,

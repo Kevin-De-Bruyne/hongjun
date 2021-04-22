@@ -1,0 +1,12 @@
+<!--pages/chongzhi/chongzhi.wxml-->
+<view class="chongzhi">
+  <nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+  <view class="player">
+  <view class="info">
+    <view class="info_name">{{player.nickname}}</view>
+    <view class="icon"><text class="iconfont icon-Success-Small"></text></view>
+    <view class="success">报 名 成 功</view>
+    <view class="again" bindtap="again">返 回 上 一 页</view>
+  </view>
+ </view>
+</view>

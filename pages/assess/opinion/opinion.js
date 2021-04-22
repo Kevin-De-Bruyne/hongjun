@@ -22,7 +22,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		url._post('api/user/comment_info', {
+		url._posts('api/user/comment_info', {
 			token: app.globalData.token ? app.globalData.token : token,
 			comment_id: options.comment_id
 		}).then(res => {

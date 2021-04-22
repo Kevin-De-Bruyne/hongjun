@@ -29,17 +29,17 @@
             <!--价格 + 虚拟价格-->
             <view class="price_money">
                 <!--价格-->
-                <view class="price_p">优惠顾客价：￥{{cate.discount_price}}</view>
+                <!-- <view class="price_p">优惠顾客价：￥{{cate.discount_price}}</view> -->
                 
                 <!--库存-->
                 <view class="shops_box_stock">库存：{{cate.store_count}}</view>
             </view>
             <view class="price_money">
                 <!--虚拟价格-->
-                <view class="price_s">零售价：￥{{cate.shop_price}}</view>
+                <view class="price_s" style="color:red;">零售价：￥{{cate.shop_price}}</view>
             </view>
             
-            <view class="freightrs">赠送积分：{{cate.give_integral}}</view>
+            <!-- <view class="freightrs">赠送积分：{{cate.give_integral}}</view> -->
 
             <!--销量-->
             <view class="freightrs">
@@ -121,13 +121,13 @@
                 <view class='shop_xx_left_right'>
                     <view>{{cate.goods_name}}</view>
                     <view style="font-size: 20rpx;">
-                        零售价：<text style="color: #673ab7;">￥{{shopImg.shop_price}}</text>
+                        零售价：<text style="color:red;">￥{{shopImg.shop_price}}</text>
                     </view>
                     <view style="font-size: 20rpx;">
-                        优惠顾客价：<text style="color: #ff5722;">￥{{shopImg.discount_price}}</text>
+                        <!-- 优惠顾客价：<text style="color: #ff5722;">￥{{shopImg.discount_price}}</text> -->
                     </view>
                     <!-- <view style="font-size: 20rpx;">积分价格：{{shopImg.score}}积分</view>-->
-                    <view style="font-size: 20rpx;">赠送积分：{{shopImg.give_integral}}</view> 
+                    <!-- <view style="font-size: 20rpx;">赠送积分：{{shopImg.give_integral}}</view>  -->
                     <view style="font-size: 20rpx;">库存：{{shopImg.store_count}}</view>
                 </view>
 

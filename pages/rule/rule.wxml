@@ -1,0 +1,45 @@
+<!--pages/rule/rule.wxml-->
+<view class="rule">
+  <nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+  <scroll-view scroll-y="true"> 
+  <view class="rulewhole">
+    <view class="ruleList">
+      <view class="ruleList_span">大赛概况</view>
+      <view class="rule_content">{{rule.survey}}</view>
+    </view>
+    <view class="ruleList">
+      <view class="ruleList_span">大赛进程</view>
+      <view class="rule_content">{{rule.process}}</view>
+    </view>
+    <view class="ruleList">
+      <view class="ruleList_span">海选规则</view>
+      <view class="rule_content">{{rule.rule}}</view>
+    </view>
+    <view class="ruleList">
+      <view class="ruleList_span">总决赛规则</view>
+      <view class="rule_content">{{rule.all_rule}}</view>
+      <view></view>
+    </view>
+    <view class="ruleList">
+      <view class="ruleList_span">选手报名</view>
+      <view class="rule_content">{{rule.sign_up}}</view>
+    </view>
+    <view class="ruleList">
+      <view class="ruleList_span">大赛奖励</view>
+      <view class="rule_content">{{rule.reward}}</view>
+    </view>
+    <view class="ruleList">
+      <view class="ruleList_span">主办单位</view>
+      <view class="rule_content">{{rule.host}}</view>
+    </view>
+    <view class="ruleList">
+      <view class="ruleList_span">承办单位</view>
+      <view class="rule_content">{{rule.undertake}}</view>
+    </view>
+  </view>
+  <view class="banquan">易合网</view>
+  <van-toast id="van-toast" />
+</scroll-view>
+  <tabbar tabbar="{{tabBars}}"></tabbar>
+</view>
+

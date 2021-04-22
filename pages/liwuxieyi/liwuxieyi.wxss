@@ -1,0 +1,4 @@
+/* pages/liwuxieyi/liwuxieyi.wxss */
+.rich{
+  margin-top: 160rpx;
+}

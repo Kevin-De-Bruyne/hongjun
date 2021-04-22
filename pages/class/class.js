@@ -4,6 +4,7 @@ Page({
 data: {
     cateItems: [],
     cateItems2: [],
+    active:true,
     curIndex: 0,
     curnum:'',
     url:'',
@@ -16,8 +17,9 @@ data: {
     height: app.globalData.height * 2
 },
 onLoad:function(){
+    app.editTabbar();
     var that = this
-    API._post('api/Index/classification').then(res => {
+    API._posts('api/Index/classification').then(res => {
         that.setData({
             cateItems: res.category1,
             cateItems2: res.goods_list
@@ -35,7 +37,7 @@ switchRightTab: function (e) {
     that.setData({
         curIndex: i
     })
-    API._post('api/Index/classification',{
+    API._posts('api/Index/classification',{
         id: array[i].id
     }).then(res => {
         that.setData({

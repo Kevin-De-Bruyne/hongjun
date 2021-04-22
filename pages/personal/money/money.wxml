@@ -6,21 +6,21 @@
 		<view>{{usermoney}}</view>
 		<view>余额</view>
 	</view>
-	<view class='moneyb'>
+	<!-- <view class='moneyb'>
 		<view>{{pay_points}}</view>
 		<view>积分</view>
-	</view>
+	</view> -->
 </view>
 <van-cell
 is-link
 title="余额明细"
 link-type="navigateTo"
 url="/pages/personal/overage/overage"/>
-<van-cell
+<!-- <van-cell
 is-link
 title="积分明细"
 link-type="navigateTo"
-url="/pages/personal/integral/integral"/>
+url="/pages/personal/integral/integral"/> -->
 <van-cell
 is-link
 title="提现明细"

@@ -14,20 +14,29 @@ data: {
     nvabarData: {
       showCapsule: 1,  //1表示显示    0表示不显示
       title: '授权登陆',   // 名片
-      type: '1'
+      type: '1',
+      showlist: '2'
     },
     height: app.globalData.height * 2
 },
 
 phonebt(r){
-    this.setData({phone: r.detail})
+    // this.setData({phone: r.detail})
+    this.data.phone=r.detail
+    this.setData({phone:r.detail})
+    // this.data.phone=r.detail.value
+    // this.setData({
+    //     phone
+    // })
 },
 passwordbt(r){
-    this.setData({password: r.detail})
+    // this.setData({password: r.detail})
+    this.data.password=r.detail
+    this.setData({password:r.detail})
 },
 getUserInfo(r){
     if(r.detail.errMsg == "getUserInfo:ok"){
-        url._post('api/login/wx_user',{
+        url._posts('api/login/wx_user',{
             token: app.globalData.token ? app.globalData.token : token,
             userInfo: JSON.stringify(r.detail.userInfo)
         }).then(res => {
@@ -44,7 +53,7 @@ senduser(){
     if(!this.data.password){
         return wx.showToast({title:"请输入密码",icon: 'none'});
     };
-    url._post('api/login/dologin',{
+    url._posts('api/login/dologin',{
         token: app.globalData.token ? app.globalData.token : token,
         username : this.data.phone,
         password : this.data.password,

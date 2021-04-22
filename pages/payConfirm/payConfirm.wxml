@@ -1,0 +1,23 @@
+<!--pages/payConfirm/payConfirm.wxml-->
+<view class="payConfirm">
+  <nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+  <view class="goods_whole">
+    <view class="goods_name"><text>{{goods.goods_name}}</text></view>
+    <view class="original_img"><image src="{{htp+goods.original_img}}"></image></view>
+    <view class="shop_price">
+      <view class="price_l">价格 :</view>
+      <view class="price_r">{{goods.shop_price}}</view>
+    </view>
+    <view class="goods_sn">
+      <view class="sn_l">商品编号 :</view>
+      <view class="sn_r">{{goods.goods_sn}}</view>
+    </view>
+    <view class="goods_remark">
+      <view class="goods_remark_t">礼包描述 :</view>
+      <view class="goods_remark_b">
+        <view class="remark">{{goods.goods_remark}}</view>
+      </view>
+    </view>
+   <view class="btn" bindtap="btn">支付</view>
+  </view>
+</view>

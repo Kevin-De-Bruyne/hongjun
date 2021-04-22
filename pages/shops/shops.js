@@ -23,50 +23,142 @@ data: {
     shops:[],
     cartId: [],
     shopId:[],
+    active:true,
+    shouquan:'',
     nvabarData: {
-      showCapsule: 0,  //1表示显示    0表示不显示
+      showCapsule: 1,  //1表示显示    0表示不显示
       title: '购物车',   // 名片
       type: '1',
       showlist: '3'
     },
-    height: app.globalData.height * 2
+    height: app.globalData.height * 2,
+    phonenumber:''
 },
 
 logins(){
-    API._post('api/login/check_login',{
+    API._posts('api/login/check_login',{
         token: app.globalData.token ? app.globalData.token : token
     }).then(res => {
-        if(res.status != 200){
-            Dialog.confirm({
-                title: '提示',
-                message: '您暂未登陆，是否登陆？',
-            }).then(() => {
-                if(res.status == 500){
-                    // wx.navigateTo({
-                    //     url:'/pages/authorize/login/index'
-                    // })
-                    wx.showToast({ title:"异地登录", icon: 'none' })
-                }else if(res.status == 800){
-                    wx.navigateTo({
-                        url: '/pages/authorize/reg/index'
-                    })
-                }
-            }).catch(() => {
-                wx.switchTab({
-                    url:'/pages/index/index'
-                })
-                // console.log('请求失败')
-                console.log('取消登录，除了首页不能浏览其他页面')
-            });
-        }else{
+        // if(res.status != 200){
+        //     Dialog.confirm({
+        //         title: '提示',
+        //         message: '您暂未登陆，是否登陆？',
+        //     }).then(() => {
+        //         if(res.status == 500){
+        //             wx.navigateTo({
+        //                 url:'/pages/authorize/login/index'
+        //             })
+        //             wx.showToast({ title:"异地登录", icon: 'none' })
+        //         }
+        //         // else if(res.status == 800){
+        //         //     wx.navigateTo({
+        //         //         url: '/pages/authorize/reg/index'
+        //         //     })
+        //         // }
+        //     }).catch(() => {
+        //         wx.switchTab({
+        //             url:'/pages/index/index'
+        //         })
+        //         // console.log('请求失败')
+        //         console.log('取消登录，除了首页不能浏览其他页面')
+        //     });
+        // }
             this.load();
-        }
     })
 },
 
 onLoad: function () {
+    app.editTabbar();
+    console.log(token)
     this.logins();
+    var that=this
+    wx.getSetting({
+        success: function(res){
+          if (res.authSetting['scope.userInfo']) {
+              that.setData({
+                  shouquan:2
+              })
+            wx.getUserInfo({
+              success:res=> {
+                
+              }
+            })
+          }else{
+            that.setData({
+                shouquan:1
+            })
+          }
+        }
+      })
 },
+getPhoneNumber:function(e){
+    if(e.detail.encryptedData){
+        wx.login({
+          success:res=>{
+              console.log(res)
+              var code=res.code
+              API._posts('api/api/wx_user_phone ',{
+                token: app.globalData.token ? app.globalData.token : token,
+                code: code,
+                iv:e.detail.iv,
+                encryptedData:e.detail.encryptedData,
+
+            }).then(data => {
+                console.log(data)
+            }).catch(res => {
+                wx.showToast({ title:"获取用户信息失败，请重新访问！", icon: 'none' })
+            })
+          }
+        })
+    }else{
+
+    }
+},
+bindGetUserInfo: function(e) {
+    console.log(e.detail.userInfo)
+    if (e.detail.userInfo){
+      //用户按了允许授权按钮
+      var cart = [];
+      var shop = [];
+      var that=this
+      app.userLogin().then(res=>{
+        if(res==1){
+      API._posts('api/cart/cart',{
+          goods_id: '',
+          token: app.globalData.token ? app.globalData.token : token
+      }).then(res => {
+          for (let i = 0; i < res.cart_list.length; i++) {
+              if(res.cart_list[i].selected == true){
+                  cart.push(res.cart_list[i].id);
+                  shop.push(res.cart_list[i].goods_id);
+              }else{
+                  cart.splice(i, 1);
+                  shop.splice(i, 1);
+              }
+          }
+          that.setData({
+              cartId: cart.join("_"),
+              shopId: shop.join("_"),
+              list: res.cart_list,
+              shops: res.hot_goods,
+              totalPri: this.data.totalPrice - this.data.totalPrices,
+              selectAllStatus:true,
+          });
+          console.log(that.data.shouquan)
+          // 价格方法
+          this.count_price();
+          this.count_prices();
+      })
+      console.log(that.data.shouquan)
+      that.setData({
+          shouquan:2
+      })
+    }
+})
+    } else {
+      //用户按了拒绝按钮
+    }
+  },
 onShow: function () {
     this.logins();
 },
@@ -74,7 +166,7 @@ load:function(){
     var that = this;
     var cart = [];
     var shop = [];
-    API._post('api/cart/cart',{
+    API._posts('api/cart/cart',{
         goods_id: '',
         token: app.globalData.token ? app.globalData.token : token
     }).then(res => {
@@ -164,7 +256,7 @@ deletes: function (e) {
     content: '确认删除吗？',
     success: function (res) {
     if(res.confirm){
-    API._post('api/cart/delete',
+    API._posts('api/cart/delete',
     {
     token: app.globalData.token ? app.globalData.token : token,
     id: id
@@ -234,7 +326,7 @@ btn_add(e) {
     num = num + 1
     list[index].goods_num = num;
 
-    API._post('api/cart/cart_num_cz',{
+    API._posts('api/cart/cart_num_cz',{
         token: app.globalData.token ? app.globalData.token : token,
         id: id,
         number:num
@@ -269,7 +361,7 @@ btn_minus(e) {
     num = num - 1;
     list[index].goods_num = num;
 
-    API._post('api/cart/cart_num_cz',{
+    API._posts('api/cart/cart_num_cz',{
         token: app.globalData.token ? app.globalData.token : token,
         id: id,
         number:num

@@ -33,7 +33,7 @@ onLoad: function (options) {
     this.show();
 },
 show(){
-    API._post('api/goods/comment_list',{
+    API._posts('api/goods/comment_list',{
         goods_id: this.data.goods_id,
         token: app.globalData.token ? app.globalData.token : token,
     }).then(res => {
@@ -44,7 +44,7 @@ show(){
 },
 zan(e) {
     var i = e.currentTarget.dataset.index;
-    API._post('api/goods/givealike',{
+    API._posts('api/goods/givealike',{
         goods_id: this.data.goods_id,
         comment_id: this.data.eval[i].comment_id,
         token: app.globalData.token ? app.globalData.token : token,

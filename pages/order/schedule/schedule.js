@@ -35,7 +35,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		url._post('api/user/cancel_order_info',{
+		url._posts('api/user/cancel_order_info',{
 			token: app.globalData.token ? app.globalData.token : token,
 			order_id: options.order_id
 		}).then(res => {

@@ -1,0 +1,96 @@
+<!--pages/toupiao/toupiao.wxml-->
+<view class="toupiao">
+  <nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+  <view class="toupiao_t" style="background:url({{bgcImage}});background-position:center;background-size:cover;">
+    <!-- <image src="{{bgcImage}}"></image> -->
+  </view>
+    <!-- <view class="scroll" bindtap="scrollfalse" wx:if="{{scroll==false}}"
+    ><text class="iconfont icon-select-tb"></text></view> -->
+    <view class="scroll">
+      <text class="iconfont icon-sanjiaoxing1" bindtap="scrolltrue"></text>
+      <text class="iconfont icon-sanjiaoxing" bindtap="scrollfalse"></text>
+    </view>
+  
+  
+  <!-- 投票信息 -->
+  <view class="toupiao_total">
+    <view class="toupiao_total_c">
+      <view class="toupiao_total_c_t">
+        <text>参与数</text>
+        <text>投票总数</text>
+        <text>访问量</text>
+      </view>
+      <view class="toupiao_total_c_b">
+        <text>{{total.total.partake}}</text>
+        <text>{{total.total.vote_total}}</text>
+        <text>{{total.total.visit}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="toupiao_c">
+     <!-- 倒计时 -->
+   <view class="timeout">
+     <view class="timeout_t">报 名 截 止 时 间</view>
+     <view class="timeout_b">
+      <view class="timeout_whole" bindtap="weixinpay">
+        <view class="timeout_b_l">{{total.day}}</view>
+        <view class="timeout_b_r">天</view>
+        <!-- <button open-type="getPhoneNumber" bindgetphonenumber="bindGetPhone">授权登录</button> -->
+      </view>
+     </view>
+   </view>
+    <!-- 视频 -->
+   <view class="vedio">
+     <video src="{{video}}" initial-time='0.01' poster="{{poster}}"></video>
+   </view>
+   <!-- 倒计时之后的内容 -->
+   <view class="level">
+     <view class="level_search">
+       <input type="text" placeholder="输入编号或姓名" bind:input="bindSearch"/>
+       <view class="search" bindtap="search">搜索</view>
+     </view>
+     <!-- 如果是省份一级 -->
+     <view class="province">
+       <view class="province_whole">
+       <block wx:for="{{province_list}}" wx:key="index">
+       <view class="province_list {{currentProIndex==index?'province_active':''}}"  data-index="{{index}}"
+       bindtap="provinceClick"  wx:if="{{level==0}}">
+         {{item.name}}
+       </view>
+       </block>
+       <block wx:for="{{city_list}}" wx:key="index">
+       <view class="province_list {{currentCityIndex==index?'province_active':''}}"  data-index="{{index}}" 
+       bindtap="cityClick" wx:if="{{level==2}}">
+         {{item.name}}
+       </view>
+      </block>
+      </view>
+     </view>
+     <!-- 演员开始 -->
+     <view class="yanyuanwhole">
+       <view class="yanyuanList" wx:for="{{achor}}" bindtap="yyClick" data-index="{{index}}" wx:key="index">
+        <view class="yy_left">
+          <view class="icon"><image src="{{item.head_pic}}" mode="widthFix"></image></view>
+        </view>
+        <view class="yy_right">
+          <view class="yy_right_top">
+            <text>{{item.id_number}}</text>
+            <text>{{item.nickname}}</text>
+            <text>{{item.total_vote}}票</text>
+          </view>
+          <view class="yy_right_bottom">
+            <text>{{item.rank_number}}</text>
+            <view class="vote" catch:tap="votes" data-index="{{index}}">投票</view>
+          </view>
+        </view> 
+       </view>
+
+       <!-- 查看更多 -->
+       <view class="more" bindtap="moreClick" wx:if="{{achor!=''}}">查看更多.....</view>
+       <view class="more" bindtap="moreClick" wx:else>暂无选手信息.....</view>
+       <van-toast id="van-toast" />
+     </view>
+   </view>
+  </view>
+  <tabbar tabbar="{{tabBars}}"></tabbar>
+</view>

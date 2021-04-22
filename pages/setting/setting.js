@@ -16,14 +16,18 @@ data: {
       title: '密码设置',   // 名片
       type: '1'
     },
-    height: app.globalData.height * 2
+    height: app.globalData.height * 2,
+    shopId:'',
+    cartId:''
 },
 
 /**
 * 生命周期函数--监听页面加载
 */
 onLoad: function (options) {
-	url._post('api/user/userinfo',{
+    this.data.shopId=options.shopId
+    this.data.cartId=options.cartId
+	url._posts('api/user/userinfo',{
         token: app.globalData.token ? app.globalData.token : token,
     }).then(res => {
     	if(res.data.paypwd_status == 1){
@@ -34,16 +38,21 @@ onLoad: function (options) {
     })
 },
 saveseed(){
-	url._post('api/user/paypwd',{
+	url._posts('api/user/paypwd',{
         token: app.globalData.token ? app.globalData.token : token,
         new_password: this.data.password2,
         confirm_password: this.data.password3,
         old_password: this.data.password1,
     }).then(res => {
-    	wx.showToast({ title: res.msg, icon: 'none' })
+    	// wx.showToast({ title: res.msg, icon: 'none' })
     	if(res.status == 200){
     		wx.navigateBack()
-    	}
+        }
+        if(res.msg=='请先绑定手机号'){
+            wx.navigateTo({
+                url: '../shouquan/shouquan?goods_id=' + this.data.shopId + '&cart_id=' + this.data.cartId +'&action=2',
+            })
+        }
     }).catch(res => {
         wx.showToast({ title:"信息接收失败，请重新授权！", icon: 'none' })
     })

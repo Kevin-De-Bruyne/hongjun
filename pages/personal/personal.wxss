@@ -5,6 +5,7 @@
 	display: -ms-flexbox;
 	display: flex;
 	align-items:center;
+	flex-direction: row;
 	/*background: #8bc34a;*/
 	color: #fff;
 	font-size: 12px;
@@ -14,6 +15,36 @@
 	width: 60px;
 	height: 60px;
 	border-radius: 7px;
+}
+.avatar_btn{
+	width: 120rpx;
+	height: 45rpx;
+	border-radius: 7rpx;
+	border: 1px solid white;
+	text-align: center;
+	line-height: 45rpx;
+	background-color: #fff;
+	color: black;
+	margin-left: 25rpx;
+	/* font-size: 20rpx; */
+}
+.avatar .xieyi{
+	display: flex;
+	margin-top: 25px;
+	flex-direction: row;
+}
+.xieyi checkbox{
+	width: 60rpx;
+	height: 60rpx;
+}
+.avatar_btn button{
+padding: 0;
+margin: 0;
+width: 100%;
+height: 100%;
+font-size: 23rpx;
+line-height: 45rpx;
+background-color: #fff;
 }
 .users{
 	padding: 0 20px;
@@ -31,13 +62,16 @@
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
+	margin: 30 ;
 	justify-content:center;
 	align-items:center;
 	height: 50px;
 	background: #fff;
 	color: #555;
 	font-size: 12px;
-	margin-bottom: 7px;
+	/* margin-bottom: 7px; */
+	margin: 10px 17px 0 17px;
+	border-radius: 15rpx;
 }
 .moneya,.moneyb{
 	flex: 1;
@@ -95,12 +129,16 @@
 .navlist2{
 	background: #fff;
 	margin-bottom: 7px;
-	padding: 10px 17px;
+	margin: 10px 17px;
+	border-radius: 30rpx;
 }
 .navlist21{
 	font-size: 15px;
 	font-weight: bold;
 	color: #000;
+	padding-top: 30rpx;
+	margin-top: 17rpx;
+	padding-left: 30rpx;
 }
 .navlist21mo{
 	display: -webkit-box;
@@ -109,12 +147,15 @@
 	display: flex;
 	align-items: center;
 	height: 20px;
+	justify-content: space-between;
 }
 .navlist21mo1{
 	font-size: 15px;
 	font-weight: bold;
 	color: #000;
 	flex: 1;
+	margin-top: 30rpx;
+	padding-left: 30rpx;
 }
 .navlist21mo2{
 	display: -webkit-box;
@@ -125,6 +166,8 @@
 	font-size: 12px;
 	color: #999;
 	height: 20px;
+	margin-top: 30rpx;
+	padding-right: 30rpx;
 }
 .navlist22{
 	display: -webkit-box;

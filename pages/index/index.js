@@ -9,8 +9,10 @@ Page({
     data: {
         value:'',
         navTab:[],
+        tabBar:{},
         swiper:[],
         scroll:[],
+        tabshow:false,
         shops:[], //热卖
         activity_goods:[], //活动
         time_goods:[], //限时
@@ -25,23 +27,30 @@ Page({
         },
         height: app.globalData.height * 2,
         showicon:false,
-        topNum:0
+        topNum:0,
+        canIUse: wx.canIUse('button.open-type.getUserInfo'),
+        btn:true
     },
     
     swipergoods(r){
-        console.log(r.currentTarget.dataset.goods);
+        const {index}=r.currentTarget.dataset
+        console.log(index)
         wx.navigateTo({
-            url: r.currentTarget.dataset.goods
+            url:'/pages/swiperDetail/swiperDetail'+`?id=${this.data.swiper[index].id}`
         });
     },
     onLoad: function (options) {
+        // wx.showTabBar();
         console.log(options)
+        app.editTabbar();
         app.userLogin().then(res => {
             if(res == 1){
-                API._post('api/Index/index',{
+                console.log(app.globalData.user_id)
+                API._posts('api/Index/index',{
                     scenes: JSON.stringify(options),
                     token: app.globalData.token ? app.globalData.token : token
                 }).then(res => {
+                    // console.log(app.globalData.user_id)
                     this.setData({
                         swiper: res.banner,
                         navTab: res.nav,
@@ -57,21 +66,73 @@ Page({
                 });
             }
         });
+        // wx.getSetting({
+        //     success: function(res){
+        //         console.log(res)
+        //       if (res.authSetting['scope.userInfo']) {
+        //         wx.getUserInfo({
+        //           success:res=> {
+                    
+        //           }
+        //         })
+        //       }else{
+        //          wx.navigateTo({
+        //            url: '/pages/shouquan/shouquan',
+        //          },2000)
+        //          wx.showToast({
+        //             title: '请授权登录',
+        //             icon:'none'
+        //           })
+        //       }
+        //     }
+        //   })
         // this.startTime()
     },
-    liveGoGo(){
-        let roomId = 20 // 填写具体的房间号，可通过下面【获取直播房间列表】 API 获取
-    let customParams = encodeURIComponent(JSON.stringify({ path: 'pages/index/index', pid: 1 })) // 开发者在直播间页面路径上携带自定义参数（如示例中的path和pid参数），后续可以在分享卡片链接和跳转至商详页时获取，详见【获取自定义参数】、【直播间到商详页面携带参数】章节（上限600个字符，超过部分会被截断）
-    wx.navigateTo({
-    url: 'plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id=21'
-    })
-    console.log(111)
+    lunbo(){
+        wx.navigateTo({
+          url: '/pages/renzheng/renzheng',
+        })
     },
+    bindGetUserInfo: function(e) {
+        // console.log(e.detail.userInfo)
+        // if (e.detail.userInfo){
+        //   //用户按了允许授权按钮
+        //   app.userLogin().then(res => {
+        //     if(res == 1){
+        //         wx.switchTab({
+        //             url: '/pages/personal/personal',
+        //           })
+                  
+        //         API._posts('api/Index/index',{
+        //             scenes: JSON.stringify(options),
+        //             token: app.globalData.token ? app.globalData.token : token
+        //         }).then(res => {
+        //             console.log(6666)
+        //             this.setData({
+        //                 swiper: res.banner,
+        //                 navTab: res.nav,
+        //                 scroll: res.primary_classification,
+        //                 shops: res.hot_goods,
+        //                 activity_goods: res.activity_goods,
+        //                 time_goods: res.time_goods,
+        //                 recommend_goods: res.recommend_goods
+        //             })
+        //             wx.setStorageSync('scenes',JSON.stringify(options))
+        //         }).catch(res => {
+        //             //wx.showToast({ title:"网络访问错误", icon: 'none' })
+        //         });
+        //     }
+        // });
+        // } else {
+        //   //用户按了拒绝按钮
+        // }
+      },
+      
     /**
     * 生命周期函数--监听页面显示
     */
     onShow: function (options) {
-        API._post('api/Index/index',{
+        API._posts('api/Index/index',{
             scenes: JSON.stringify(options),
             token: app.globalData.token ? app.globalData.token : token
         }).then(res => {
@@ -89,7 +150,17 @@ Page({
             //wx.showToast({ title:"网络访问错误", icon: 'none' })
         });
     },
-
+    liveGoGo(){
+        API._posts('api/broadcast/get_goods_list',{
+            token: app.globalData.token ? app.globalData.token : token,
+            limit:30,
+            status:3
+        }).then(res => {
+           console.log(res)
+        }).catch(res => {
+            //wx.showToast({ title:"网络访问错误", icon: 'none' })
+        });
+    },  
     startTime(){
         var today = new Date();
         var h = today.getHours();
@@ -118,6 +189,7 @@ Page({
         wx.navigateTo({
             url: '/pages/index/idetails/idetails?index='+i
         });
+        console.log(i)
     },
     search(){
         if( this.data.value != ''){
@@ -144,9 +216,6 @@ Page({
         }
     },
     liveGo(){
-      wx.navigateTo({
-        url: '/pages/live/live'
-      })
         
     },
     handleContact(r){
@@ -184,7 +253,7 @@ Page({
     onShareAppMessage: function (options) {
         var that = this;
         var shareObj = {
-            title: "怀朴线上商城",
+            title: "素星同路",
             path: '/pages/index/index',
             successs: res=>{
                 wx.showToast({ title:"分享成功", icon: 'successs' })

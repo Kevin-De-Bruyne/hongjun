@@ -1,0 +1,266 @@
+<!--pages/applyAchor/applyAchor.wxml-->
+<nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+<view style="height: {{height}}px;width: 100%;position: relative;"></view>
+<view class="whole">
+<van-cell-group wx:if="{{anchor==''}}">
+   <view class="input">
+      <view class="inputwhole">
+       <view class="inputLeft">标题</view>
+       <input type="text" placeholder="请填写标题" bindinput="bindTitles"/>
+      </view>
+  </view>
+  <view class="input">
+      <view class="inputwhole">
+       <view class="inputLeft">主播账号</view>
+       <input type="text" placeholder="请输入主播账号" bindinput="bindAccounts"/>
+      </view>
+  </view>
+   <!-- <van-cell title="请选择主播账号" is-link bind:click="showPopup" /> -->
+   <van-popup
+  show="{{ show }}"
+  position="bottom"
+  custom-style="height: 60%;"
+  bind:close="onClose">
+  <view class="selectTop">选择主播账号</view>
+  <view class="selectwhole">
+      <view class="selectList">
+          <view class="listIcon">
+              <image src="../../images/livemember.png"></image>
+          </view>
+          <view class="listName">测试1</view>
+      </view>
+      <view class="selectList">
+          <view class="listIcon">
+              <image src="../../images/livemember.png"></image>
+          </view>
+          <view class="listName">测试1</view>
+      </view>
+      <view class="selectList">
+          <view class="listIcon">
+              <image src="../../images/livemember.png"></image>
+          </view>
+          <view class="listName">测试1</view>
+      </view>
+  </view>
+  </van-popup>
+  <view class="input">
+      <view class="inputwhole">
+       <view class="inputLeft">主播昵称</view>
+       <input type="text" placeholder="请填写主播对外昵称" bindinput="bindNames"/>
+      </view>
+  </view>
+<!-- 开始时间 -->
+  <view class="input">
+      <view class="inputwhole">
+       <view class="inputLeft">开始时间</view>
+       <view  bindtap="startShow" class="startTime">{{currentDate}}</view>
+      </view>
+  </view>
+  <van-popup
+  show="{{ startshow }}"
+  position="bottom"
+  custom-style="height: 70%;"
+  bind:close="onCloseDate"
+  >
+  <van-datetime-picker
+  min-date="{{minDate}}"
+  max-date="{{maxDate}}"
+  value="{{currentDate}}"
+  type="datetime"
+  title="选择具体时间"
+  bind:input="onInput"
+  bind:confirm="onConfirm"
+  bind:cancel="onCancel"
+/> 
+  </van-popup>
+  <!-- 开始 -->
+  <!-- 结束 -->
+  <view class="input">
+      <view class="inputwhole">
+       <view class="inputLeft">结束时间</view>
+       <view bindtap="endShows" class="startTime">{{endDate}}</view>
+      </view>
+  </view>
+  <van-popup
+  show="{{ endshow }}"
+  position="bottom"
+  custom-style="height: 70%;"
+  bind:close="onCloseDate2"
+  >
+  <van-datetime-picker
+  min-date="{{minDate}}"
+  max-date="{{maxDate}}"
+  value="{{endDate}}"
+  type="datetime"
+  title="选择具体时间"
+  bind:input="onInput2"
+  bind:confirm="onConfirm2"
+  catch:cancel="onCancel"
+/> 
+  </van-popup>
+  <!-- 结束 -->
+  <view class="inputs">
+      <view class="inputwholes">
+       <view class="inputLefts">分享卡片封面</view>
+       <view class="shareImgs" bindtap="shareClick"><image src="{{sharesrc}}"></image></view>
+      </view>
+  </view>
+    
+  <view class="inputs">
+      <view class="inputwholes">
+       <view class="inputLefts">官方收录封面</view>
+       <view class="shareImgs" bindtap="guanClick"><image src="{{guanfangsrc}}"></image></view>
+      </view>
+  </view>
+  <!-- <view class="input">
+      <view class="inputwhole">
+       <view class="inputLeft">背景墙</view>
+       <view class="shareImg" bindtap="coverClick"><image src="{{coversrc}}"></image></view>
+      </view>
+  </view> -->
+
+</van-cell-group>
+
+<!-- 假如用户已经登录了 -->
+<van-cell-group wx:else>
+   <view class="input">
+      <view class="inputwhole">
+       <view class="inputLeft">标题</view>
+       <input type="text" placeholder="请填写标题" bindinput="bindTitle" value="{{title}}"/>
+      </view>
+  </view>
+  <view class="input">
+      <view class="inputwhole">
+       <view class="inputLeft">主播账号</view>
+       <input type="text" placeholder="请输入主播账号" bindinput="bindAccount" value="{{account}}"/>
+      </view>
+  </view>
+   <!-- <van-cell title="请选择主播账号" is-link bind:click="showPopup" /> -->
+   <van-popup
+  show="{{ show }}"
+  position="bottom"
+  custom-style="height: 60%;"
+  bind:close="onClose">
+  <view class="selectTop">选择主播账号</view>
+  <view class="selectwhole">
+      <view class="selectList">
+          <view class="listIcon">
+              <image src="../../images/livemember.png"></image>
+          </view>
+          <view class="listName">测试1</view>
+      </view>
+      <view class="selectList">
+          <view class="listIcon">
+              <image src="../../images/livemember.png"></image>
+          </view>
+          <view class="listName">测试1</view>
+      </view>
+      <view class="selectList">
+          <view class="listIcon">
+              <image src="../../images/livemember.png"></image>
+          </view>
+          <view class="listName">测试1</view>
+      </view>
+  </view>
+  </van-popup>
+  <view class="input">
+      <view class="inputwhole">
+       <view class="inputLeft">主播昵称</view>
+       <input type="text" placeholder="请填写主播对外昵称" bindinput="bindName" value="{{liveName}}"/>
+      </view>
+  </view>
+<!-- 开始时间 -->
+  <view class="input">
+      <view class="inputwhole">
+       <view class="inputLeft">开始时间</view>
+       <view  bindtap="startShow" class="startTime">{{userstartTime}}</view>
+      </view>
+  </view>
+  <van-popup
+  show="{{ startshow }}"
+  position="bottom"
+  custom-style="height: 70%;"
+  bind:close="onCloseDate"
+  >
+  <van-datetime-picker
+  value="{{currentDate}}"
+  type="datetime"
+  title="选择具体时间"
+  bind:input="onInputold"
+  bind:confirm="onConfirmold"
+  bind:cancel="onCancel"
+/> 
+  </van-popup>
+  <!-- 开始 -->
+  <!-- 结束 -->
+  <view class="input">
+      <view class="inputwhole">
+       <view class="inputLeft">结束时间</view>
+       <view  bindtap="endShows" class="startTime">{{userendTime}}</view>
+      </view>
+  </view>
+  <van-popup
+  show="{{ endshow }}"
+  position="bottom"
+  custom-style="height: 70%;"
+  bind:close="onCloseDate2"
+  >
+  <van-datetime-picker
+  value="{{endDate}}"
+  type="datetime"
+  title="选择具体时间"
+  bind:input="onInputold2"
+  bind:confirm="onConfirmold2"
+  bind:cancel="onCancel"
+/> 
+  </van-popup>
+  <!-- 结束 -->
+  <view class="inputs">
+      <view class="inputwholes">
+       <view class="inputLefts">分享卡片封面</view>
+       <view class="shareImgs" bindtap="shareClick"><image src="{{sharesrc}}"></image></view>
+      </view>
+  </view>
+    
+  <view class="inputs">
+      <view class="inputwholes">
+       <view class="inputLefts">官方收录封面</view>
+       <view class="shareImgs" bindtap="guanClick"><image src="{{guanfangsrc}}"></image></view>
+      </view>
+  </view>
+  <!-- <view class="input">
+      <view class="inputwhole">
+       <view class="inputLeft">背景墙</view>
+       <view class="shareImg" bindtap="coverClick"><image src="{{coversrc}}"></image></view>
+      </view>
+  </view> -->
+
+</van-cell-group>
+<view class="success1">
+    <!-- <view class="protocol">
+        <view class="isprotocol"><van-icon name="success" size="17px" color="#07c160"/></view>
+        <view class="protocolme">我已阅读并同意<text class="protocoluser" bindtap="isprotocol">《平台用户服务协议》</text></view>
+    </view>
+    <view class="note">注：目前怀朴香养会员采取推荐和邀请制，有推荐或邀请码方可注册。
+
+    </view> -->
+    <button class="define" open-type="getUserInfo" bindtap="next" wx:if="{{btnClick==true}}">创建房间</button>
+    
+</view>
+
+<van-dialog
+  use-slot
+  title="请扫二维码实名认证"
+  show="{{ shimin }}"
+  show-cancel-button
+  confirm-button-open-type="getUserInfo"
+  bind:close="onClose"
+  bind:getuserinfo="getUserInfo"
+>
+<view class="shiminwhole">
+ <view class="shimin" bindtap="codeClick">
+  <image src="{{qrcodeImage}}" class="qrcode" />
+ </view>
+</view>
+</van-dialog>
+</view>

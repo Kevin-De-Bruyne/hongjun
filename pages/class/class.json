@@ -2,6 +2,7 @@
 	"usingComponents": {},
 	"navigationBarTitleText": "商品分类",
 	"usingComponents": {
-	  	"nav-bar": "/pages/navbar/index/index"
+			"nav-bar": "/pages/navbar/index/index",
+			"tabbars":"../../components/tabbarComponents/tabbar"
 	  }
 }

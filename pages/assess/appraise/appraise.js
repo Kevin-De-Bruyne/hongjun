@@ -33,7 +33,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		url._post('api/user/add_comment', {
+		url._posts('api/user/add_comment', {
 			token: app.globalData.token ? app.globalData.token : token,
 			rec_id: options.rec_id
 		}).then(res => {
@@ -138,7 +138,7 @@ Page({
 		if (!this.data.value) { wx.showToast({ title:"请评价商品符合度", icon: 'none'}); return false; }
 		if (!this.data.value1) { wx.showToast({ title:"请评价店家服务态度", icon: 'none'}); return false; }
 		if (!this.data.value2) { wx.showToast({ title:"请评价物流发货速度", icon: 'none'}); return false; }
-		url._post('api/user/add_comment_post', {
+		url._posts('api/user/add_comment_post', {
 			token: app.globalData.token ? app.globalData.token : token,
 			rec_id: this.data.rec_id,
 			goods_id: this.data.appraise.goods_id,

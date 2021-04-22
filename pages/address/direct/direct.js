@@ -38,7 +38,7 @@ Page({
 	 */
 	onLoad: function (options) {
 		if(options.address_id){
-			url._post('api/user/edit_address', {
+			url._posts('api/user/edit_address', {
 				token: app.globalData.token ? app.globalData.token : token,
 				id:options.address_id
 			}).then(res => {
@@ -87,7 +87,7 @@ Page({
 	            wx.showToast({ title:"网络访问错误", icon: 'none' })
 	        })
 		}else{
-			url._post('api/user/get_province', {
+			url._posts('api/user/get_province', {
 				token: app.globalData.token
 			}).then(res => {
 				for (var i in res.province){
@@ -108,7 +108,7 @@ Page({
 	},
 	proConfirm(event) {
 		this.setData({ show: false, provincer: event.detail.value.name, citys:null,districts:null,place1:event.detail.value.id,place2:null,place3:null});
-		url._post('api/user/get_city', {
+		url._posts('api/user/get_city', {
 			province_id: event.detail.value.id
 		}).then(res => {
 			for (var i in res.city) {
@@ -136,7 +136,7 @@ Page({
 	},
 	cityConfirm(event) {
 		this.setData({ cityshow: false, citys: event.detail.value.name, districts:null,place2:event.detail.value.id,place3:null });
-		url._post('api/user/get_district', {
+		url._posts('api/user/get_district', {
 			city_id: event.detail.value.id
 		}).then(res => {
 			for (var i in res.district) {
@@ -196,7 +196,7 @@ Page({
 		if (!this.data.place3) { wx.showToast({ title: "区域为选择", icon: 'none' }); return false; }
 		if (!this.data.address) { wx.showToast({ title: "详细地址为空", icon: 'none' }); return false; }
 		if(this.data.address_id){
-			url._post('api/user/edit_address_post', {
+			url._posts('api/user/edit_address_post', {
 				token: app.globalData.token ? app.globalData.token : token,
 				id: this.data.address_id,
 				consignee: this.data.username,
@@ -217,7 +217,7 @@ Page({
 	            wx.showToast({ title:"网络访问错误", icon: 'none' })
 	        })
 		}else{
-			url._post('api/user/add_address', {
+			url._posts('api/user/add_address', {
 				token: app.globalData.token ? app.globalData.token : token,
 				consignee: this.data.username,
 				mobile: this.data.phone,
@@ -239,7 +239,7 @@ Page({
 		}
 	},
 	delres(){
-		url._post('api/user/del_address', {
+		url._posts('api/user/del_address', {
 			token: app.globalData.token ? app.globalData.token : token,
 			id: this.data.address_id
 		}).then(res => {

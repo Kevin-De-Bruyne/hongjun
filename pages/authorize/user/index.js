@@ -53,7 +53,7 @@ onLoad: function (options) {
         
 },
 getlist(r){
-    url._post(r).then(res => {
+    url._posts(r).then(res => {
         var result = res.desc;
         const regex = new RegExp('<img', 'gi');
         result = result.replace(regex, '<img style="max-width: 100%;"');

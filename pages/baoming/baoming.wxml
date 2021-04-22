@@ -1,0 +1,213 @@
+<!--pages/baoming/baoming.wxml-->
+<view class="baoming">
+  <view class="baoming_top" style="background:url('/images/baoming_top.png') no-repeat;background-size: cover;background-position: center;"></view>
+  <!-- 报名开始 -->
+  <view class="baomingwhole">
+    <view class="baoming_title">- 大赛报名 -</view>
+    <view class="nameAndSex">
+      <view class="name">
+        <view class="nametext"><text>姓名:</text></view>
+        <view class="nameInput"><input type="text" bind:input="bindName" style="font-size:26rpx;padding-left:10rpx;"/></view>
+      </view>
+      <view class="sex">
+        <view class="sextext"><text>性别:</text></view>
+        <view class="sexradio">
+          <van-switch checked="{{ checked }}" bind:change="onChange" size="48rpx" class="switch" active-color="#000000" inactive-color="#dcdee0"/>
+          <text class="selectedman" wx:if="{{checked==true}}">男</text>
+          <text class="selectedgirl" wx:else>女</text>
+        </view>
+      </view>
+      <!-- 年龄 -->
+      <view class="age">
+        <view class="agetext"><text>年龄:</text></view>
+        <view class="ageInput"><input type="text"  bind:input="bindAge" style="font-size:26rpx;padding-left:10rpx;"/></view>
+      </view>
+    </view>
+    <!-- 手机号 -->
+  <view class="telephone">
+          <view class="teletext"><text>手机号:</text></view>
+          <view class="teleInput"><input type="text" bind:input="bindPhone" style="font-size:26rpx;padding-left:10rpx;"/></view>
+  </view>
+  <!-- 地域 -->
+  <view class="province">
+    <!-- <view class="pro_l">地域：</view> -->
+    <!-- <view class="pro_r"></view> -->
+    <view class="ipt-box">
+  <view class="text">
+    请选择地区：
+  </view>
+  <view class="text2">
+    
+    {{myaddres?myaddres:''}}
+  </view>
+  <button bindtap="openmap">
+    选择地区
+  </button>
+</view>
+     <!-- <view class="section">
+      <picker mode="region" bindchange="bindRegionChange" custom-item="{{customItem}}">
+      <view class="picker" style="font-size:26rpx;">
+      当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
+      </view>
+      </picker>
+     </view> -->
+     <van-popup show="{{ show }}" bind:close="proClose" position="bottom" >
+		
+    <picker-view style="height: 600rpx;" bind:change="proChange">
+      <view class="picker-view">
+          <text class="left" bind:tap="proCancel">取消</text>
+        <text class="right" bind:tap="proConfirm">确定</text>
+      </view>
+                <picker-view-column>
+                  <view class="item" style="text-align: center;" wx:for="{{province}}" wx:key="{{index}}">{{item.name}}</view>
+                </picker-view-column>
+    </picker-view>
+    
+  </van-popup>
+
+<van-popup show="{{ cityshow }}" bind:close="cityClose" position="bottom" >
+  
+    <picker-view style="height: 600rpx;" bind:change="cityChange">
+      <view class="picker-view">
+          <text class="left" bind:tap="cityCancel">取消</text>
+        <text class="right" bind:tap="cityConfirm">确定</text>
+      </view>
+                <picker-view-column>
+                  <view class="item" style="text-align: center;" wx:for="{{city}}" wx:key="{{index}}">{{item.name}}</view>
+                </picker-view-column>
+</picker-view>
+</van-popup>
+
+<van-popup show="{{ disshow }}"  bind:close="disClose" position="bottom" >
+    <picker-view style="height: 600rpx;" bind:change="areaChange">
+      <view class="picker-view">
+          <text class="left" bind:tap="disCancel">取消</text>
+        <text class="right" bind:tap="disConfirm">确定</text>
+      </view>
+                <picker-view-column>
+                  <view class="item" style="text-align: center;" wx:for="{{district}}" wx:key="{{index}}">{{item.name}}</view>
+                </picker-view-column>
+    </picker-view>
+  </van-popup>
+
+  </view>
+  <!-- 提示 -->
+  <view class="notice">
+    <text>提示:已参赛人常住地域为准</text>
+  </view>
+    <!-- 现住地址 -->
+  <view class="address">
+    <view class="address_l">现住地址：</view>
+    <view class="address_r"><input type="text" bind:input="bindAddress" style="font-size:26rpx;padding-left:10rpx;"/></view>
+  </view>
+  <!-- 身份证 -->
+  <view class="identity">
+    <view class="identity_l">身份证号：</view>
+    <view class="identity_r"><input type="text"  bind:input="bindCard" style="font-size:26rpx;padding-left:10rpx;"/></view>
+  </view>
+  <view wx:if="{{display_type==1}}">
+      <!-- 个人封面头像 -->
+  <view class="zhengjianwhole">
+    <view class="personal_title">封面头像上传：</view>
+    <view class="zhengjian">
+      <view class="zhengjianList" bindtap="personalClick" wx:for="{{personal}}" data-index="{{index}}">
+        <image src="{{item.image}}" wx:if="{{personal[index].image!=''}}"></image>
+        <text class="iconfont icon-jiahao" wx:else></text>
+      </view>
+      <!-- <view class="zhengjianList">
+        <image src="/images/zly.jpg"></image>
+      </view> -->
+    </view>
+  </view>
+  <!-- 证件上传 -->
+  <view class="zhengjianwhole">
+    <view class="zhengjian_title">证件正反面上传：</view>
+    <view class="zhengjian">
+      <view class="zhengjianList" bindtap="zhengClick" wx:for="{{zheng}}" data-index="{{index}}">
+        <image src="{{item.image}}" wx:if="{{zheng[index].image!=''}}"></image>
+        <text wx:elif="{{index==0}}">正面</text>
+        <text wx:else>反面</text>
+      </view>
+      <!-- <view class="zhengjianList">
+        <image src="/images/zly.jpg"></image>
+      </view> -->
+    </view>
+  </view>
+  <!-- 手持证件上传 -->
+  <view class="zhengjianwhole">
+    <view class="zhengjia_title">手持证件上传：</view>
+    <view class="zhengjian">
+      <view class="zhengjianList" wx:for="{{spassport}}" data-index="{{index}}" bindtap="szhengjianClick">
+        <image src="{{item.image}}" wx:if="{{spassport[index].image!=''}}"></image>
+        <text class="iconfont icon-jiahao" wx:else></text>
+      </view>
+    </view>
+  </view>
+  <!-- 生活照 -->
+  <view class="zhengjianwhole">
+    <view class="zhengjia_title">生活上传：</view>
+    <view class="shenghuo">
+      <view class="shenghuoList" wx:for="{{shenghuo}}" data-index="{{index}}" bindtap="shenghuoClick">
+        <image src="{{item.image}}" wx:if="{{shenghuo[index].image!=''}}"></image>
+        <text class="iconfont icon-jiahao" wx:else></text>
+      </view>
+    </view>
+  </view>
+  <!-- 剧照 -->
+  <view class="zhengjianwhole">
+    <view class="zhengjia_title">剧照上传：</view>
+    <view class="shenghuo">
+      <view class="shenghuoList" wx:for="{{juzhao}}" data-index="{{index}}" bindtap="juzhaoClick">
+        <image src="{{item.image}}" wx:if="{{juzhao[index].image!=''}}"></image>
+        <text class="iconfont icon-jiahao" wx:else></text>
+      </view>
+    </view>
+  </view>
+  </view>
+  <!-- 电子邮箱 -->
+  <view class="address">
+    <view class="address_l">电子邮箱：</view>
+    <view class="address_r"><input type="text"  bind:input="bindEmail" style="font-size:26rpx;padding-left:10rpx;"/></view>
+  </view>
+  <!-- 擅长才艺 -->
+  <view class="address">
+    <view class="address_l">擅长才艺：</view>
+    <view class="address_r"><input type="text"  bind:input="bindGood" style="font-size:26rpx;padding-left:10rpx;"/></view>
+  </view>
+  <!-- 身高和体重 -->
+  <view class="HeightandWeight">
+    <view class="bodyHeight">
+      <view class="bodyHeight_l"><text>身高:</text></view>
+      <view class="bodyHeight_r"><input type="text"  bind:input="bindHeight" style="font-size:26rpx;padding-left:10rpx;"/></view>
+      <text style="font-size:23rpx;margin-left:15rpx;">cm</text>
+    </view>
+    <view class="bodyWeight">
+      <view class="bodyHeight_l"><text>体重:</text></view>
+      <view class="bodyHeight_r"><input type="text" bind:input="bindWeight" style="font-size:26rpx;padding-left:10rpx;"/></view>
+      <text style="font-size:23rpx;margin-left:15rpx;">kg</text>
+    </view>
+  </view>
+  <view class="introduce">
+    <view class="introduce_t"><text>个人简介：</text></view>
+    <view class="introduce_input">
+      <textarea name="" id="" cols="30" rows="10" class="textarea" bind:input="bindPersonal" style="font-size:26rpx;padding-left:10rpx;"></textarea>
+    </view>
+    <view class="introduce_agree">
+      <checkbox class="checkbox" checked="checked" bindtap="cbClick"></checkbox>
+      <view class="agree_text">我已阅读并同意<text style="color:rgb(253,194,9);" bindtap="aa">《选手参赛协议》</text>和<text style="color:rgb(253,194,9);" bindtap="bb">《用户协议》</text></view>
+    </view>
+    <view class="introduce_submit">
+      <view class="btn" bindtap="submit"><text>提交</text></view>
+    </view>
+    <!-- 分享弹窗 -->
+    <view class="popup" wx-if="{{codepop==true}}">
+     <view class="popup-icon" bindtap="codepop"><van-icon name="close" size="40" color="#fff" class="pop_ic"/></view>
+     <image src="{{qrcode}}" mode="widthFix" bindtap="SaveImg"/>
+     <view class="popup-msg">长按图片保存或点击预览分享</view>
+    </view>
+  </view>
+  </view>
+
+  <!-- 报名结束 -->
+  <tabbar tabbar="{{tabBars}}"></tabbar>
+</view>

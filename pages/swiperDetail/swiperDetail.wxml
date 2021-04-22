@@ -1,0 +1,6 @@
+<!--pages/swiperDetail/swiperDetail.wxml-->
+<view>
+  <nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+  <view class="rich"><rich-text nodes="{{desc}}"></rich-text></view>
+</view>
+

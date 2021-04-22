@@ -22,7 +22,8 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		url._post('api/user/collect_list', {
+		console.log(options.name)
+		url._posts('api/user/collect_list', {
 			token: app.globalData.token ? app.globalData.token : token
 		}).then(res => {
 			if(res.data.result){
@@ -37,7 +38,7 @@ Page({
 
 	delects: function (e){
 		var index = e.currentTarget.dataset['index'];
-		url._post('api/user/cancel_collect', {
+		url._posts('api/user/cancel_collect', {
 			token: app.globalData.token ? app.globalData.token : token,
 			collect_id: this.data.collect[index].collect_id
 		}).then(res => {

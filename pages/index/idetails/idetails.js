@@ -64,7 +64,7 @@ onLoad: function (options) {
 },
 
 getDatas(r){
-    url._post('api/index/goods_list',{
+    url._posts('api/index/goods_list',{
         token: app.globalData.token ? app.globalData.token : token,
         type: r
     }).then(res => {

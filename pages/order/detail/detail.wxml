@@ -73,10 +73,10 @@
 		<view>应付金额</view>
 		<view style="text-align: right;">￥{{detail.order_amount||''}}元</view>
 	</view>
-	<view class="information">
+	<!-- <view class="information">
 		<view>使用积分</view>
 		<view style="text-align: right;">{{detail.integral||''}}</view>
-	</view>
+	</view> -->
 	<view class="information">
 		<view>运费</view>
 		<view style="text-align: right;">￥{{detail.shipping_price||''}}元</view>

@@ -1,0 +1,8 @@
+/* pages/swiperDetail/swiperDetail.wxss */
+.rich{
+  margin-top: 130rpx;
+  
+}
+.rich rich-text img{
+  width: 100%;
+}

@@ -17,7 +17,7 @@ Page({
           showCapsule: 1,  //1表示显示    0表示不显示
           title: '订单',   // 名片
           type: '1',
-          showlist:'2'
+          showlist:'1'
         },
         height: app.globalData.height * 2
 	},
@@ -45,7 +45,7 @@ Page({
 		this.getlist();
 	},
 	getlist(){
-		url._post('api/user/order_list',{
+		url._posts('api/user/order_list',{
 			token: app.globalData.token ? app.globalData.token : token,
 		}).then(res => {
 			for(var i in res.order){
@@ -63,7 +63,7 @@ Page({
 	// 更新订单状态
 	update(order_id){
 		console.log(order_id)
-		url._post('api/cart/update_order',{
+		url._posts('api/cart/update_order',{
 			token: app.globalData.token ? app.globalData.token : token,
 			id: order_id
 		}).then(res => {
@@ -112,7 +112,7 @@ Page({
 			message: '是否确定取消订单',
 		})
 		.then(() => {
-			url._post('api/user/cancel_order', {
+			url._posts('api/user/cancel_order', {
 				token: app.globalData.token ? app.globalData.token : token,
 				id: e.target.dataset.item.order_id
 			}).then(res => {
@@ -133,7 +133,7 @@ Page({
 			dis_ = false;
 		},2500)
 		var _this = this;
-		url._post('api/pay/weixinpay',{
+		url._posts('api/pay/weixinpay',{
             token: app.globalData.token ? app.globalData.token : token,
             money: e.target.dataset.item.order_amount,
             order_id: e.target.dataset.item.order_id,
@@ -184,7 +184,7 @@ Page({
 		setTimeout(()=>{
 			dis = false;
 		},2500)
-		url._post('api/user/order_confirm',{
+		url._posts('api/user/order_confirm',{
 			token: app.globalData.token ? app.globalData.token : token,
 			id: e.target.dataset.item.order_id
 		}).then(res => {

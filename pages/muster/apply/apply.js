@@ -31,7 +31,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    url._post('api/user/get_contact',{
+    url._posts('api/user/get_contact',{
           token: app.globalData.token ? app.globalData.token : token
       }).then(res => {
           this.setData({iphone: res.phone})
@@ -74,7 +74,7 @@ Page({
     if (!this.data.address) { wx.showToast({ title: "所报项目为空", icon: 'none' }); return false; }
     if (!this.data.wx) { wx.showToast({ title: "微信为空", icon: 'none'}); return false;}
     if (!this.data.is) { wx.showToast({ title:"是否已缴费", icon: 'none'}); return false; }
-    url._post('api/user/baoming', {
+    url._posts('api/user/baoming', {
       token: app.globalData.token ? app.globalData.token : token,
       name: this.data.username,
       phone: this.data.phone,

@@ -1,0 +1,6 @@
+<!--pages/baomingxieyi/baomingxieyi.wxml-->
+<view class="xieyi">
+  <nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+  <view class="rich"><rich-text nodes="{{desc}}"></rich-text></view>
+</view>
+

@@ -1,0 +1,78 @@
+<!--pages/playerDetail/playerDetail.wxml-->
+<view class="detail">
+  <nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+ <view class="player">
+  <view class="info">
+    <view class="info_icon">
+      <image src="{{player.head_pic}}"></image>
+    </view>
+    <view class="info_name">{{player.nickname}}</view>
+  </view>
+  <view class="toupiao_total">
+    <view class="toupiao_whole">
+    <view class="total_lan">
+      <view class="total_lan_list">票数</view>
+      <view class="total_lan_list">排名</view>
+      <view class="total_lan_list">访问量</view>
+      <view class="total_lan_list1">分享</view>
+    </view>
+    <!-- 具体票数和排名 -->
+    <view class="total_num">
+      <view class="total_num_list">{{player.total_vote}}</view>
+      <view class="total_num_list">{{rank_number}}</view>
+      <view class="total_num_list">{{player.visit_number}}</view>
+      <view class="total_num_list">{{player.share_number}}</view>
+    </view>
+    </view>
+  </view>
+  <!-- 相关照片 -->
+  <view class="playerPic">
+    <view class="picList">
+      <image src="{{player.crewphoto[0]}}"></image>
+    </view>
+    <view class="picList">
+      <image src="{{player.liftphoto[0]}}"></image>
+    </view>
+  </view>
+  <!-- 个人简介 -->
+  <view class="introduce">
+    <text>{{player.experience}}</text>
+  </view>
+  <!-- 底部 -->
+  <view class="bottom">
+    <view class="bottomList" bindtap="playerVote">投票</view>
+    <view class="bottomList" bindtap="myVote" wx:if="{{showBao==true}}">我要报名</view>
+    <button class="bottomList" bindtap="getqrcode">我要分享</button>
+  </view>
+  <!-- 投票弹窗 -->
+ <!-- 自定义图标 -->
+ <!-- 自定义图标 -->
+<van-popup
+  show="{{ show }}"
+  closeable
+  close-icon="close"
+  position="center"
+  custom-style="{{style}}"
+  bind:close="onClose" 
+>
+<view class="van-icon" bindtap="onClose">
+  <van-icon name="cross" color="white" size="100px"/>
+</view>
+<view class="pop_whole">
+  <view class="tips"><text>注释：报名参赛需要支付680元</text></view>
+  <view class="paybtn">
+    <view class="btn" bindtap="btnpay"><text>支付</text></view>
+  </view>
+</view>
+</van-popup>
+<view class="popup" wx-if="{{codepop==true}}">
+     <view class="popup-icon" bindtap="codepop"><van-icon name="close" size="40" color="#fff" class="pop_ic"/></view>
+     <image src="{{qrcode}}" mode="widthFix" bindtap="SaveImg"/>
+     <view class="popup-msg">长按图片保存或点击预览分享</view>
+</view>
+ <view class="presentWhole">
+
+ </view>
+ </view>
+ <tabbar tabbar="{{tabBars}}"></tabbar>
+</view>

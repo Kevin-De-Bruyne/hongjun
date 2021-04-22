@@ -3,7 +3,7 @@
         <view bindtap="_navback" wx:if="{{!share && navbarData.showlist!=3 && navbarData.showlist!=2 && navbarData.showlist!=1}}" class="mback">
             <van-icon name="arrow-left" class="back" mode="aspectFill" />
         </view>
-        <view bindtap="_backhome" class="mback" wx:elif="{{navbarData.showlist==1}}">
+        <view bindtap="_navback" class="mback" wx:elif="{{navbarData.showlist==1}}">
             <view><van-icon name="arrow-left" class="back" mode="aspectFill"/></view>
         </view>
         <view bindtap="_backmine" class="mback" wx:elif="{{navbarData.showlist==2}}">

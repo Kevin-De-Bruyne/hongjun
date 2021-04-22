@@ -1,0 +1,178 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "个人中心",
+          "pathName": "pages/personal/withdraw/withdraw",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "个人",
+          "pathName": "pages/personal/personal",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "直播",
+          "pathName": "pages/live/live",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "首页",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "地址",
+          "pathName": "pages/address/address",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "收藏",
+          "pathName": "pages/collect/collect",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "注册",
+          "pathName": "pages/authorize/reg/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登录",
+          "pathName": "pages/authorize/login/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "申请做主播",
+          "pathName": "pages/applyAchor/applyAchor",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "直播间",
+          "pathName": "pages/liveRoom/liveRoom",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "功能设置",
+          "pathName": "pages/liveSetting/liveSetting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "详情",
+          "pathName": "pages/details/details",
+          "query": "goods_id=57",
+          "scene": null
+        },
+        {
+          "name": "授权",
+          "pathName": "pages/shouquan/shouquan",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "购物车",
+          "pathName": "pages/shops/shops",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "投票",
+          "pathName": "pages/toupiao/toupiao",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "报名",
+          "pathName": "pages/baoming/baoming",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "排名",
+          "pathName": "pages/paiming/paiming",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "规则",
+          "pathName": "pages/rule/rule",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "选手详情",
+          "pathName": "pages/playerDetail/playerDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "投票成功",
+          "pathName": "pages/voteSuccess/voteSuccess",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "赠送礼物",
+          "pathName": "pages/present/present",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "分类",
+          "pathName": "pages/class/class",
+          "query": "goods_id=57",
+          "scene": null
+        },
+        {
+          "name": "报名成功",
+          "pathName": "pages/chongzhi/chongzhi",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "充值",
+          "pathName": "pages/cz/cz",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "680礼包",
+          "pathName": "pages/payConfirm/payConfirm",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/liwuxieyi/liwuxieyi",
+          "pathName": "pages/liwuxieyi/liwuxieyi",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/swiperDetail/swiperDetail",
+          "pathName": "pages/swiperDetail/swiperDetail",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

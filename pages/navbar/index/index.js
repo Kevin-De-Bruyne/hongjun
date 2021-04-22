@@ -34,6 +34,7 @@ Component({
         // 返回上一页面
         _navback() {
             wx.navigateBack()
+            // wx.showTabBar()
         },
         //返回到我的
         _backmine() {

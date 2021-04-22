@@ -32,11 +32,16 @@ Page({
 	},
 
 	getlist(){
-		url._post('api/user/address_list', {
+		url._posts('api/user/address_list', {
 			token: app.globalData.token ? app.globalData.token : token
 		}).then(res => {
 			this.setData({
 				address_list: res.address
+			})
+			this.data.address_list.forEach((item,index)=>{
+				if(this.data.address_list[index].is_default==1){
+					wx.setStorageSync("address_id",item.address_id);
+				}
 			})
 		}).catch(res => {
             wx.showToast({ title:"网络访问错误", icon: 'none' })

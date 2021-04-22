@@ -27,14 +27,14 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		url._post('api/user/tx',{
+		url._posts('api/user/tx',{
 			token: app.globalData.token ? app.globalData.token : token,
 		}).then(res => {
 			this.setData({
 				withdraw: res
 			})
 		})
-		url._post('api/user/card', {
+		url._posts('api/user/card', {
 			token: app.globalData.token ? app.globalData.token : token,
 		}).then(res => {
 			if(res.data.length == 0){
@@ -85,7 +85,7 @@ Page({
 		if (!this.data.bank_id) { wx.showToast({ title:"请选择银行卡", icon: 'none'}); return false; }
 		if (this.data.money<this.data.withdraw.config.min) { wx.showToast({ title: "单笔金额必须大于"+this.data.withdraw.config.min+"元", icon: 'none'}); return false;}
 		if (this.data.money>this.data.withdraw.config.max) { wx.showToast({ title: "单笔金额必须小于"+this.data.withdraw.config.max+"元", icon: 'none'}); return false;}
-		url._post('api/user/cashs', {
+		url._posts('api/user/cashs', {
 			token: app.globalData.token ? app.globalData.token : token,
 			bank_id:this.data.bank_id,
 			money:this.data.money

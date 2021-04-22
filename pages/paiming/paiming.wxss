@@ -1,0 +1,244 @@
+/* pages/toupiao/toupiao.wxss */
+.toupiao{
+  width: 100%;
+  margin: 0;
+  /* height: 180%; */
+  padding: 0;
+  overflow: hidden;
+  background-position: center 0;
+  background-size: 100%;  
+  /* background-color:rgb(115,41,40); */
+  
+}
+.toupiao_t{
+  width: 100%;
+  height: 425rpx;
+  margin-top: 110rpx;
+}
+.paiming_title{
+  width: 100%;
+  border-radius: 10rpx;
+  height: 60rpx;
+  border:1px solid rgba(237,235,208,0.6);
+  text-align: center;
+  line-height: 60rpx;
+  color: rgba(237,235,208);
+  font-weight: bold;
+}
+.level{
+  padding: 40rpx 10% 30rpx 10%;
+  width: 80%;
+  padding-bottom: 30rpx;
+}
+.level_search{
+  margin-top: 30rpx;
+  width: 100%;
+  border-radius: 40rpx;
+  height: 60rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+}
+.level_search input{
+  width: 82%;
+  height: 60rpx;
+  font-size: 28rpx;
+  padding-left: 30rpx;
+}
+.level_search .search{
+  width: 18%;
+  height: 60rpx;
+  background-color:black;
+  border-top-right-radius: 40rpx;
+  border-bottom-right-radius: 40rpx;
+  color:rgb(255,215,0);
+  font-size: 28rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+.province{
+  width: 100%;
+  display: flex;
+
+  align-content: center;
+  margin-top: 20rpx;
+}
+.province_list{
+  height: 45rpx;
+  padding: 0 35rpx 0 35rpx;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  margin: 0 1% 0 2%;
+  line-height: 45rpx;
+  margin-top: 20rpx;
+  /* background-color: #fff; */
+  border: 1px solid rgba(255,255,255,0.6);
+  color:white;
+}
+.toupiao_c{
+  background-color:rgb(115,41,40);
+  padding-bottom: 130rpx;
+}
+.province_active{
+  background-color: #fff;
+  color: black;
+}
+.province_whole{
+  padding: 0 15rpx 0 15rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.yanyuanwhole{
+  display: flex;
+  flex-direction: column;
+  margin-top: 40rpx;
+}
+.yanyuanList{
+  width: 100%;
+  border-radius: 15rpx;
+  border: 1px solid rgba(255,255,255,0.6);
+  /* background-color: white; */
+  margin-top: 30rpx;
+  height: 200rpx;
+  display: flex;
+  /* align-items: center; */
+  justify-content:space-between
+}
+.yy_left{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.yanyuanList .icon{
+  width: 130rpx;
+  height: 130rpx;
+  margin-left: 30rpx;
+  display: flex;
+  align-items: center;
+  /* background-color: red; */
+}
+.yanyuanList .icon image{
+ width: 100%;
+ height: 100%;
+  /* background-color: red; */
+}
+.yy_right{
+  width: 70%;
+  height: 130rpx;
+  /* background-color: yellow; */
+}
+.yy_right_top{
+  width: 94%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}
+.yy_right_bottom{
+  width: 94%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  font-size: 26rpx;
+  margin-top: 30rpx;
+}
+.vote{
+  width: 120rpx;
+  height: 50rpx;
+  border-radius: 15rpx;
+  line-height: 50rpx;
+  border: 1px solid rgba(255,255,255,0.6);
+  text-align: center;
+  color: white;
+}
+.more{
+  margin-top: 30rpx;
+  font-size: 24rpx;
+  text-align: center;
+  color: white;
+}
+.toupiao_total{
+  width: 100%;
+  height: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(115,41,40);
+}
+.toupiao_total_c{
+  width: 80%;
+  height: 150rpx;
+  border: 1px solid rgb(154,131,52);
+  display: flex;
+  flex-direction: column;
+}
+.toupiao_total_c_t{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 28rpx;
+  padding-top: 20rpx;
+  color: #fff;
+}
+.toupiao_total_c_b{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 24rpx;
+  color: rgb(254,253,202);
+  padding-top: 30rpx;
+}
+.paiming{
+  margin: 0 10%;
+  display: flex;
+  flex-direction: column;
+  /* margin-bottom: 130rpx; */
+  /* height: 420rpx; */
+  border: 1px solid rgba(255,255,255,0.6);
+  /* border-top-left-radius:15rpx;
+  border-top-right-radius:15rpx; */
+  border-radius: 15rpx;
+}
+.paiming_t{
+  width: 100%;
+  height: 65rpx;
+  border-bottom:1px solid rgba(255,255,255,0.6);
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+}
+.paiminglist{
+  width: 22%;
+  height: 100%;
+  font-size: 27rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+}
+.paiming_b{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30rpx;
+}
+.paiming_b_list{
+  width: 100%;
+  display: flex;
+  flex-direction:row;
+}
+.paiming_b_list_li{
+  width: 25%;
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}

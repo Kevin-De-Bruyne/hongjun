@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "tabbar":"../../components/tabbarComponent/tabbar",
+    "nav-bar": "/pages/navbar/index/index"
+  }
+}

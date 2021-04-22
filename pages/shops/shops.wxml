@@ -89,9 +89,22 @@
             </view>
         </view>  
     </view>
-
-    <view wx:if="{{list==''}}">
+    <view wx:if="{{shouquan==1}}">
         <view class="">
+            <view class="slef"><image src="../../images/shouquan.png"></image></view>
+            <!-- <image src="./images/5cad7ab689e8b.png" class="shopscart_img"></image> -->
+            <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="shopscart_btn">请登录</button>
+        </view>
+    </view>
+    <!-- <view wx:elif="{{list!='' && shouquan==2}}">
+        <view class="">
+            <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="shopscart_btn">绑定手机号</button>
+        </view>
+    </view> -->
+    <view  wx:if="{{list=='' && shouquan==2}}">
+        <view class="">
+            <!-- <image src="./images/5cad7ab689e8b.png" class="shopscart_img"></image> -->
+           
             <image src="./images/5cad7ab689e8b.png" class="shopscart_img"></image>
             <button bindtap="bindViewTap" class="shopscart_btn">去购物</button>
         </view>
@@ -108,5 +121,6 @@
         </navigator>
     </view>
     <view style="float: left;width: 100%;height: 100px;"></view>
+    <!-- <tabbars tabbar="{{tabBar}}" active="{{active}}"></tabbars> -->
 </view>
 <van-dialog id="van-dialog" />

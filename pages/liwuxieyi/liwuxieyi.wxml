@@ -1,0 +1,7 @@
+<!--pages/liwuxieyi/liwuxieyi.wxml-->
+<view class="xieyis">
+  <nav-bar navbar-data="{{nvabarData}}"></nav-bar>
+  <view class="rich"><rich-text nodes="{{desc}}"></rich-text></view>
+  <!-- <view>{{desc}}</view> -->
+</view>
+

@@ -97,7 +97,7 @@ Page({
     },
     // 购物车确认
     cartButton() {
-        API._post('api/login/check_login',{
+        API._posts('api/login/check_login',{
             token: app.globalData.token ? app.globalData.token : token
         }).then(res => {
             if(res.status == 500){
@@ -105,12 +105,14 @@ Page({
                 //     url:'/pages/authorize/login/index?login=11'
                 // })
                 wx.showToast({ title:"异地登录", icon: 'none' })
-            }else if(res.status == 800){
-                wx.navigateTo({
-                    url: '/pages/authorize/reg/index?login=11'
-                })
-            }else{
-                API._post('api/cart/add_carts',{
+            }
+            // else if(res.status == 800){
+            //     wx.navigateTo({
+            //         url: '/pages/authorize/reg/index?login=11'
+            //     })
+            // }
+            else{
+                API._posts('api/cart/add_carts',{
                     goods_id: this.data.id, // 商品ID
                     goods_num: this.data.value, //购买数量
                     selected: 1, 
@@ -133,7 +135,7 @@ Page({
     },
     // 购买确认
     shopsButton() {
-        API._post('api/login/check_login',{
+        API._posts('api/login/check_login',{
             token: app.globalData.token ? app.globalData.token : token
         }).then(res => {
             if(res.status == 500){
@@ -141,12 +143,14 @@ Page({
                 //     url:'/pages/authorize/login/index?login=11'
                 // })
                 wx.showToast({ title:"异地登录", icon: 'none' })
-            }else if(res.status == 800){
-                wx.navigateTo({
-                    url: '/pages/authorize/reg/index?login=11'
-                })
-            }else{
-                API._post('api/cart/cart2',{
+            }
+            // else if(res.status == 800){
+            //     wx.navigateTo({
+            //         url: '/pages/authorize/reg/index?login=11'
+            //     })
+            // }
+            else{
+                API._posts('api/cart/cart2',{
                     action: 1,
                     spec_key: this.data.spec_index,
                     goods_id: this.data.id,
@@ -169,7 +173,7 @@ Page({
     },
     // 立即兑换
     jifen() {
-        API._post('api/cart/cart2',{
+        API._posts('api/cart/cart2',{
             action: 1,
             goods_id: this.data.id,
             goods_num: this.data.value,
@@ -190,7 +194,7 @@ Page({
         this.setData({show: false});
     },
     click() {
-        API._post('api/login/check_login',{
+        API._posts('api/login/check_login',{
             token: app.globalData.token ? app.globalData.token : token
         }).then(res => {
             if(res.status == 500){
@@ -198,11 +202,13 @@ Page({
                 //     url:'/pages/authorize/login/index?login=11'
                 // })
                 wx.showToast({ title:"异地登录", icon: 'none' })
-            }else if(res.status == 800){
-                wx.redirectTo({
-                    url: '/pages/authorize/reg/index?login=11'
-                })
-            }else{
+            }
+            // else if(res.status == 800){
+            //     wx.redirectTo({
+            //         url: '/pages/authorize/reg/index?login=11'
+            //     })
+            // }
+            else{
                 wx.navigateTo({
                     url: '../UserEvaluation/UserEvaluation?goods_id=' + this.data.id
                 })
@@ -229,7 +235,7 @@ Page({
         that.details();
     },
     addCollection() {
-        API._post('api/login/check_login',{
+        API._posts('api/login/check_login',{
             token: app.globalData.token ? app.globalData.token : token
         }).then(res => {
             if(res.status == 500){
@@ -237,12 +243,14 @@ Page({
                 //     url:'/pages/authorize/login/index'
                 // })
                 wx.showToast({ title:"异地登录", icon: 'none' })
-            }else if(res.status == 800){
-                wx.redirectTo({
-                    url: '/pages/authorize/reg/index'
-                })
-            }else{
-                API._post('api/goods/collect',{
+            }
+            // else if(res.status == 800){
+            //     wx.redirectTo({
+            //         url: '/pages/authorize/reg/index'
+            //     })
+            // }
+            else{
+                API._posts('api/goods/collect',{
                     goods_id: this.data.id,
                     token: app.globalData.token ? app.globalData.token : token
                 }).then(res => {
@@ -261,7 +269,7 @@ Page({
                 
     },
     details() {
-        API._post('api/goods/goodsinfo',{
+        API._posts('api/goods/goodsinfo',{
             goods_id: this.data.id,
             token: app.globalData.token ? app.globalData.token : token
         }).then(res => {

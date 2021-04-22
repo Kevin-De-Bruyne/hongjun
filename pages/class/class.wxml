@@ -13,4 +13,5 @@
         <view class="nodata_text" wx:if="{{cateItems2.length == 0}}">暂无数据</view>
     </view>
 </view>
+<tabbars tabbar="{{tabBar}}" active="{{active}}"></tabbars>
 <view></view>

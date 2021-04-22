@@ -15,7 +15,7 @@ data: {
 * 生命周期函数--监听页面加载
 */
 onLoad: function (options) {
-    url._post('api/index/jiuye',{
+    url._posts('api/index/jiuye',{
         token: app.globalData.token ? app.globalData.token : token
     }).then(res => {
         this.setData({job:res.list})

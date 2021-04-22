@@ -17,36 +17,66 @@
     </view>
     <van-toast id="van-toast" />
     <!-- 轮播 -->
-    <view class='swiper'>
+    <view class='swiper' bindtap="lunbo">
         <swiper indicator-dots="true" indicator-color="rgba(0,0,0, .6)" indicator-active-color="#fff" autoplay="true" interval="3000" duration="1000" circular="true">
             <swiper-item wx:for="{{swiper}}" wx:key="index">
-                <image src='{{item.img}}' class="slide-image" bindtap="swipergoods" data-goods="{{item.url}}"/>
+                <image src='{{item.img}}' class="slide-image" bindtap="swipergoods" data-goods="{{item.url}}" mode="widthFix"  data-index="{{index}}"/>
             </swiper-item>
         </swiper>
     </view>
     <!-- 分类 -->
-    <view class='ifllclass'>
+    <!-- <view class='ifllclass'>
         <view class='list' wx:for="{{scroll}}" wx:key="list" bindtap="scorll" data-index="{{item}}">
             <image src='{{item.image}}'></image>
             <view>{{item.name}}</view>
         </view>
-        <view class='list' bindtap="liveGo">
-            <image src='../../images/new.jpg'></image>
-            <view>直播</view>
+    </view> -->
+    <view class='ifllclass'>
+        <!-- <view class='list'  wx:for="{{scroll}}" wx:key="list" bindtap="scorll" data-index="{{item}}">
+            <image src='{{item.image}}'></image>
+            <view>{{item.name}}</view>
+        </view> -->
+        <!-- <view class='list'>
+            <image src=''></image>
+            <view>台城</view>
         </view>
+        <view class='list'>
+            <image src=''></image>
+            <view>台城</view>
+        </view>
+        <view class='list'>
+            <image src=''></image>
+            <view>台城</view>
+        </view>
+        <view class='list'>
+            <image src=''></image>
+            <view>台城</view>
+        </view>
+        <view class='list'>
+            <image src=''></image>
+            <view>台城</view>
+        </view>
+        <view class='list'>
+            <image src=''></image>
+            <view>台城</view>
+        </view>
+        <view class='list'>
+            <image src=''></image>
+            <view>台城</view>
+        </view> -->
     </view>
        <!-- 广告 -->
-   <view class="advertisment">
+   <!-- <view class="advertisment">
      <view class="adver" bindtap="liveGoGo">
        <image src="../../images/advertisment.png"></image>
      </view>
-   </view>
+   </view> -->
     <!-- 限时抢购 -->
     <view class="linehot" wx:if="{{time_goods.length != 0}}">
         <view class="line1">限时抢购 <!--  {{newtimes}} --></view>
         <view class="linemore" bindtap="modeshop" data-index="3">更多</view>
     </view>
-    <view class='shops'>
+    <!-- <view class='shops'>
         <navigator class="shop_lists"
             wx:for="{{time_goods}}"
             wx:key="index"
@@ -55,66 +85,57 @@
             <view class="list_titles">{{item.goods_name}}</view>
             <view class='list_moneys'>￥{{item.shop_price}}</view>
         </navigator>
-    </view>
+    </view> -->
     <!-- 热卖商品 -->
-    <view class="linehot" wx:if="{{shops.length != 0}}">
+    <!-- <view class="linehot" wx:if="{{shops.length != 0}}">
         <view class="line1">热卖商品</view>
         <view class="linemore" bindtap="modeshop" data-index="0">更多</view>
-    </view>
-    <view class='shops'>
+    </view> -->
+    <!-- <view class='shops'>
         <navigator class='shop-list' wx:for="{{shops}}" wx:key="index" url='../details/details?goods_id={{item.goods_id}}'>
-            <image src='{{item.original_img}}' class='list-img'></image>
+            <image src='{{item.original_img}}' class='list-img'></image> -->
             <!-- <text class='list-title'>{{item.goods_name}}</text> -->
-            <view class="list_titles">{{item.goods_name}}</view>
+            <!-- <view class="list_titles">{{item.goods_name}}</view>
             <view class='list-money'>
                 <text class='money-left'>优惠顾客价：￥{{item.discount_price}}</text>
                 <text class='money-right'>零售价：￥{{item.shop_price}}</text>
             </view>
         </navigator>
-    </view>
+    </view> -->
     <!-- 会员活动 -->
-    <view class="linehot" wx:if="{{activity_goods.length != 0}}">
+    <!-- <view class="linehot" wx:if="{{activity_goods.length != 0}}">
         <view class="line1">会员活动</view>
         <view class="linemore" bindtap="modeshop" data-index="2">更多</view>
-    </view>
-    <view class='shops'>
-        <navigator class='shop-list' wx:for="{{activity_goods}}" wx:key="index" url='../details/details?goods_id={{item.goods_id}}'>
-            <image src='{{item.original_img}}' class='list-img'></image>
-            <!-- <text class='list-title'>{{item.goods_name}}</text> -->
-            <view class="list_titles">{{item.goods_name}}</view>
-            <view class='list-money'>
-                <text class='money-left'>优惠顾客价：￥{{item.discount_price}}</text>
-                <text class='money-right'>零售价：￥{{item.shop_price}}</text>
-            </view>
-        </navigator>
-    </view>
+    </view> -->
+
     <!-- 产品推荐 -->
-    <view class="linehot" wx:if="{{recommend_goods.length != 0}}">
+    <!-- <view class="linehot" wx:if="{{recommend_goods.length != 0}}">
         <view class="line1">产品推荐</view>
         <view class="linemore" bindtap="modeshop" data-index="1">更多</view>
-    </view>
+    </view> -->
     <view class='shops'>
         <navigator class='shop-list' wx:for="{{recommend_goods}}" wx:key="index" url='../details/details?goods_id={{item.goods_id}}'>
             <image src='{{item.original_img}}' class='list-img'></image>
             <!-- <text class='list-title'>{{item.goods_name}}</text> -->
             <view class="list_titles">{{item.goods_name}}</view>
             <view class='list-money'>
-                <text class='money-left'>优惠顾客价：￥{{item.discount_price}}</text>
+                <!-- <text class='money-left'>优惠顾客价：￥{{item.discount_price}}</text> -->
                 <text class='money-right'>零售价：￥{{item.shop_price}}</text>
             </view>
         </navigator>
     </view>
 
 
-    <view class='bottom-text' bindtap='goTop'>
+    <!-- <view class='bottom-text' bindtap='goTop'>
         <view style='font-size: 12px;text-align: center;color: #555;height: 36px;line-height: 36px;'>— 回到顶部 —</view>
         <view style='font-size: 27rpx;text-align: center;color: #dedede;'>粤ICP备20013170号</view>
-    </view>
+    </view> -->
 </scroll-view>
-<view class="posin" wx:if="{{showicon}}">
+<!-- <view class="posin" wx:if="{{showicon}}">
     <button class="service handle" 
             open-type="contact" 
             bindcontact="handleContact">
         <van-icon name="service-o" /></button>
     <view class="service" bindtap='goTop'><van-icon name="arrow-up" /></view>
-</view>
+</view> -->
+<tabbars tabbar="{{tabBar}}"></tabbars>

@@ -44,7 +44,7 @@ Page({
 		this.get_order();
 	},
 	get_order(){
-		url._post('api/user/order_detail',{
+		url._posts('api/user/order_detail',{
 			token: app.globalData.token ? app.globalData.token : token,
 			id: this.data.order_id
 		}).then(res => {
@@ -70,7 +70,7 @@ Page({
         })
 	},
 	update_order(){
-		url._post('api/cart/update_order',{
+		url._posts('api/cart/update_order',{
 			token: app.globalData.token ? app.globalData.token : token,
 			order_id: this.data.order_id
 		}).then(res => {

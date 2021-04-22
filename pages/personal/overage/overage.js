@@ -25,7 +25,7 @@ Page({
 		if(options.type){
 			this.setData({active:options.type})
 		}
-		url._post('api/user/account_list',{
+		url._posts('api/user/account_list',{
 			token: app.globalData.token ? app.globalData.token : token
 		}).then(res => {
 			this.setData({

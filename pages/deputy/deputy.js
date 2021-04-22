@@ -78,7 +78,7 @@ Page({
 	},
 
 	getData(){
-		url._post('api/user/user_invite',{
+		url._posts('api/user/user_invite',{
 	        token: app.globalData.token ? app.globalData.token : token
 	    }).then(res => {
 	    	if(res.info){
@@ -227,7 +227,7 @@ Page({
 
 	
 	saveres(){
-		url._post('api/user/set_invite', {
+		url._posts('api/user/set_invite', {
 			token: app.globalData.token ? app.globalData.token : token,
 			data: JSON.stringify(this.data)
 		}).then(res => {

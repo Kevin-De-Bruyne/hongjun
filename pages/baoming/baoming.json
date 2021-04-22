@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "nav-bar": "/pages/navbar/index/index",
+    "tabbar":"../../components/tabbarComponent/tabbar",
+    "custom-tab-bar":"../../components/custom-tab-bar/index",
+    "van-switch": "../../vant/switch/index",
+    "van-icon":"../../vant/icon/index",
+    "van-popup": "../../vant/popup/index"
+  }
+}

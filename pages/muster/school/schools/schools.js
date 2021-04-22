@@ -15,7 +15,7 @@ data: {
 * 生命周期函数--监听页面加载
 */
 onLoad: function (options) {
-    url._post('api/index/school_detail',{
+    url._posts('api/index/school_detail',{
         id: options.id
     }).then(res => {
         let result = res.list.content;

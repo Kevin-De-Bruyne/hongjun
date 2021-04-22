@@ -1,0 +1,50 @@
+<!--pages/playerDetail/playerDetail.wxml-->
+<view class="detail">
+ <view class="player">
+  <view class="info">
+    <view class="info_icon">
+      <image src="{{player.head_pic}}"></image>
+    </view>
+    <view class="info_name">{{player.nickname}}</view>
+  </view>
+  <view class="toupiao_total">
+    <view class="toupiao_whole">
+    <view class="total_lan">
+      <view class="total_lan_list">票数</view>
+      <view class="total_lan_list">排名</view>
+      <view class="total_lan_list">访问量</view>
+      <view class="total_lan_list1">分享</view>
+    </view>
+    <!-- 具体票数和排名 -->
+    <view class="total_num">
+      <view class="total_num_list">{{player.total_vote}}</view>
+      <view class="total_num_list">{{rank_number}}</view>
+      <view class="total_num_list">{{player.visit_number}}</view>
+      <view class="total_num_list">{{player.share_number}}</view>
+    </view>
+    </view>
+  </view>
+  <!-- 底部 -->
+ </view>
+ <view class="bottom">
+   <view class="presentWhole">
+    <view class="presentList" wx:for="{{presentList}}" data-index="{{index}}" bindtap="presentClick">
+      <view class="list_t">
+        <image src="{{item.vote_img}}"></image>
+        <text class="iconfont icon-gou" wx:if="{{currentIndex==index}}"></text>
+      </view>
+      <view class="list_c">{{item.vote_name}}</view>
+      <view class="list_b">¥{{item.shop_price}}</view>
+    </view>
+  </view>
+    <view class="payAndagree">
+      <view class="agree">
+        <checkbox checked="checked" bindtap="cbClick"></checkbox>
+        <text bindtap="aa">请阅读并同意 《礼物赠给协议》</text>
+      </view>
+      <view class="pay" bindtap="pay">确认支付</view>
+    </view>
+   
+  </view>
+ <tabbar tabbar="{{tabBars}}"></tabbar>
+</view>

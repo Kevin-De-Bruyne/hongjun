@@ -28,7 +28,7 @@ Page({
 		this.getlist();
 	},
 	getlist(){
-		url._post('api/user/card', {
+		url._posts('api/user/card', {
 			token: app.globalData.token ? app.globalData.token : token
 		}).then(res => {
 			this.setData({
@@ -45,7 +45,7 @@ Page({
 			message: '是否确定删除该银行卡',
 		})
 		.then(() => {
-			url._post('api/user/deletecard', {
+			url._posts('api/user/deletecard', {
 				token: app.globalData.token ? app.globalData.token : token,
 				id: this.data.bank_list[index].bank_id
 			}).then(res => {

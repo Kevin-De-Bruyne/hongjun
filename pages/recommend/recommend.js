@@ -22,7 +22,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		url._post('api/user/qr_code', {
+		url._posts('api/user/qr_code', {
 			token: app.globalData.token ? app.globalData.token : token
 		}).then(res => {
 			this.setData({ list: res })
@@ -62,7 +62,7 @@ Page({
     onShareAppMessage: function (options) {
         var that = this;
         var shareObj = {
-            title: "怀朴线上商城",
+            title: "素星同路",
             path: '/pages/index/index',
             successs: res=>{
                 wx.showToast({ title:"分享成功", icon: 'successs' })

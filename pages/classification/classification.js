@@ -59,7 +59,7 @@ onLoad: function (options) {
     this.search();
 },
 search(){
-    API._post('api/goods/goods_list',{
+    API._posts('api/goods/goods_list',{
     id:this.data.id,
     q: this.data.value,
     sort: this.data.sort,

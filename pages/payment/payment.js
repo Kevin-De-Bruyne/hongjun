@@ -31,7 +31,7 @@ Page({
         })
     },
     payment(){
-        API._post('api/pay/weixinpay',{
+        API._posts('api/pay/weixinpay',{
             token: app.globalData.token ? app.globalData.token : token,
             money: this.data.order_amount,
             order_id: this.data.order_id,

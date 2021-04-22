@@ -26,6 +26,7 @@ data: {
     cart_id:'',
     spec_key:null,
     radio: '1',
+    user_id:'',
     list:[],
     nvabarData: {
       showCapsule: 1,  //1表示显示    0表示不显示
@@ -67,6 +68,10 @@ address(){
 * 生命周期函数--监听页面加载
 */
 onLoad: function (options) {
+    console.log(options.user_id)
+    this.setData({
+        user_id:options.user_id
+    })
     if(options.spec_key && options.spec_key != 'null'){
         this.setData({spec_key: options.spec_key});
     }
@@ -86,7 +91,7 @@ onLoad: function (options) {
     this.fillO();
 },
 fillO(){
-    API._post('api/cart/cart2',{
+    API._posts('api/cart/cart2',{
         action: this.data.action,
         address_id: this.data.address_id,
         cart_id: this.data.cart_id,
@@ -118,8 +123,11 @@ click() {
         duration:0
     });
     this.setData({disableds:true});
-    API._post('api/cart/order',{
+    let token=wx.getStorageSync('token')
+    console.log(token)
+    API._posts('api/cart/order',{
         total_amount: this.data.total_amount,
+        token:token,
         pay_type: this.data.radio, //支付方式
         user_note: this.data.message,
         shipping_fee: this.data.shipping_fee,
@@ -130,7 +138,7 @@ click() {
         cart_id: this.data.cart_id,
         goods_num: this.data.number,
         spec_key: this.data.spec_key,
-        token: app.globalData.token ? app.globalData.token : token,
+        // token: app.globalData.token ? app.globalData.token : token,
     }).then(res => {
         // if(res.status === 200){
         //     if (this.data.checked = true){
@@ -162,7 +170,7 @@ click() {
             }else if(res.status == 10000){
                 Toast(res.msg);
                 setTimeout(()=>{
-                    wx.navigateTo({url: '/pages/setting/setting'})
+                    wx.navigateTo({url: '../setting/setting?goods_id=' + this.data.shopId + '&cart_id=' + this.data.cartId +'&action=2'})
                 },1500)
             }else{
                 Toast(res.msg);
@@ -178,11 +186,13 @@ click() {
 
 // 微信支付
 payment(order_amount,order_id,order_sn){
-    API._post('api/pay/weixinpay',{
-        token: app.globalData.token ? app.globalData.token : token,
+    let token=wx.getStorageSync('token')
+    API._posts('api/pay/weixinpay',{
+        token:token,
         money: order_amount,
         order_id: order_id,
-        order_sn: order_sn
+        order_sn: order_sn,
+        to_user:this.data.user_id
     }).then(res => {
         wx.requestPayment({
             'timeStamp': res.data.timeStamp,
